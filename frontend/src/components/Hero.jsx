@@ -15,8 +15,8 @@ import hero3 from "../assets/sliderthreedesktopimg.webp";
 
 // Mobile Images (Add your mobile images here)
 import hero1Mobile from "../assets/slideronedesktopimg.webp";
-import hero2Mobile from "../assets/slideronedesktopimg.webp";
-import hero3Mobile from "../assets/slideronedesktopimg.webp";
+import hero2Mobile from "../assets/slidertwodesktopimg.webp";
+import hero3Mobile from "../assets/sliderthreedesktopimg.webp";
 
 const slides = [
   {

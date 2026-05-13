@@ -71,21 +71,10 @@ const Items = ({ products, containerVariants, itemVariants }) => {
                 </div>
                 
                 {/* Product Name - Increased text size for desktop */}
-                <h3 className="text-white font-bold text-sm md:text-lg mb-1 line-clamp-2 group-hover:text-[#D4AF37] transition-colors">
+                <h3 className="text-white font-bold text-sm md:text-lg mb-3 line-clamp-2 group-hover:text-[#D4AF37] transition-colors">
                   {product.name}
                 </h3>
                
-               
-
-                {/* Price - Increased text size for desktop */}
-                <div className="flex items-center gap-2 mb-3 md:mb-4">
-                  <span className="text-[#D4AF37] font-bold text-sm md:text-xl">${product.price}</span>
-                  {product.originalPrice && (
-                    <span className="text-gray-500 text-xs md:text-sm line-through">${product.originalPrice}</span>
-                  )}
-                </div>
-
-                
                 <button className="w-full py-2 md:py-3 rounded-lg bg-linear-to-r from-[#D4AF37] to-[#C9A227] text-black font-semibold text-sm md:text-base flex items-center justify-center gap-2 hover:gap-3 transition-all duration-300">
                   <Eye size={18} className="md:w-5 md:h-5" />
                   <span className="hidden sm:inline">Quick View</span>

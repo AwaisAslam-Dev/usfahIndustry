@@ -7,7 +7,6 @@ import Products from './pages/Products'
 import ProductDetails from './pages/ProductDetails'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import FloatingWhatsapp from './components/FloatingWhatsapp'
 const App = () => {
   return (
     <>
@@ -20,7 +19,6 @@ const App = () => {
       <Route path='/productdetails/:productid' element={<ProductDetails/>}/>
       
     </Routes>
-    <FloatingWhatsapp/>
     <Footer/>
     </>
   )

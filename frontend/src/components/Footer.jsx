@@ -4,8 +4,6 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 import { 
   FaInstagram,
   FaFacebookF,
-  FaTwitter,
-  FaPinterestP,
 } from 'react-icons/fa';
 import logo from '../assets/navbarlogo.png';
 
@@ -46,33 +44,21 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex items-center gap-3 mt-6">
               <a 
-                href="#" 
+                href="https://www.facebook.com/share/1ENJsxDC4L/?mibextid=wwXIfr" 
                 className="p-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-[#D4AF37] hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all duration-300"
                 aria-label="Facebook"
               >
                 <FaFacebookF size={18} />
               </a>
+              
               <a 
-                href="#" 
-                className="p-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-[#D4AF37] hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all duration-300"
-                aria-label="Twitter"
-              >
-                <FaTwitter size={18} />
-              </a>
-              <a 
-                href="#" 
+                href="https://www.instagram.com/usfah_industry?igsh=MW5maGQ5NW9wOGQ0aA%3D%3D&utm_source=qr" 
                 className="p-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-[#D4AF37] hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all duration-300"
                 aria-label="Instagram"
               >
                 <FaInstagram size={18} />
               </a>
-              <a 
-                href="#" 
-                className="p-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-[#D4AF37] hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all duration-300"
-                aria-label="Pinterest"
-              >
-                <FaPinterestP size={18} />
-              </a>
+             
             </div>
           </div>
 
@@ -116,7 +102,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-gray-400 text-sm">
                 <Phone size={16} className="text-[#D4AF37]" />
-                <span>+1-212-456-7890</span>
+                <span>+92 346 0424486</span>
               </div>
               <div className="flex items-center gap-3 text-gray-400 text-sm">
                 <Mail size={16} className="text-[#D4AF37]" />
@@ -124,7 +110,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-3 text-gray-400 text-sm">
                 <MapPin size={16} className="text-[#D4AF37]" />
-                <span>123 Medical District, New York, NY 10001</span>
+                <span>Punjab, Sialkot, Ugoki Road</span>
               </div>
             </div>
           </div>
