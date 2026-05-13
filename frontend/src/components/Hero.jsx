@@ -184,17 +184,6 @@ const navigate = useNavigate();
                           </svg>
                         </span>
                       </button>
-
-                      <button   onClick={()=>navigate("/cart")} className="group relative px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-base uppercase tracking-wide overflow-hidden transition-all duration-300 hover:scale-105 shadow-2xl">
-                        <div className="absolute inset-0 bg-linear-to-r from-[#D4AF37] via-[#E8C547] to-[#C9A227]"></div>
-                        <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                        <span className="relative z-10 text-black flex items-center gap-2">
-                          Order Now
-                          <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                          </svg>
-                        </span>
-                      </button>
                     </motion.div>
                   </div>
                 </div>

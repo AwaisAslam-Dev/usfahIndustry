@@ -19,8 +19,7 @@ import Items from '../components/Items';
 
 const ProductDetails = () => {
   const { productid } = useParams();
-  const { products,addToCart } = useContext(ShopContext);
-  const [quantity, setQuantity] = useState(1);
+  const { products} = useContext(ShopContext);
   const [selectedImage, setSelectedImage] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
   
@@ -227,29 +226,11 @@ const ProductDetails = () => {
                 </div>
               </div>
               
-              {/* Quantity Selector */}
-              <div className="flex items-center gap-4 mb-6">
-                <span className="text-white font-semibold">Quantity:</span>
-                <div className="flex items-center gap-3">
-                  <button
-                    onClick={decrementQuantity}
-                    className="w-8 h-8 rounded-lg bg-[#0B0B0D] border border-white/10 text-white hover:bg-[#D4AF37] hover:text-black transition-all duration-300 flex items-center justify-center"
-                  >
-                    <Minus size={16} />
-                  </button>
-                  <span className="text-white text-lg font-semibold w-8 text-center">{quantity}</span>
-                  <button
-                    onClick={incrementQuantity}
-                    className="w-8 h-8 rounded-lg bg-[#0B0B0D] border border-white/10 text-white hover:bg-[#D4AF37] hover:text-black transition-all duration-300 flex items-center justify-center"
-                  >
-                    <Plus size={16} />
-                  </button>
-                </div>
-              </div>
+              
               
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <button onClick={()=>addToCart(product.id,quantity)} className="flex-1 py-3 rounded-xl bg-linear-to-r from-[#D4AF37] to-[#C9A227] text-black font-bold text-base flex items-center justify-center gap-2 hover:gap-3 transition-all duration-300">
+                <button  className="flex-1 py-3 rounded-xl bg-linear-to-r from-[#D4AF37] to-[#C9A227] text-black font-bold text-base flex items-center justify-center gap-2 hover:gap-3 transition-all duration-300">
                   <ShoppingBag size={20} />
                   Add to Cart
                 </button>

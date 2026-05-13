@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react'
 import logo from '../assets/navbarlogo.png'
 import { NavLink } from 'react-router-dom'
-import { ShoppingCart, Search, Menu, X } from 'lucide-react'
-import { ShopContext } from '../context/ShopContext'
+import {  Search, Menu, X } from 'lucide-react'
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const {totalCartItems} = useContext(ShopContext)
 
   // Close mobile menu when scrolling
   useEffect(() => {
@@ -90,23 +89,6 @@ const Navbar = () => {
 
             {/* Icons */}
             <div className="flex items-center gap-3">
-
-              {/* Search */}
-              {/* <button className="p-2 rounded-xl border border-[#6E7378]/30 bg-[#1A1A1D] text-white hover:text-[#D4AF37] hover:border-[#D4AF37] hover:scale-110 transition-all">
-                <Search size={20} />
-              </button> */}
-
-              {/* Cart */}
-              <NavLink
-                to="/cart"
-                className="relative p-2 rounded-xl border border-[#6E7378]/30 bg-[#1A1A1D] text-white hover:text-[#D4AF37] hover:border-[#D4AF37] hover:scale-110 transition-all"
-              >
-                <ShoppingCart size={20} />
-                <span className="absolute -top-1 -right-1 bg-[#D4AF37] text-black text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">
-                  {totalCartItems}
-                </span>
-              </NavLink>
-
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
