@@ -11,7 +11,7 @@ import {
   Target
 } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
-
+import { Helmet } from "react-helmet-async";
 const About = () => {
     const navigate = useNavigate();
   
@@ -60,6 +60,13 @@ const About = () => {
 
   return (
     <>
+    <Helmet>
+  <title>About Us - Your Brand Name</title>
+  <meta
+    name="description"
+    content="Learn more about our company and products."
+  />
+</Helmet>
       {/* Hero Section */}
       <section className="relative py-24 md:py-32 bg-linear-to-br from-[#0B0B0D] via-[#0F0F12] to-[#0A0A0D] overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-100 bg-[#D4AF37]/5 blur-[150px] rounded-full"></div>

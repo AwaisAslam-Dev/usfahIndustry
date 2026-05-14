@@ -17,7 +17,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import Items from "../components/Items";
-
+import { Helmet } from "react-helmet-async";
 const ProductDetails = () => {
   const { productid } = useParams();
   const { products } = useContext(ShopContext);

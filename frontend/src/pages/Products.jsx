@@ -3,7 +3,7 @@ import { Filter, X, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion";
 import Items from "../components/Items";
 import { ShopContext } from "../context/ShopContext";
-
+import { Helmet } from "react-helmet-async";
 const Products = () => {
   const [showFilter, setShowFilter] = useState(false);
   const [sortType, setSortType] = useState("relevant");
@@ -18,7 +18,6 @@ const Products = () => {
   // Categories based on surgical industry
   const categories = useMemo(() => [
     "Surgical Instruments",
-    "Dental Instruments",
     "Beauty Instruments",
     "Extracting Forceps",
     "Root Elevators",
@@ -158,6 +157,14 @@ const Products = () => {
   }, [currentPage, totalPages]);
 
   return (
+  <>
+  <Helmet>
+  <title>Products - Your Brand Name</title>
+  <meta
+    name="description"
+    content="Explore our products collection."
+  />
+</Helmet>
     <div className="min-h-screen bg-linear-to-br from-[#0B0B0D] via-[#0F0F12] to-[#0A0A0D]">
       {/* Page Header */}
       <section className="relative py-12 md:py-16 overflow-hidden border-b border-white/10">
@@ -395,6 +402,7 @@ const Products = () => {
         />
       )}
     </div>
+  </>
   );
 };
 

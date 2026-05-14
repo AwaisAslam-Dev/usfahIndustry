@@ -16,7 +16,7 @@ import {
   FaYoutube,
   FaPinterestP
 } from 'react-icons/fa';
-
+import { Helmet } from "react-helmet-async";
 const Contact = () => {
   const contactInfo = [
     {
@@ -62,6 +62,14 @@ const Contact = () => {
   ];
 
   return (
+   <>
+   <Helmet>
+  <title>Contact Us - Your Brand Name</title>
+  <meta
+    name="description"
+    content="Contact us for dental surgical and beauty instruments."
+  />
+</Helmet>
     <div className="min-h-screen bg-linear-to-br from-[#0B0B0D] via-[#0F0F12] to-[#0A0A0D]">
       
       {/* Hero Section */}
@@ -173,6 +181,7 @@ const Contact = () => {
         </div>
       </section>
     </div>
+   </>
   );
 };
 
