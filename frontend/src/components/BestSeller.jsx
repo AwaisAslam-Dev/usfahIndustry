@@ -25,7 +25,7 @@ const BestSeller = () => {
   }
   
   // Filter products where isBestseller is true
-  const bestsellerProducts = products.filter(product => product?.isBestseller === true);
+  const bestsellerProducts = products.filter(product => product?.bestseller === true);
 
   // Animation variants for Items component
   const containerVariants = {

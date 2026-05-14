@@ -85,7 +85,7 @@ const ProductDetails = () => {
   // Generate all product images (main image + additional)
   const productImages = [
     product.image,
-    product.image.replace("w=600&h=600", "w=800&h=800"),
+    product.image,
     product.image,
     product.image,
   ];
