@@ -159,7 +159,7 @@ const Contact = () => {
                     <div>
                       <p className="text-gray-400 text-xs">Email us</p>
                       <a href="mailto:support@premiuminstruments.com" className="text-white text-sm font-semibold hover:text-[#D4AF37] transition-colors">
-                        support@premiuminstruments.com
+                       ali.ghouri770@gmail.com
                       </a>
                     </div>
                   </div>
