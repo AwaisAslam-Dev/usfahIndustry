@@ -35,7 +35,7 @@ const ProductDetails = () => {
   // WhatsApp contact function
   const whatsappcontact = () => {
     if (!product) return;
-    const ownerPhoneNumber = "923096581997";
+    const ownerPhoneNumber = "923460424486";
 
     // Create message with product details
     const message = `*Product Inquiry*%0A%0A*Product Name:* ${product.name}%0A*Category:* ${product.category}%0AI'm interested in this product. Please provide more information about pricing and availability.%0A%0AThank you!`;
