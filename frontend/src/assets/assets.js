@@ -117,7 +117,7 @@ export const Surgicalproducts = [
     image: [p_img2_1],
     category: "Surgical Instruments",
     subCategory: "Topwear",
-    bestseller: true,
+    bestseller: false,
   },
   {
     id: "aaaac",
@@ -125,7 +125,7 @@ export const Surgicalproducts = [
     image: [p_img3],
     category: "Surgical Instruments",
     subCategory: "Topwear",
-    bestseller: true,
+    bestseller:false,
   },
   {
     id: "aaaad",
@@ -133,7 +133,7 @@ export const Surgicalproducts = [
     image: [p_img4],
     category: "Surgical Instruments",
     subCategory: "Topwear",
-    bestseller: true,
+    bestseller: false,
   },
   {
     id: "aaaae",
@@ -141,7 +141,7 @@ export const Surgicalproducts = [
     image: [p_img5],
     category: "Women",
     subCategory: "Topwear",
-    bestseller: true,
+    bestseller: false,
   },
   {
     id: "aaaaf",
@@ -149,7 +149,7 @@ export const Surgicalproducts = [
     image: [p_img6],
     category: "Surgical Instruments",
     subCategory: "Topwear",
-    bestseller: true,
+    bestseller: false,
   },
   {
     id: "aaaag",
