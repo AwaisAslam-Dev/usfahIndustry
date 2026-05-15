@@ -64,7 +64,7 @@ const Contact = () => {
   return (
    <>
    <Helmet>
-  <title>Contact Us - Your Brand Name</title>
+  <title>Contact Us - Usfah Industry</title>
   <meta
     name="description"
     content="Contact us for dental surgical and beauty instruments."

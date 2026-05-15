@@ -159,7 +159,7 @@ const Products = () => {
   return (
   <>
   <Helmet>
-  <title>Products - Your Brand Name</title>
+  <title>Products - Usfah Industry</title>
   <meta
     name="description"
     content="Explore our products collection."
