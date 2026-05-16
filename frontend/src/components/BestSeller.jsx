@@ -164,12 +164,8 @@ const BestSeller = () => {
                         
                         {/* Badges */}
                         <div className="absolute top-2 left-2 flex gap-1">
-                          {product.isNew && (
-                            <span className="px-1.5 py-0.5 rounded-md bg-blue-600 text-white text-[8px] font-bold uppercase">
-                              New
-                            </span>
-                          )}
-                          {product.isBestseller && (
+                          
+                          {product.bestseller && (
                             <span className="px-1.5 py-0.5 rounded-md bg-linear-to-r from-[#D4AF37] to-[#C9A227] text-black text-[8px] font-bold uppercase">
                               Best
                             </span>
@@ -191,15 +187,10 @@ const BestSeller = () => {
                             {product.category}
                           </span>
                         </div>
-                        <h3 className="text-white font-bold text-xs mb-0.5 line-clamp-2 group-hover:text-[#D4AF37] transition-colors">
+                        <h3 className="text-white font-bold text-xs mb-4 line-clamp-2 group-hover:text-[#D4AF37] transition-colors">
                           {product.name}
                         </h3>
-                        <div className="flex items-center gap-1 mb-2">
-                          <span className="text-[#D4AF37] font-bold text-xs">${product.price}</span>
-                          {product.originalPrice && (
-                            <span className="text-gray-500 text-[8px] line-through">${product.originalPrice}</span>
-                          )}
-                        </div>
+                        
                         <button className="w-full py-1 rounded-lg bg-linear-to-r from-[#D4AF37] to-[#C9A227] text-black font-semibold text-[10px] flex items-center justify-center gap-1">
                           <Eye size={10} />
                           View

@@ -37,11 +37,7 @@ const Items = ({ products, containerVariants, itemVariants }) => {
                 
                 {/* Badges */}
                 <div className="absolute top-3 left-3 flex gap-2">
-                  {product.isNew && (
-                    <span className="px-2 py-1 rounded-md bg-blue-600 text-white text-xs font-bold uppercase">
-                      New
-                    </span>
-                  )}
+                  
                   {product.isBestseller && (
                     <span className="px-2 py-1 rounded-md bg-linear-to-r from-[#D4AF37] to-[#C9A227] text-black text-xs font-bold uppercase">
                       Bestseller
