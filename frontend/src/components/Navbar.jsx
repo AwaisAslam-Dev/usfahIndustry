@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import logo from '../assets/navbarlogo.png'
 import { NavLink } from 'react-router-dom'
-import {  Search, Menu, X } from 'lucide-react'
-
+import { Search, Menu, X, Grid } from 'lucide-react'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -89,6 +88,23 @@ const Navbar = () => {
 
             {/* Icons */}
             <div className="flex items-center gap-3">
+              {/* Catalogue Button */}
+              <NavLink 
+                to="/catalogue"
+                className="hidden sm:flex items-center gap-2 px-4 py-2 bg-[#D4AF37] text-black font-semibold rounded-lg hover:bg-[#C5A032] transition-all duration-300 hover:scale-105"
+              >
+                <Grid size={18} />
+                <span>Catalogue</span>
+              </NavLink>
+
+              {/* Mobile Catalogue Button */}
+              <NavLink 
+                to="/catalogue"
+                className="sm:hidden p-2 rounded-xl border border-[#6E7378]/30 bg-[#1A1A1D] text-[#D4AF37] hover:scale-110 transition-all"
+              >
+                <Grid size={20} />
+              </NavLink>
+
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -135,6 +151,16 @@ const Navbar = () => {
                       </NavLink>
                     </li>
                   ))}
+                  {/* Mobile Catalogue Link */}
+                  <li className="w-full mt-2">
+                    <NavLink
+                      to="/catalogue"
+                      onClick={() => setIsOpen(false)}
+                      className="block w-full py-3 px-4 rounded-xl bg-[#D4AF37] text-black font-semibold hover:bg-[#C5A032] transition-all duration-300"
+                    >
+                      Catalogue
+                    </NavLink>
+                  </li>
                 </ul>
               </nav>
             </div>
@@ -142,35 +168,7 @@ const Navbar = () => {
         </div>
       )}
 
-      {/* Add margin top to main content to prevent overlap */}
-      <style jsx global>{`
-        @keyframes slideDown {
-          from {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        .animate-slideDown {
-          animation: slideDown 0.3s ease-out;
-        }
-        
-        /* Add padding to body to account for fixed navbar */
-        body {
-          padding-top: 80px;
-        }
-        
-        /* Remove padding on mobile if needed */
-        @media (max-width: 768px) {
-          body {
-            padding-top: 80px;
-          }
-        }
-      `}</style>
+     
     </>
   )
 }

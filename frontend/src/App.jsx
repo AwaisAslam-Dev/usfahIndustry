@@ -7,19 +7,22 @@ import Products from './pages/Products'
 import ProductDetails from './pages/ProductDetails'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import Catelogue from './pages/Catelogue'
+
 const App = () => {
   return (
     <>
-    <Navbar/>
-    <Routes>
-      <Route path='/' element={<Home/>}/>
-      <Route path='/about' element={<About/>}/>
-      <Route path='/products' element={<Products/>}/>
-      <Route path='/contact' element={<Contact/>}/>
-      <Route path='/productdetails/:productid' element={<ProductDetails/>}/>
-      
-    </Routes>
-    <Footer/>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/products' element={<Products />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/catalogue' element={<Catelogue />} />
+        <Route path='/productdetails/:productid' element={<ProductDetails />} />
+
+      </Routes>
+      <Footer />
     </>
   )
 }
