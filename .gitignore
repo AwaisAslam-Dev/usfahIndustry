@@ -27,4 +27,4 @@ Thumbs.db
 .pm2/
 
 # MongoDB local
-data/
+/data/
