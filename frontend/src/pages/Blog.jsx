@@ -146,6 +146,7 @@ surgical instruments for distributors"
                       alt={post.imageAlt || post.title}
                       className="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute top-4 left-4">
                       <span className="px-3 py-1 rounded-lg bg-[#D4AF37] text-black text-xs font-bold uppercase tracking-wider shadow-lg">

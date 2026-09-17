@@ -169,29 +169,49 @@ const BlogPost = () => {
                 </div>
               </motion.header>
 
-              {/* Featured Image (Fix Image Hiding: Clean Aspect Ratio & Full Visibility) */}
+              {/* Featured Image */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6 }}
-                className="rounded-2xl overflow-hidden mb-10 border border-white/10 bg-black/60 p-2 shadow-2xl aspect-16/9 flex items-center justify-center"
+                className="rounded-2xl overflow-hidden mb-8 border border-white/10 bg-black/60 p-2 shadow-2xl aspect-16/9 flex items-center justify-center"
               >
                 <img
                   src={post.image}
                   alt={post.imageAlt || post.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain rounded-xl"
                 />
               </motion.div>
+
+              {/* Mobile Quick Jump / Table of Contents Pill Bar */}
+              <div className="lg:hidden mb-8 p-4 rounded-2xl bg-white/5 border border-white/10">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF37] block mb-2 flex items-center gap-2">
+                  <List size={14} /> Quick Section Jump
+                </span>
+                <div className="flex gap-2 overflow-x-auto pb-2 custom-gold-scrollbar">
+                  {tocItems.map((item) => (
+                    <a
+                      key={item.id}
+                      href={`#${item.id}`}
+                      className="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-[#D4AF37]/20 border border-white/10 text-gray-300 hover:text-[#D4AF37] text-xs font-medium whitespace-nowrap transition-all shrink-0"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
 
               {/* Main Article Body */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-linear-to-br from-[#0F0F12] to-[#0A0A0D] rounded-2xl p-6 sm:p-10 border border-white/10 text-gray-300 leading-relaxed shadow-xl"
+                className="bg-linear-to-br from-[#0F0F12] to-[#0A0A0D] rounded-2xl p-4 sm:p-10 border border-white/10 text-gray-300 leading-relaxed shadow-xl"
               >
                 <div
-                  className="space-y-6 text-gray-300"
+                  className="blog-content-wrapper space-y-6 text-gray-300"
                   dangerouslySetInnerHTML={{ __html: post.content }}
                 />
 

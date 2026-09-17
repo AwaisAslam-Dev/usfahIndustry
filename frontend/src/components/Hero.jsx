@@ -93,7 +93,7 @@ const navigate = useNavigate();
   }, []);
 
   return (
-    <section className="relative w-full h-screen min-h-162.5 overflow-hidden">
+    <section className="relative w-full h-[85vh] min-h-[520px] sm:h-screen sm:min-h-[650px] overflow-hidden">
       <Swiper
         modules={[Autoplay, Pagination, EffectFade]}
         effect="fade"
@@ -111,27 +111,27 @@ const navigate = useNavigate();
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div
-              className="relative w-full h-screen min-h-162.5 bg-center bg-cover bg-no-repeat"
+              className="relative w-full h-full bg-center bg-cover bg-no-repeat transition-all"
               style={{
                 backgroundImage: `url(${isMobile ? slide.mobileImage : slide.desktopImage})`,
               }}
             >
               {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-linear-to-r from-black/85 via-black/50 to-black/30"></div>
+              <div className="absolute inset-0 bg-linear-to-r from-black/90 via-black/60 to-black/40"></div>
 
               {/* Gold Gradient Glow */}
-              <div className="absolute inset-0 bg-linear-to-r from-[#0B0B0D]/80 via-transparent to-[#D4AF37]/5"></div>
+              <div className="absolute inset-0 bg-linear-to-r from-[#0B0B0D]/85 via-transparent to-[#D4AF37]/10"></div>
 
               {/* Content */}
               <div className="relative z-10 h-full flex items-center">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-12 sm:pt-0">
                   <div className="max-w-3xl">
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6 }}
                     >
-                      <span className="inline-block text-[#D4AF37] text-sm sm:text-base uppercase tracking-[6px] font-bold mb-4 bg-linear-to-r from-[#D4AF37] to-[#FFE793] bg-clip-text">
+                      <span className="inline-block text-[#D4AF37] text-xs sm:text-base uppercase tracking-[4px] sm:tracking-[6px] font-bold mb-3 sm:mb-4 bg-linear-to-r from-[#D4AF37] to-[#FFE793] bg-clip-text">
                         Premium Instruments Collection
                       </span>
                     </motion.div>
@@ -140,9 +140,9 @@ const navigate = useNavigate();
                       initial={{ opacity: 0, y: 40 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8 }}
-                      className="mt-2"
+                      className="mt-1 sm:mt-2"
                     >
-                      <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.2] tracking-tight">
+                      <h1 className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.15] sm:leading-[1.2] tracking-tight">
                         {slide.title.split(" ").slice(0, -1).join(" ")}{" "}
                         <span className="text-transparent bg-linear-to-r from-[#D4AF37] via-[#FFE793] to-[#C9A227] bg-clip-text">
                           {slide.highlightWord}

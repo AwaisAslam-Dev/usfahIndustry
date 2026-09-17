@@ -2,3 +2,78 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
+/* Custom Gold Scrollbars for Tables */
+.custom-gold-scrollbar::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+.custom-gold-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 9999px;
+}
+.custom-gold-scrollbar::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 9999px;
+}
+
+/* Blog Content Mobile Responsiveness & Styling */
+.blog-content-wrapper {
+  color: #D1D5DB;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.blog-content-wrapper p {
+  margin-bottom: 1.25rem;
+  font-size: 0.95rem;
+}
+@media (min-width: 640px) {
+  .blog-content-wrapper p {
+    font-size: 1.05rem;
+  }
+}
+
+.blog-content-wrapper h2 {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  scroll-margin-top: 100px;
+}
+@media (min-width: 640px) {
+  .blog-content-wrapper h2 {
+    font-size: 1.875rem;
+  }
+}
+
+.blog-content-wrapper h3 {
+  color: #D4AF37;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  scroll-margin-top: 100px;
+}
+
+.blog-content-wrapper table {
+  width: 100%;
+  min-width: 550px;
+  border-collapse: collapse;
+}
+
+.blog-content-wrapper th {
+  background-color: rgba(212, 175, 55, 0.15);
+  color: #D4AF37;
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+}
+
+.blog-content-wrapper td {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+

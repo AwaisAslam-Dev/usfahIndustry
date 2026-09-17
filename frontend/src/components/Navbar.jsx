@@ -55,7 +55,8 @@ const Navbar = () => {
             <NavLink to="/">
               <img
                 src={logo}
-                alt="logo"
+                alt="Usfah Industry Logo"
+                decoding="async"
                 className="w-28 sm:w-32 md:w-40 object-contain hover:scale-105 transition duration-300"
               />
             </NavLink>

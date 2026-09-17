@@ -56,33 +56,37 @@ A simple rule: short blades with long shanks mean delicate, controlled cutting. 
 </p>
 
 <h2 id="straight-vs-curved" class="text-white text-2xl sm:text-3xl font-bold mt-10 mb-4 text-[#D4AF37]">Straight vs Curved Surgical Scissors</h2>
-<div class="overflow-x-auto my-6">
+<div class="overflow-x-auto my-6 rounded-2xl border border-white/10 bg-[#0F0F12] p-2 sm:p-4 custom-gold-scrollbar">
+  <div class="sm:hidden text-[11px] text-[#D4AF37] font-semibold mb-2 flex items-center justify-between px-1">
+    <span>👈 Swipe table to view details</span>
+    <span>Scroll 👉</span>
+  </div>
   <table class="w-full text-left border-collapse border border-white/10 text-sm">
     <thead>
       <tr class="bg-[#D4AF37]/20 text-[#D4AF37]">
-        <th class="p-3 border border-white/10">Feature</th>
-        <th class="p-3 border border-white/10">Straight blades</th>
-        <th class="p-3 border border-white/10">Curved blades</th>
+        <th class="p-3 border border-white/10 whitespace-nowrap">Feature</th>
+        <th class="p-3 border border-white/10 whitespace-nowrap">Straight blades</th>
+        <th class="p-3 border border-white/10 whitespace-nowrap">Curved blades</th>
       </tr>
     </thead>
     <tbody class="divide-y divide-white/10 text-gray-300">
       <tr>
-        <td class="p-3 font-semibold text-white border border-white/10">Best for</td>
+        <td class="p-3 font-semibold text-white border border-white/10 whitespace-nowrap">Best for</td>
         <td class="p-3 border border-white/10">Cutting sutures, threads, dressings and superficial tissue</td>
         <td class="p-3 border border-white/10">Dissecting tissue and cutting inside body cavities</td>
       </tr>
       <tr>
-        <td class="p-3 font-semibold text-white border border-white/10">Visibility</td>
+        <td class="p-3 font-semibold text-white border border-white/10 whitespace-nowrap">Visibility</td>
         <td class="p-3 border border-white/10">Tips sit in line with the hand</td>
         <td class="p-3 border border-white/10">Tips stay visible above the tissue plane</td>
       </tr>
       <tr>
-        <td class="p-3 font-semibold text-white border border-white/10">Control</td>
+        <td class="p-3 font-semibold text-white border border-white/10 whitespace-nowrap">Control</td>
         <td class="p-3 border border-white/10">Straightforward, direct cuts</td>
         <td class="p-3 border border-white/10">Follows tissue contours and curves around structures</td>
       </tr>
       <tr>
-        <td class="p-3 font-semibold text-white border border-white/10">Typical use</td>
+        <td class="p-3 font-semibold text-white border border-white/10 whitespace-nowrap">Typical use</td>
         <td class="p-3 border border-white/10">Suture scissors, general cutting</td>
         <td class="p-3 border border-white/10">Blunt dissection, deep or angled access</td>
       </tr>
@@ -107,7 +111,7 @@ Curved blades are preferred for most tissue work because the surgeon can see the
 <div class="my-8 p-6 rounded-2xl bg-white/5 border border-white/10 shadow-xl">
   <h3 class="text-white text-xl sm:text-2xl font-bold mb-3 text-[#D4AF37]">Mayo Scissors</h3>
   <div class="overflow-hidden rounded-xl border border-white/10 mb-4 bg-black/60 p-2 shadow-inner">
-    <img src="/assets/mayo-scissors-thumb.jpg" alt="Mayo Surgical Scissors Heavy Duty German Stainless Steel" class="w-full h-56 sm:h-72 object-contain rounded-lg hover:scale-105 transition-transform duration-500" />
+    <img src="/assets/mayo-scissors-thumb.jpg" alt="Mayo Surgical Scissors Heavy Duty German Stainless Steel" loading="lazy" decoding="async" class="w-full h-56 sm:h-72 object-contain rounded-lg hover:scale-105 transition-transform duration-500" />
   </div>
   <p class="text-gray-300 text-base leading-relaxed mb-4">
   Mayo scissors are heavy duty scissors with thick, relatively short blades and semi blunt tips. Straight Mayo scissors are widely used for cutting suture material, which is why scrub staff often call them suture scissors. Curved Mayo scissors are used for cutting dense connective tissue such as fascia, muscle, and the uterus.
@@ -127,7 +131,7 @@ Curved blades are preferred for most tissue work because the surgeon can see the
 <div class="my-8 p-6 rounded-2xl bg-white/5 border border-white/10 shadow-xl">
   <h3 class="text-white text-xl sm:text-2xl font-bold mb-3 text-[#D4AF37]">Metzenbaum Scissors</h3>
   <div class="overflow-hidden rounded-xl border border-white/10 mb-4 bg-black/60 p-2 shadow-inner">
-    <img src="/assets/metzenbaum-scissors-thumb.jpg" alt="Metzenbaum Fine Dissecting Surgical Scissors" class="w-full h-56 sm:h-72 object-contain rounded-lg hover:scale-105 transition-transform duration-500" />
+    <img src="/assets/metzenbaum-scissors-thumb.jpg" alt="Metzenbaum Fine Dissecting Surgical Scissors" loading="lazy" decoding="async" class="w-full h-56 sm:h-72 object-contain rounded-lg hover:scale-105 transition-transform duration-500" />
   </div>
   <p class="text-gray-300 text-base leading-relaxed mb-4">
   Metzenbaum scissors have long, slender shanks with comparatively short, fine blades and blunt tips. That high leverage ratio gives exceptional control at depth, making them the universal standard for fine and delicate tissue dissection.
@@ -147,7 +151,7 @@ Curved blades are preferred for most tissue work because the surgeon can see the
 <div class="my-8 p-6 rounded-2xl bg-white/5 border border-white/10 shadow-xl">
   <h3 class="text-white text-xl sm:text-2xl font-bold mb-3 text-[#D4AF37]">Iris Scissors</h3>
   <div class="overflow-hidden rounded-xl border border-white/10 mb-4 bg-black/60 p-2 shadow-inner">
-    <img src="/assets/iris-scissors-thumb.jpg" alt="Iris Fine Precision Micro Surgical Scissors" class="w-full h-56 sm:h-72 object-contain rounded-lg hover:scale-105 transition-transform duration-500" />
+    <img src="/assets/iris-scissors-thumb.jpg" alt="Iris Fine Precision Micro Surgical Scissors" loading="lazy" decoding="async" class="w-full h-56 sm:h-72 object-contain rounded-lg hover:scale-105 transition-transform duration-500" />
   </div>
   <p class="text-gray-300 text-base leading-relaxed mb-4">
   Iris scissors are small, spring light instruments with ultra fine, sharp blades. Originally designed for ophthalmic procedures, they are now indispensable across plastic surgery, dermatology, and micro-vascular surgery for detailed precision cutting.
@@ -167,7 +171,7 @@ Curved blades are preferred for most tissue work because the surgeon can see the
 <div class="my-8 p-6 rounded-2xl bg-white/5 border border-white/10 shadow-xl">
   <h3 class="text-white text-xl sm:text-2xl font-bold mb-3 text-[#D4AF37]">Lister Bandage Scissors</h3>
   <div class="overflow-hidden rounded-xl border border-white/10 mb-4 bg-black/60 p-2 shadow-inner">
-    <img src="/assets/lister-scissors-thumb.jpg" alt="Lister Bandage Scissors Safety Probe Tip" class="w-full h-56 sm:h-72 object-contain rounded-lg hover:scale-105 transition-transform duration-500" />
+    <img src="/assets/lister-scissors-thumb.jpg" alt="Lister Bandage Scissors Safety Probe Tip" loading="lazy" decoding="async" class="w-full h-56 sm:h-72 object-contain rounded-lg hover:scale-105 transition-transform duration-500" />
   </div>
   <p class="text-gray-300 text-base leading-relaxed mb-4">
   Lister bandage scissors feature an angled lower blade ending in a smooth, flattened safety probe tip. The rounded probe slides comfortably under tight bandages and drapes, protecting patient skin from accidental puncture while cutting through tough fabrics.
