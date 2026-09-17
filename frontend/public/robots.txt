@@ -1,4 +1,23 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://https://usfahindustry.com/sitemap.xml
+# AI Crawlers & Search Assistants
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://usfahindustry.com/sitemap.xml

@@ -11,16 +11,10 @@ import {
   Target
 } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import SEO from "../components/SEO";
+import Breadcrumb from "../components/Breadcrumb";
 const About = () => {
     const navigate = useNavigate();
-  
-  const stats = [
-    { id: 1, icon: Globe, value: '50+', label: 'Countries Served' },
-    { id: 2, icon: Users, value: '10,000+', label: 'Happy Customers' },
-    { id: 3, icon: Award, value: '15+', label: 'Years of Excellence' },
-    { id: 4, icon: Shield, value: '100%', label: 'Quality Assurance' },
-  ];
 
   const values = [
     {
@@ -56,23 +50,50 @@ const About = () => {
     'Quality Management System',
     'Sterilization Certified',
     'Medical Device Regulation'
-  ];
+  ];  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Usfah Industry",
+    "description": "Usfah Industry is an ISO-certified manufacturer of surgical, dental, and beauty instruments located in Sialkot, Pakistan.",
+    "url": "https://usfahindustry.com/about"
+  };
 
   return (
     <>
-    <Helmet>
-  <title>About Us - Usfah Industry</title>
-  <meta
-    name="description"
-    content="Learn more about our company and products."
-  />
-</Helmet>
+      <SEO
+        title="About Us | Usfah Industry - Surgical & Dental Tools Manufacturing"
+        description="Learn about Usfah Industry's history, ISO 13485 certification, craftsmanship, and commitment to manufacturing export-grade surgical and dental instruments in Sialkot."
+        keywords="about Usfah Industry, surgical instruments company, Sialkot manufacturer, ISO 13485 certified surgical tools, medical instrument craftsman , best surgical industry,best dental products,unique dentals,surgical instruments manufacturer Pakistan,
+surgical instrument manufacturer Sialkot,
+surgical instruments manufacturer Sialkot Pakistan,
+surgical instruments manufacturing company,
+surgical instrument manufacturing company Pakistan,
+surgical instruments factory Pakistan,
+surgical instrument manufacturer,
+surgical instruments supplier Pakistan,
+surgical instruments exporter Pakistan,
+medical instruments manufacturer Pakistan,
+surgical instruments manufacturing Sialkot,
+surgical instrument manufacturing,
+surgical instrument supplier,
+surgical instrument exporter,
+surgical instrument factory,
+surgical instruments Pakistan,
+surgical instruments Sialkot,
+medical instrument manufacturer,
+medical instruments supplier,
+surgical instrument company"
+        canonical="https://usfahindustry.com/about"
+        schemaData={aboutSchema}
+      />
       {/* Hero Section */}
       <section className="relative py-24 md:py-32 bg-linear-to-br from-[#0B0B0D] via-[#0F0F12] to-[#0A0A0D] overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-100 bg-[#D4AF37]/5 blur-[150px] rounded-full"></div>
         <div className="absolute bottom-0 right-0 w-125 h-125 bg-[#D4AF37]/5 blur-[120px] rounded-full"></div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-6">
+          <Breadcrumb items={[{ name: 'About Us' }]} />
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -80,7 +101,7 @@ const About = () => {
             className="text-center max-w-4xl mx-auto"
           >
             <span className="inline-block text-[#D4AF37] uppercase tracking-[6px] text-sm font-bold mb-3">
-              Our Story
+              Surgical Instruments Manufacturer Sialkot
             </span>
             <h1 className="text-white text-5xl sm:text-6xl lg:text-7xl font-black mt-4 leading-[1.2] tracking-tight">
               Crafting Excellence in
@@ -88,37 +109,15 @@ const About = () => {
                 Medical Instruments
               </span>
             </h1>
-            <p className="text-gray-400 mt-6 text-lg max-w-2xl mx-auto leading-relaxed">
-              For over a decade, we've been at the forefront of surgical, beauty, and dental instrument manufacturing, 
-              delivering precision tools that healthcare professionals trust worldwide.
+            <p className="text-gray-400 mt-6 text-lg max-w-3xl mx-auto leading-relaxed">
+              Usfah Industry is a premier surgical instruments manufacturing company in Sialkot Pakistan. For over a decade, our facility has delivered export quality medical instruments, dental extracting tools, and beauty equipment trusted by healthcare professionals globally.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="relative py-16 bg-linear-to-br from-[#0F0F12] to-[#0A0A0D] border-y border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-center p-6 rounded-2xl bg-linear-to-br from-[#0F0F12] to-[#0A0A0D] border border-white/10 hover:border-[#D4AF37]/40 transition-all duration-300"
-              >
-                <div className="inline-flex p-3 rounded-xl bg-[#D4AF37]/10 mb-4">
-                  <stat.icon size={32} className="text-[#D4AF37]" />
-                </div>
-                <h3 className="text-4xl font-black text-white mb-2">{stat.value}</h3>
-                <p className="text-gray-400 text-sm">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
+      
 
       {/* Mission & Vision */}
       <section className="relative py-24 md:py-32 bg-linear-to-brrom-[#0B0B0D] via-[#0F0F12] to-[#0A0A0D] overflow-hidden">

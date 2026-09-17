@@ -9,9 +9,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import surgicalImg from "../assets/p1.jfif";
-import beautyImg from "../assets/p2.jfif";
-import dentalImg from "../assets/p3.jfif";
+import surgicalImg from "../assets/brand_surgical.jpg";
+import beautyImg from "../assets/brand_beauty.jpg";
+import dentalImg from "../assets/brand_dental.jpg";
 
 const products = [
   {
@@ -98,16 +98,16 @@ const ExploreProducts = () => {
           className="text-center max-w-4xl mx-auto mb-16"
         >
           <span className="inline-block text-[#D4AF37] uppercase tracking-[6px] text-sm font-bold mb-3">
-            Premium Collection
+            Surgical Instruments Factory Sialkot
           </span>
           <h2 className="text-white text-5xl sm:text-6xl lg:text-7xl font-black mt-4 leading-[1.1] tracking-tight">
-            Crafted for
+            Certified Medical
             <span className="block text-transparent bg-linear-to-r from-[#D4AF37] via-[#E8C547] to-[#C9A227] bg-clip-text">
-              Global Excellence
+              Instruments Manufacturing
             </span>
           </h2>
           <p className="text-gray-400 mt-6 text-base max-w-2xl mx-auto leading-relaxed">
-            Discover premium surgical, beauty, and dental instruments engineered with precision and export-quality standards for global professionals.
+            Usfah Industry is an established surgical instruments supplier and exporter in Pakistan. We manufacture export quality surgical scissors, dental extracting forceps, root elevators, and luxury beauty tools for healthcare professionals globally.
           </p>
         </motion.div>
 

@@ -85,11 +85,45 @@ const Footer = () => {
                 </NavLink>
               </li>
               <li>
+                <NavLink to="/blog" className="text-gray-400 hover:text-[#D4AF37] transition-colors duration-300 text-sm">
+                  Blog & Articles
+                </NavLink>
+              </li>
+              <li>
                 <NavLink to="/contact" className="text-gray-400 hover:text-[#D4AF37] transition-colors duration-300 text-sm">
                   Contact Us
                 </NavLink>
               </li>
-              
+            </ul>
+          </div>
+
+          {/* Legal Information */}
+          <div>
+            <h3 className="text-white font-bold text-lg mb-4 relative inline-block">
+              Legal Info
+              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-linear-to-r from-[#D4AF37] to-transparent"></span>
+            </h3>
+            <ul className="space-y-3">
+              <li>
+                <NavLink to="/privacy-policy" className="text-gray-400 hover:text-[#D4AF37] transition-colors duration-300 text-sm">
+                  Privacy Policy
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/terms-and-conditions" className="text-gray-400 hover:text-[#D4AF37] transition-colors duration-300 text-sm">
+                  Terms & Conditions
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/disclaimer" className="text-gray-400 hover:text-[#D4AF37] transition-colors duration-300 text-sm">
+                  Disclaimer
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/cookie-policy" className="text-gray-400 hover:text-[#D4AF37] transition-colors duration-300 text-sm">
+                  Cookie Policy
+                </NavLink>
+              </li>
             </ul>
           </div>
 
@@ -117,12 +151,12 @@ const Footer = () => {
         </div>
 
         {/* Copyright Section */}
-        <div className="py-6 md:py-8 text-center">
+        <div className="py-6 md:py-8 text-center border-t border-white/10">
           <p className="text-gray-500 text-xs md:text-sm">
-            Copyright © 2026 Premium Instruments. All Rights Reserved.
+            Copyright © {new Date().getFullYear()} Usfah Industry. All Rights Reserved.
           </p>
           <p className="text-gray-500 text-xs md:text-sm mt-2">
-            Powered by <span className="text-[#D4AF37] font-semibold">Awais</span>
+            Powered by <span className="text-[#D4AF37] font-semibold">Usfah Industry Technical Team</span>
           </p>
         </div>
       </div>

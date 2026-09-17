@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Download, Eye, FileText, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react'
+import SEO from '../components/SEO'
+import Breadcrumb from '../components/Breadcrumb'
 
 const Catelogue = () => {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -39,8 +41,16 @@ const Catelogue = () => {
 
   return (
     <>
+      <SEO
+        title="PDF Product Catalog Download | Usfah Industry"
+        description="Download the complete Usfah Industry surgical, dental, and beauty instruments catalog in PDF format. ISO certified manufacturing specifications."
+        keywords="surgical catalog PDF, dental instruments catalog, Usfah Industry PDF download, medical equipment brochure"
+        canonical="https://usfahindustry.com/catalogue"
+      />
+
       <div className="min-h-screen bg-linear-to-br from-[#0B0B0D] via-[#111111] to-[#1A1A1D] py-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto pt-16 sm:pt-20">
+          <Breadcrumb items={[{ name: 'Catalogue' }]} />
           
           {/* Header Section */}
           <div className="text-center mb-10 animate-fadeIn">
@@ -50,12 +60,11 @@ const Catelogue = () => {
               </span>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-4 mb-3">
-              Surgical, Medical & Beauty
-              <span className="text-[#D4AF37] block sm:inline"> Catalogue</span>
+              Surgical, Dental and Beauty
+              <span className="text-[#D4AF37] block sm:inline"> Catalogue PDF</span>
             </h1>
             <p className="text-[#BFC3C7] max-w-2xl mx-auto text-sm sm:text-base">
-              Explore our comprehensive collection of premium surgical instruments, 
-              medical equipment, and beauty products
+              Download the complete Usfah Industry product catalogue. Certified surgical instruments manufacturer in Sialkot Pakistan supplying export tools worldwide.
             </p>
           </div>
 

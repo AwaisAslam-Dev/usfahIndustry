@@ -60,11 +60,11 @@ const FeatureSection = () => {
           className="text-center"
         >
           <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
-            Why Choose Us
+            Why Choose Usfah Industry
           </h2>
           
           <p className="text-gray-400 text-sm max-w-2xl mx-auto">
-            Experience the best in class service and quality with every purchase.
+            Sialkot premier medical instruments manufacturing company delivering certified surgical tools and global export support.
           </p>
         </motion.div>
       </div>

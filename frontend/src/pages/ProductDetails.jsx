@@ -5,26 +5,25 @@ import { motion } from "framer-motion";
 import {
   Star,
   Heart,
-  ShoppingBag,
   Truck,
   RotateCcw,
   Shield,
-  Minus,
-  Plus,
-  CheckCircle,
-  Share2,
   Award,
   MessageCircle,
+  CheckCircle,
+  Share2
 } from "lucide-react";
 import Items from "../components/Items";
-import { Helmet } from "react-helmet-async";
+import SEO from "../components/SEO";
+import Breadcrumb from "../components/Breadcrumb";
+
 const ProductDetails = () => {
   const { productid } = useParams();
   const { products } = useContext(ShopContext);
   const [selectedImage, setSelectedImage] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
 
-  // Find the product
+  // Find the product by ID
   const product = products.find((p) => p.id === productid);
 
   // Get related products (same category, excluding current product)
@@ -32,289 +31,233 @@ const ProductDetails = () => {
     .filter((p) => p.category === product?.category && p.id !== product?.id)
     .slice(0, 3);
 
-  // WhatsApp contact function
+  // WhatsApp contact inquiry
   const whatsappcontact = () => {
     if (!product) return;
     const ownerPhoneNumber = "923460424486";
-
-    // Create message with product details
-    const message = `*Product Inquiry*%0A%0A*Product Name:* ${product.name}%0A*Category:* ${product.category}%0AI'm interested in this product. Please provide more information about pricing and availability.%0A%0AThank you!`;
-
+    const message = `*Product Inquiry*%0A%0A*Product ID:* ${product.id}%0A*Product Name:* ${product.name}%0A*Category:* ${product.category}%0AHello Usfah Industry, I am interested in this instrument. Please provide pricing and catalog details.`;
     const whatsappUrl = `https://wa.me/${ownerPhoneNumber}?text=${message}`;
-
     window.open(whatsappUrl, "_blank");
-  };
-
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
   };
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-linear-to-br from-[#0B0B0D] via-[#0F0F12] to-[#0A0A0D] flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-white text-2xl font-bold mb-4">
-            Product Not Found
-          </h2>
-          <Link to="/products" className="text-[#D4AF37] hover:underline">
-            Back to Products
+      <div className="min-h-screen bg-linear-to-br from-[#0B0B0D] via-[#0F0F12] to-[#0A0A0D] flex items-center justify-center px-4 py-24">
+        <div className="text-center p-8 rounded-2xl bg-white/5 border border-white/10 max-w-md">
+          <h2 className="text-white text-2xl font-bold mb-3">Product Not Found</h2>
+          <p className="text-gray-400 text-sm mb-6">The requested instrument ID does not exist in our catalog.</p>
+          <Link
+            to="/products"
+            className="px-6 py-2.5 rounded-xl bg-[#D4AF37] text-black font-bold text-sm uppercase tracking-wider inline-block"
+          >
+            Back to Catalog
           </Link>
         </div>
       </div>
     );
   }
 
-  // Generate all product images (main image + additional)
+  // Normalize product images
+  const mainImageSrc = Array.isArray(product.image) ? product.image[0] : product.image;
   const productImages = [
-    product.image,
-    product.image,
-    product.image,
-    product.image,
+    mainImageSrc,
+    mainImageSrc,
+    mainImageSrc,
+    mainImageSrc
   ];
 
   const features = [
-    { icon: Truck, title: "Free Shipping", text: "On orders over $50" },
-    { icon: RotateCcw, title: "7 Days Return", text: "Easy returns policy" },
-    { icon: Shield, title: "2 Year Warranty", text: "Quality guaranteed" },
-    { icon: Award, title: "Premium Quality", text: "ISO certified" },
+    { icon: Truck, title: "Global Export", text: "Fast worldwide shipping" },
+    { icon: RotateCcw, title: "ISO Certified", text: "100% Quality Guaranteed" },
+    { icon: Shield, title: "Autoclave Safe", text: "Corrosion Resistant Steel" },
+    { icon: Award, title: "Precision Crafted", text: "Made in Sialkot, Pakistan" },
   ];
 
-  const incrementQuantity = () => {
-    setQuantity((prev) => Math.min(prev + 1));
-  };
+  const DOMAIN = "https://usfahindustry.com";
+  const canonicalUrl = `${DOMAIN}/productdetails/${product.id}`;
 
-  const decrementQuantity = () => {
-    setQuantity((prev) => Math.max(prev - 1, 1));
+  // Product JSON-LD Schema
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "image": [mainImageSrc.startsWith("http") ? mainImageSrc : `${DOMAIN}${mainImageSrc}`],
+    "description": product.description || `Export-quality ${product.name} manufactured by Usfah Industry.`,
+    "sku": product.id,
+    "mpn": product.id,
+    "brand": {
+      "@type": "Brand",
+      "name": "Usfah Industry"
+    },
+    "category": product.category,
+    "offers": {
+      "@type": "Offer",
+      "url": canonicalUrl,
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition",
+      "seller": {
+        "@type": "Organization",
+        "name": "Usfah Industry"
+      }
+    }
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-[#0B0B0D] via-[#0F0F12] to-[#0A0A0D]">
-      {/* Hero Section */}
-      <section className="relative py-8 md:py-12 overflow-hidden border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex items-center gap-2 text-sm mb-6">
-            <Link
-              to="/"
-              className="text-gray-500 hover:text-[#D4AF37] transition-colors"
-            >
-              Home
-            </Link>
-            <span className="text-gray-600">/</span>
-            <Link
-              to="/products"
-              className="text-gray-500 hover:text-[#D4AF37] transition-colors"
-            >
-              Products
-            </Link>
-            <span className="text-gray-600">/</span>
-            <span className="text-[#D4AF37]">{product.name}</span>
-          </nav>
-        </div>
-      </section>
+    <>
+      <SEO
+        title={`${product.name} (${product.id}) | Usfah Industry`}
+        description={product.description || `Buy or order wholesale ${product.name} (${product.id}) manufactured from medical grade stainless steel by Usfah Industry.`}
+        keywords={`${product.name}, ${product.category}, ${product.id}, surgical tools, Usfah Industry Sialkot`}
+        canonical={canonicalUrl}
+        ogType="product"
+        ogImage={mainImageSrc}
+        schemaData={productSchema}
+      />
 
-      {/* Product Details Section */}
-      <section className="py-8 md:py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
-            {/* Product Images */}
+      <div className="min-h-screen bg-linear-to-br from-[#0B0B0D] via-[#0F0F12] to-[#0A0A0D] py-8 sm:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20">
+          
+          <Breadcrumb
+            items={[
+              { name: 'Products', url: '/products' },
+              { name: product.category, url: `/products?category=${encodeURIComponent(product.category)}` },
+              { name: product.name }
+            ]}
+          />
+
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 mb-16">
+            
+            {/* Product Image Gallery */}
             <motion.div
               className="lg:w-1/2"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              {/* Main Image */}
-              <div className="relative bg-linear-to-br from-[#0F0F12] to-[#0A0A0D] rounded-2xl overflow-hidden border border-white/10 mb-4">
+              <div className="relative bg-linear-to-br from-[#0F0F12] to-[#0A0A0D] rounded-2xl overflow-hidden border border-white/10 mb-4 aspect-square flex items-center justify-center p-6">
                 <img
                   src={productImages[selectedImage]}
                   alt={product.name}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
                 />
 
-                {/* Bestseller Badge */}
-                {product.isBestseller && (
+                {product.bestseller && (
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1.5 rounded-lg bg-linear-to-r from-[#D4AF37] to-[#C9A227] text-black text-xs font-bold uppercase">
+                    <span className="px-3 py-1.5 rounded-lg bg-linear-to-r from-[#D4AF37] to-[#C9A227] text-black text-xs font-bold uppercase tracking-wider">
                       Bestseller
                     </span>
                   </div>
                 )}
 
-                {/* Wishlist Button */}
                 <button
                   onClick={() => setIsLiked(!isLiked)}
-                  className="absolute top-4 right-4 p-2 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 hover:bg-[#D4AF37] transition-all duration-300"
+                  className="absolute top-4 right-4 p-2.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 hover:bg-[#D4AF37] transition-all"
+                  aria-label="Wishlist"
                 >
                   <Heart
                     size={20}
-                    className={
-                      isLiked ? "fill-red-500 text-red-500" : "text-white"
-                    }
+                    className={isLiked ? "fill-red-500 text-red-500" : "text-white"}
                   />
                 </button>
               </div>
 
-              {/* Thumbnail Images */}
+              {/* Thumbnails */}
               <div className="grid grid-cols-4 gap-3">
                 {productImages.map((img, idx) => (
                   <button
                     key={idx}
                     onClick={() => setSelectedImage(idx)}
-                    className={`relative rounded-xl overflow-hidden border-2 transition-all duration-300 ${
+                    className={`aspect-square rounded-xl overflow-hidden border p-2 bg-[#0F0F12] transition-all ${
                       selectedImage === idx
-                        ? "border-[#D4AF37]"
-                        : "border-white/10 hover:border-[#D4AF37]/50"
+                        ? 'border-[#D4AF37] ring-2 ring-[#D4AF37]/30'
+                        : 'border-white/10 opacity-60 hover:opacity-100'
                     }`}
                   >
-                    <img
-                      src={img}
-                      alt={`${product.name} view ${idx + 1}`}
-                      className="w-full aspect-square object-cover"
-                    />
+                    <img src={img} alt={`${product.name} view ${idx + 1}`} className="w-full h-full object-contain" />
                   </button>
                 ))}
               </div>
             </motion.div>
 
-            {/* Product Info */}
+            {/* Product Details Info */}
             <motion.div
-              className="lg:w-1/2"
+              className="lg:w-1/2 flex flex-col justify-between"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              {/* Category */}
-              <div className="mb-2">
-                <span className="text-[#D4AF37] text-sm tracking-wider uppercase font-semibold">
-                  {product.category}
-                </span>
-              </div>
-
-              {/* Product Name */}
-              <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-                {product.name}
-              </h1>
-
-              {/* Description */}
-              <p className="text-gray-400 text-base leading-relaxed mb-6">
-                Experience precision and quality with our{" "}
-                {product.name.toLowerCase()}. Crafted from premium materials,
-                this instrument is designed for professional use in medical and
-                beauty applications. Each piece undergoes rigorous quality
-                control to ensure optimal performance and durability.
-              </p>
-
-              {/* Key Features */}
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center gap-2">
-                  <CheckCircle size={16} className="text-[#D4AF37]" />
-                  <span className="text-gray-300 text-sm">
-                    Premium stainless steel construction
+              <div>
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] border border-[#D4AF37]/30 text-xs font-bold uppercase tracking-wider">
+                    {product.category}
+                  </span>
+                  <span className="text-xs text-gray-500 font-mono">
+                    ID: {product.id}
                   </span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle size={16} className="text-[#D4AF37]" />
-                  <span className="text-gray-300 text-sm">
-                    Ergonomically designed for comfort
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle size={16} className="text-[#D4AF37]" />
-                  <span className="text-gray-300 text-sm">
-                    Sterilizable and reusable
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle size={16} className="text-[#D4AF37]" />
-                  <span className="text-gray-300 text-sm">
-                    ISO certified quality standards
-                  </span>
+
+                <h1 className="text-white text-2xl sm:text-4xl font-black mb-4 leading-tight">
+                  {product.name}
+                </h1>
+
+                <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+                  {product.description || `Professional grade ${product.name.toLowerCase()} manufactured using premium surgical stainless steel. Offers outstanding balance, tactile feedback, and resistance to repeated heat sterilization.`}
+                </p>
+
+                {/* Features List */}
+                <div className="grid grid-cols-2 gap-4 mb-8">
+                  {features.map((feat, i) => (
+                    <div key={i} className="p-3.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3">
+                      <div className="p-2 rounded-lg bg-[#D4AF37]/10 text-[#D4AF37]">
+                        <feat.icon size={18} />
+                      </div>
+                      <div>
+                        <h4 className="text-white text-xs font-bold">{feat.title}</h4>
+                        <p className="text-gray-400 text-[11px]">{feat.text}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              {/* Order / Inquiry Buttons */}
+              <div className="space-y-4 pt-6 border-t border-white/10">
                 <button
                   onClick={whatsappcontact}
-                  className="flex-1 py-3 rounded-xl bg-linear-to-r from-[#25D366] to-[#128C7E] text-white font-bold text-base flex items-center justify-center gap-2 hover:gap-3 transition-all duration-300"
+                  className="w-full py-4 rounded-xl bg-linear-to-r from-[#25D366] to-[#128C7E] text-white font-bold text-base flex items-center justify-center gap-3 hover:scale-[1.02] transition-all shadow-xl"
                 >
-                  <MessageCircle size={20} />
-                  Product Inquiry on WhatsApp
+                  <MessageCircle size={22} />
+                  <span>Inquire Price on WhatsApp</span>
                 </button>
+
+                <Link
+                  to="/contact"
+                  className="w-full py-3.5 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4AF37] text-white font-semibold text-sm flex items-center justify-center gap-2 transition-all"
+                >
+                  <span>Request Wholesale Quote</span>
+                </Link>
               </div>
 
-              {/* Features Grid */}
-              <div className="grid grid-cols-2 gap-3 pt-6 border-t border-white/10">
-                {features.map((feature, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5"
-                  >
-                    <feature.icon size={20} className="text-[#D4AF37]" />
-                    <div>
-                      <p className="text-white text-xs font-semibold">
-                        {feature.title}
-                      </p>
-                      <p className="text-gray-500 text-xs">{feature.text}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </motion.div>
+
           </div>
+
+          {/* Related Products */}
+          {relatedProducts.length > 0 && (
+            <div className="pt-12 border-t border-white/10">
+              <h2 className="text-white text-2xl font-bold mb-6">Related {product.category}</h2>
+              <Items
+                products={relatedProducts}
+                containerVariants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+                itemVariants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+              />
+            </div>
+          )}
+
         </div>
-      </section>
-
-      {/* Related Products Section */}
-      {relatedProducts.length > 0 && (
-        <section className="py-16 md:py-20 bg-linear-to-br from-[#0F0F12] to-[#0A0A0D] border-t border-white/10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-center mb-10"
-            >
-              <span className="inline-block text-[#D4AF37] uppercase tracking-[4px] text-xs font-bold mb-2">
-                You May Also Like
-              </span>
-              <h2 className="text-white text-3xl sm:text-4xl font-black mt-2">
-                Related Products
-              </h2>
-              <p className="text-gray-400 mt-2 text-sm max-w-2xl mx-auto">
-                Customers who bought this also purchased these premium
-                instruments
-              </p>
-            </motion.div>
-
-            <Items
-              products={relatedProducts}
-              containerVariants={containerVariants}
-              itemVariants={itemVariants}
-            />
-          </div>
-        </section>
-      )}
-    </div>
+      </div>
+    </>
   );
 };
 

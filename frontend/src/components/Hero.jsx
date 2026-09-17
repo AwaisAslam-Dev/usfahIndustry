@@ -8,40 +8,40 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
-// Desktop Images
-import hero1 from "../assets/slideronedesktopimg.webp";
-import hero2 from "../assets/slidertwodesktopimg.webp";
-import hero3 from "../assets/sliderthreedesktopimg.webp";
+// Custom Brand Hero Images
+import hero1 from "../assets/hero_surgical.jpg";
+import hero2 from "../assets/hero_beauty.jpg";
+import hero3 from "../assets/hero_dental.jpg";
 
-// Mobile Images (Add your mobile images here)
-import hero1Mobile from "../assets/slideronedesktopimg.webp";
-import hero2Mobile from "../assets/slidertwodesktopimg.webp";
-import hero3Mobile from "../assets/sliderthreedesktopimg.webp";
+// Mobile Images
+import hero1Mobile from "../assets/hero_surgical.jpg";
+import hero2Mobile from "../assets/hero_beauty.jpg";
+import hero3Mobile from "../assets/hero_dental.jpg";
 
 const slides = [
   {
     desktopImage: hero1,
     mobileImage: hero1Mobile,
-    title: "Precision Surgical Instruments",
-    highlightWord: "Surgical",
-    subtitle: "Premium quality instruments crafted for hospitals, clinics, and professionals worldwide.",
-    button: "Explore Surgical",
+    title: "Surgical Instruments Manufacturer",
+    highlightWord: "Manufacturer",
+    subtitle: "Leading surgical instruments supplier and exporter in Pakistan delivering certified medical tools.",
+    button: "Explore Surgical Tools",
   },
   {
     desktopImage: hero2,
     mobileImage: hero2Mobile,
-    title: "Luxury Beauty Instruments",
-    highlightWord: "Beauty",
-    subtitle: "Elegant and durable beauty tools designed for salons, spas, and skincare experts.",
-    button: "Explore Beauty",
+    title: "Luxury Beauty Tools Supplier",
+    highlightWord: "Supplier",
+    subtitle: "Precision beauty instruments and manicure nippers manufactured for professional salons and spas.",
+    button: "Explore Beauty Tools",
   },
   {
     desktopImage: hero3,
     mobileImage: hero3Mobile,
-    title: "Advanced Dental Instruments",
-    highlightWord: "Dental",
-    subtitle: "Trusted dental tools engineered for precision, hygiene, and modern treatment.",
-    button: "Explore Dental",
+    title: "Dental Instruments Exporter",
+    highlightWord: "Exporter",
+    subtitle: "Quality dental extracting forceps and elevators manufactured in Sialkot for global clinics.",
+    button: "Explore Dental Tools",
   },
 ];
 
@@ -159,9 +159,9 @@ const navigate = useNavigate();
                       <p className="text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl">
                         <TypingText 
                           texts={[
-                            "Premium quality instruments crafted for hospitals worldwide",
-                            "Elegant beauty tools for salons and skincare experts", 
-                            "Trusted dental tools for precision and modern treatment"
+                            "Leading surgical instruments manufacturer and supplier in Pakistan",
+                            "High precision dental instruments and extracting forceps exporter", 
+                            "Export quality beauty instruments and cuticle nippers factory Sialkot"
                           ]} 
                           delay={80}
                         />

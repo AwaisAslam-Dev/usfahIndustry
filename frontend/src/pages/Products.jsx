@@ -1,32 +1,46 @@
 import React, { useState, useEffect, useContext, useMemo, useCallback } from "react";
-import { Filter, X, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { Filter, X, ChevronDown, ChevronLeft, ChevronRight, Search, RotateCcw } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Items from "../components/Items";
 import { ShopContext } from "../context/ShopContext";
-import { Helmet } from "react-helmet-async";
+import SEO from "../components/SEO";
+import Breadcrumb from "../components/Breadcrumb";
+
 const Products = () => {
   const [showFilter, setShowFilter] = useState(false);
   const [sortType, setSortType] = useState("relevant");
-  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage, setProductsPerPage] = useState(12); // Default 12 products per page
+  const [productsPerPage, setProductsPerPage] = useState(12);
   const { products } = useContext(ShopContext);
-  
-  // Filter states
+
+  // Selected Categories filter state
   const [selectedCategories, setSelectedCategories] = useState([]);
 
-  // Categories based on surgical industry
+  // Medical & Surgical Industry Categories
   const categories = useMemo(() => [
     "Surgical Instruments",
+    "Dental Instruments",
     "Beauty Instruments",
     "Extracting Forceps",
     "Root Elevators",
     "Scaler",
   ], []);
 
-  // Memoized filtered and sorted products
+  // Filtered and Sorted Products
   const processedProducts = useMemo(() => {
     let processed = [...products];
+
+    // Search query filter (matches name, category, or product ID)
+    if (searchQuery.trim() !== "") {
+      const q = searchQuery.toLowerCase();
+      processed = processed.filter(
+        (product) =>
+          product.name.toLowerCase().includes(q) ||
+          product.category.toLowerCase().includes(q) ||
+          (product.id && product.id.toLowerCase().includes(q))
+      );
+    }
 
     // Filter by categories
     if (selectedCategories.length > 0) {
@@ -36,95 +50,62 @@ const Products = () => {
     }
 
     // Sort products
-    if (sortType === "low-high") {
-      processed.sort((a, b) => a.price - b.price);
-    } else if (sortType === "high-low") {
-      processed.sort((a, b) => b.price - a.price);
-    } else if (sortType === "rating") {
-      processed.sort((a, b) => b.rating - a.rating);
-    } else if (sortType === "newest") {
-      processed.sort((a, b) => (b.isNew === a.isNew ? 0 : b.isNew ? 1 : -1));
+    if (sortType === "name-asc") {
+      processed.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortType === "name-desc") {
+      processed.sort((a, b) => b.name.localeCompare(a.name));
+    } else if (sortType === "bestseller") {
+      processed.sort((a, b) => (b.bestseller === a.bestseller ? 0 : b.bestseller ? 1 : -1));
     }
 
     return processed;
-  }, [products, selectedCategories, sortType]);
+  }, [products, selectedCategories, searchQuery, sortType]);
 
-  // Update filtered products when processed products change
+  // Reset to first page when filters change
   useEffect(() => {
-    setFilteredProducts(processedProducts);
-    setCurrentPage(1); // Reset to first page when filters change
-  }, [processedProducts]);
+    setCurrentPage(1);
+  }, [selectedCategories, searchQuery, sortType]);
 
-  // Pagination logic
+  // Pagination calculations
   const { currentProducts, totalPages, startIndex, endIndex } = useMemo(() => {
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    const current = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
-    const total = Math.ceil(filteredProducts.length / productsPerPage);
+    const current = processedProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+    const total = Math.ceil(processedProducts.length / productsPerPage) || 1;
     
     return {
       currentProducts: current,
       totalPages: total,
-      startIndex: indexOfFirstProduct + 1,
-      endIndex: Math.min(indexOfLastProduct, filteredProducts.length)
+      startIndex: processedProducts.length === 0 ? 0 : indexOfFirstProduct + 1,
+      endIndex: Math.min(indexOfLastProduct, processedProducts.length)
     };
-  }, [filteredProducts, currentPage, productsPerPage]);
+  }, [processedProducts, currentPage, productsPerPage]);
 
-  // Handle page change
   const handlePageChange = useCallback((pageNumber) => {
     setCurrentPage(pageNumber);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
-  // Handle next/previous page
-  const handleNextPage = useCallback(() => {
-    if (currentPage < totalPages) {
-      setCurrentPage(prev => prev + 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  }, [currentPage, totalPages]);
-
-  const handlePrevPage = useCallback(() => {
-    if (currentPage > 1) {
-      setCurrentPage(prev => prev - 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  }, [currentPage]);
-
-  // Handle products per page change
-  const handleProductsPerPageChange = useCallback((value) => {
-    setProductsPerPage(value);
-    setCurrentPage(1); // Reset to first page
-  }, []);
-
-  // Handle category change with useCallback
   const handleCategoryChange = useCallback((category) => {
     setSelectedCategories((prev) =>
       prev.includes(category)
         ? prev.filter((c) => c !== category)
         : [...prev, category]
     );
-    setCurrentPage(1); // Reset to first page when filter changes
   }, []);
 
-  // Clear all filters
   const clearFilters = useCallback(() => {
     setSelectedCategories([]);
+    setSearchQuery("");
     setSortType("relevant");
     setCurrentPage(1);
   }, []);
 
-  // Get active filters count
-  const activeFiltersCount = selectedCategories.length;
-
-  // Memoized animation variants
   const containerVariants = useMemo(() => ({
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-      },
+      transition: { staggerChildren: 0.05 },
     },
   }), []);
 
@@ -133,276 +114,246 @@ const Products = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.4,
-      },
+      transition: { duration: 0.4 },
     },
   }), []);
 
-  // Generate page numbers for pagination
-  const pageNumbers = useMemo(() => {
-    const pages = [];
-    const maxPagesToShow = 5;
-    let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
-    let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
-    
-    if (endPage - startPage + 1 < maxPagesToShow) {
-      startPage = Math.max(1, endPage - maxPagesToShow + 1);
-    }
-    
-    for (let i = startPage; i <= endPage; i++) {
-      pages.push(i);
-    }
-    return pages;
-  }, [currentPage, totalPages]);
+  // Products Catalog Schema
+  const catalogSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Surgical, Dental & Beauty Instruments Catalog",
+    "numberOfItems": processedProducts.length,
+    "itemListElement": currentProducts.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "url": `https://usfahindustry.com/productdetails/${item.id}`,
+      "name": item.name
+    }))
+  };
 
   return (
-  <>
-  <Helmet>
-  <title>Products - Usfah Industry</title>
-  <meta
-    name="description"
-    content="Explore our products collection."
-  />
-</Helmet>
-    <div className="min-h-screen bg-linear-to-br from-[#0B0B0D] via-[#0F0F12] to-[#0A0A0D]">
-      {/* Page Header */}
-      <section className="relative py-12 md:py-16 overflow-hidden border-b border-white/10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-50 bg-[#D4AF37]/5 blur-[120px] rounded-full"></div>
+    <>
+      <SEO
+        title="Products Catalog | Surgical, Dental & Beauty Instruments | Usfah Industry"
+        description="Browse our complete catalog of surgical scissors, dissecting forceps, dental extracting forceps, root elevators, periodontal scalers, and beauty instruments."
+        keywords="surgical instruments catalog, dental tools list, extracting forceps 150 151, root elevators, beauty cuticle nippers, Sialkot surgical instruments,advanced surgical products , latest dental products,beauty products,stylish scissors ,beauty instruments,surgical instruments,
+surgical instruments manufacturer,
+surgical instruments supplier,
+surgical instruments supplier Pakistan,
+surgical instruments manufacturer Pakistan,
+surgical instruments manufacturer Sialkot,
+surgical instruments exporter,
+surgical instruments exporter Pakistan,
+surgical instruments wholesale,
+surgical instruments Pakistan,
+surgical instruments Sialkot,
+surgical instrument supplier,
+surgical instrument manufacturer,
+medical instruments manufacturer Pakistan,
+medical instruments supplier,
+surgical instrument products,
+surgical medical instruments,
+medical surgical instruments,
+surgical instruments range,
+surgical instrument products Pakistan"
+        canonical="https://usfahindustry.com/products"
+        schemaData={catalogSchema}
+      />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center"
-          >
-            <span className="inline-block text-[#D4AF37] uppercase tracking-[4px] text-xs font-bold mb-2">
-              Our Collection
-            </span>
-            <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-black mt-2 leading-tight">
-              Premium Surgical & Medical Instruments
+      <div className="min-h-screen bg-linear-to-br from-[#0B0B0D] via-[#0F0F12] to-[#0A0A0D] py-8 sm:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20">
+          
+          <Breadcrumb items={[{ name: 'Products Catalog', url: '/products' }]} />
+
+          {/* Header */}
+          <div className="mb-8">
+            <h1 className="text-white text-3xl sm:text-5xl font-black mb-3">
+              Surgical and Dental <span className="text-transparent bg-linear-to-r from-[#D4AF37] via-[#E8C547] to-[#C9A227] bg-clip-text">Instruments Catalog</span>
             </h1>
-            <p className="text-gray-400 mt-3 text-sm max-w-2xl mx-auto">
-              Discover our wide range of professional surgical, dental, and
-              beauty instruments crafted with precision and excellence.
+            <p className="text-gray-400 text-sm sm:text-base max-w-3xl leading-relaxed">
+              Usfah Industry is a certified surgical instruments manufacturer in Sialkot Pakistan. Explore our export catalog of surgical tools, dental extracting forceps, root elevators, scalers, and beauty instruments crafted from medical stainless steel.
             </p>
-          </motion.div>
-        </div>
-      </section>
+          </div>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-col lg:flex-row gap-6">
-          {/* Filter Sidebar */}
-          <AnimatePresence mode="wait">
-            {(showFilter || window.innerWidth >= 1024) && (
-              <motion.aside
-                initial={{ x: -300, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: -300, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className={`fixed lg:static top-0 left-0 h-full w-72 bg-linear-to-br from-[#0F0F12] to-[#0A0A0D] border-r border-white/10 p-5 z-50 overflow-y-auto ${
-                  showFilter ? "block" : "hidden lg:block"
-                }`}
-              >
-                {/* Filter Header */}
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
-                  <h3 className="text-white font-bold text-lg">Filters</h3>
-                  <button
-                    className="lg:hidden text-gray-400 hover:text-[#D4AF37] transition-colors"
-                    onClick={() => setShowFilter(false)}
-                  >
-                    <X size={18} />
-                  </button>
-                </div>
+          {/* Search Bar & Filter Controls Bar */}
+          <div className="bg-linear-to-r from-[#0F0F12] to-[#0A0A0D] p-4 rounded-2xl border border-white/10 mb-8 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl">
+            
+            {/* Search Input */}
+            <div className="relative w-full md:w-96">
+              <input
+                type="text"
+                placeholder="Search by name, category, or ID (e.g., USF-SURG-001)..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full py-2.5 pl-10 pr-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-[#D4AF37] text-sm"
+              />
+              <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white"
+                >
+                  <X size={16} />
+                </button>
+              )}
+            </div>
 
-                <div className="space-y-6">
-                  {/* Categories Filter */}
-                  <div>
-                    <h4 className="text-white font-semibold text-sm mb-3 tracking-wider uppercase">
-                      Categories
-                    </h4>
-                    <div className="space-y-2">
-                      {categories.map((category) => (
-                        <label
-                          key={category}
-                          className="flex items-center gap-3 cursor-pointer group"
-                        >
-                          <input
-                            type="checkbox"
-                            checked={selectedCategories.includes(category)}
-                            onChange={() => handleCategoryChange(category)}
-                            className="w-4 h-4 rounded border-white/20 bg-transparent checked:bg-[#D4AF37] checked:border-[#D4AF37] focus:ring-[#D4AF37] focus:ring-offset-0"
-                          />
-                          <span className="text-gray-400 text-sm group-hover:text-[#D4AF37] transition-colors">
-                            {category}
-                          </span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-
-                 
-
-                  <div className="h-px bg-linear-to-r from-transparent via-white/10 to-transparent" />
-
-                  {/* Clear Filters Button */}
-                  {activeFiltersCount > 0 && (
-                    <button
-                      onClick={clearFilters}
-                      className="w-full py-2 text-sm text-[#D4AF37] border border-[#D4AF37]/30 rounded-lg hover:bg-[#D4AF37]/10 transition-colors mt-4"
-                    >
-                      Clear All Filters ({activeFiltersCount})
-                    </button>
-                  )}
-                </div>
-              </motion.aside>
-            )}
-          </AnimatePresence>
-
-          {/* Products Section */}
-          <div className="flex-1">
-            {/* Top Bar */}
-            <div className="flex flex-wrap justify-between items-center gap-3 mb-6 pb-4 border-b border-white/10">
-              {/* Mobile Filter Button */}
+            <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
+              {/* Filter Toggle Mobile */}
               <button
-                className="lg:hidden flex items-center gap-2 px-4 py-2 rounded-lg bg-linear-to-br from-[#0F0F12] to-[#0A0A0D] border border-white/10 text-white text-sm"
-                onClick={() => setShowFilter(true)}
+                onClick={() => setShowFilter(!showFilter)}
+                className="md:hidden flex items-center gap-2 px-4 py-2 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] font-semibold text-xs uppercase"
               >
                 <Filter size={16} />
-                Filters
-                {activeFiltersCount > 0 && (
-                  <span className="ml-1 px-1.5 py-0.5 text-xs bg-[#D4AF37] text-black rounded-full">
-                    {activeFiltersCount}
-                  </span>
-                )}
+                <span>Filters {selectedCategories.length > 0 && `(${selectedCategories.length})`}</span>
               </button>
 
-              {/* Products Per Page Selector */}
-              <div className="flex items-center gap-3">
-                <span className="text-gray-400 text-sm hidden sm:inline">Show:</span>
+              {/* Sort By Dropdown */}
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-300">
+                <span className="hidden sm:inline">Sort By:</span>
                 <select
-                  value={productsPerPage}
-                  onChange={(e) => handleProductsPerPageChange(Number(e.target.value))}
-                  className="px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:border-[#D4AF37] transition-colors"
+                  value={sortType}
+                  onChange={(e) => setSortType(e.target.value)}
+                  className="bg-[#111115] text-white border border-white/10 rounded-xl px-3 py-2 focus:outline-none focus:border-[#D4AF37] text-xs sm:text-sm"
                 >
-                  <option  className="text-black" value={10}>10 per page</option>
-                  <option  className="text-black" value={12}>12 per page</option>
-                  <option  className="text-black" value={15}>15 per page</option>
-                  <option  className="text-black" value={20}>20 per page</option>
-                  <option  className="text-black" value={30}>30 per page</option>
+                  <option value="relevant">Featured / Relevant</option>
+                  <option value="bestseller">Bestsellers First</option>
+                  <option value="name-asc">Name (A-Z)</option>
+                  <option value="name-desc">Name (Z-A)</option>
                 </select>
               </div>
             </div>
+          </div>
 
-            {/* Results Count */}
-            <div className="mb-4 text-gray-400 text-sm">
-              Showing {filteredProducts.length > 0 ? startIndex : 0} - {endIndex} of {filteredProducts.length} products
-            </div>
-
-            {/* Products Grid */}
-            {currentProducts.length > 0 ? (
-              <>
-                <Items
-                  products={currentProducts}
-                  containerVariants={containerVariants}
-                  itemVariants={itemVariants}
-                />
+          <div className="flex flex-col md:flex-row gap-8">
+            
+            {/* Desktop Categories Sidebar */}
+            <aside className={`md:block md:w-64 shrink-0 ${showFilter ? 'block' : 'hidden'}`}>
+              <div className="bg-linear-to-br from-[#0F0F12] to-[#0A0A0D] p-5 rounded-2xl border border-white/10 sticky top-24">
                 
-                {/* Pagination */}
-                {totalPages > 1 && (
-                  <div className="flex justify-center items-center gap-2 mt-12 pt-6 border-t border-white/10">
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+                  <h3 className="text-white font-bold text-base flex items-center gap-2">
+                    <Filter size={18} className="text-[#D4AF37]" />
+                    <span>Filter Categories</span>
+                  </h3>
+                  {selectedCategories.length > 0 && (
                     <button
-                      onClick={handlePrevPage}
-                      disabled={currentPage === 1}
-                      className={`p-2 rounded-lg border transition-all duration-300 ${
-                        currentPage === 1
-                          ? "border-white/10 text-gray-600 cursor-not-allowed"
-                          : "border-white/20 text-white hover:border-[#D4AF37] hover:text-[#D4AF37]"
-                      }`}
+                      onClick={clearFilters}
+                      className="text-xs text-[#D4AF37] hover:underline flex items-center gap-1"
                     >
-                      <ChevronLeft size={18} />
+                      <RotateCcw size={12} />
+                      <span>Reset</span>
                     </button>
-                    
-                    {pageNumbers[0] > 1 && (
-                      <>
-                        <button
-                          onClick={() => handlePageChange(1)}
-                          className="px-3 py-1 rounded-lg border border-white/20 text-white text-sm hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all duration-300"
-                        >
-                          1
-                        </button>
-                        {pageNumbers[0] > 2 && <span className="text-gray-500">...</span>}
-                      </>
-                    )}
-                    
-                    {pageNumbers.map((pageNum) => (
-                      <button
-                        key={pageNum}
-                        onClick={() => handlePageChange(pageNum)}
-                        className={`px-3 py-1 rounded-lg border transition-all duration-300 text-sm ${
-                          currentPage === pageNum
-                            ? "bg-[#D4AF37] border-[#D4AF37] text-black font-bold"
-                            : "border-white/20 text-white hover:border-[#D4AF37] hover:text-[#D4AF37]"
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  {categories.map((cat) => {
+                    const isChecked = selectedCategories.includes(cat);
+                    const count = products.filter(p => p.category === cat).length;
+                    return (
+                      <label
+                        key={cat}
+                        className={`flex items-center justify-between p-2.5 rounded-xl cursor-pointer transition-all ${
+                          isChecked ? 'bg-[#D4AF37]/15 text-[#D4AF37] border border-[#D4AF37]/30' : 'hover:bg-white/5 text-gray-300'
                         }`}
                       >
-                        {pageNum}
-                      </button>
-                    ))}
-                    
-                    {pageNumbers[pageNumbers.length - 1] < totalPages && (
-                      <>
-                        {pageNumbers[pageNumbers.length - 1] < totalPages - 1 && (
-                          <span className="text-gray-500">...</span>
-                        )}
-                        <button
-                          onClick={() => handlePageChange(totalPages)}
-                          className="px-3 py-1 rounded-lg border border-white/20 text-white text-sm hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all duration-300"
-                        >
-                          {totalPages}
-                        </button>
-                      </>
-                    )}
-                    
-                    <button
-                      onClick={handleNextPage}
-                      disabled={currentPage === totalPages}
-                      className={`p-2 rounded-lg border transition-all duration-300 ${
-                        currentPage === totalPages
-                          ? "border-white/10 text-gray-600 cursor-not-allowed"
-                          : "border-white/20 text-white hover:border-[#D4AF37] hover:text-[#D4AF37]"
-                      }`}
-                    >
-                      <ChevronRight size={18} />
-                    </button>
-                  </div>
-                )}
-              </>
-            ) : (
-              <div className="text-center py-16">
-                <p className="text-gray-400 text-sm">No products found</p>
-                <button
-                  onClick={clearFilters}
-                  className="mt-3 text-[#D4AF37] text-sm hover:underline transition-colors"
-                >
-                  Clear all filters
-                </button>
+                        <div className="flex items-center gap-3">
+                          <input
+                            type="checkbox"
+                            checked={isChecked}
+                            onChange={() => handleCategoryChange(cat)}
+                            className="w-4 h-4 accent-[#D4AF37] rounded cursor-pointer"
+                          />
+                          <span className="text-xs sm:text-sm font-medium">{cat}</span>
+                        </div>
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-gray-400">
+                          {count}
+                        </span>
+                      </label>
+                    );
+                  })}
+                </div>
               </div>
-            )}
+            </aside>
+
+            {/* Products Main Grid */}
+            <main className="flex-1">
+              
+              {/* Total found bar */}
+              <div className="flex items-center justify-between mb-6 text-xs sm:text-sm text-gray-400">
+                <span>
+                  Showing <strong className="text-white">{startIndex} - {endIndex}</strong> of <strong className="text-white">{processedProducts.length}</strong> instruments
+                </span>
+                {selectedCategories.length > 0 && (
+                  <span className="text-[#D4AF37] bg-[#D4AF37]/10 px-3 py-1 rounded-full border border-[#D4AF37]/30 text-xs">
+                    Filtered by {selectedCategories.length} category
+                  </span>
+                )}
+              </div>
+
+              {processedProducts.length === 0 ? (
+                <div className="text-center py-20 bg-white/5 rounded-2xl border border-white/10">
+                  <h3 className="text-white text-xl font-bold mb-2">No Instruments Match Your Criteria</h3>
+                  <p className="text-gray-400 text-sm mb-6">Try clearing filters or changing your search phrase.</p>
+                  <button
+                    onClick={clearFilters}
+                    className="px-6 py-2.5 rounded-xl bg-[#D4AF37] text-black font-bold text-xs uppercase"
+                  >
+                    Reset All Filters
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <Items
+                    products={currentProducts}
+                    containerVariants={containerVariants}
+                    itemVariants={itemVariants}
+                  />
+
+                  {/* Pagination Controls */}
+                  {totalPages > 1 && (
+                    <div className="mt-12 flex items-center justify-center gap-2">
+                      <button
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        disabled={currentPage === 1}
+                        className="p-2 rounded-xl bg-white/5 border border-white/10 text-white disabled:opacity-30 disabled:cursor-not-allowed hover:border-[#D4AF37]"
+                      >
+                        <ChevronLeft size={20} />
+                      </button>
+
+                      {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                        <button
+                          key={page}
+                          onClick={() => handlePageChange(page)}
+                          className={`w-10 h-10 rounded-xl text-sm font-bold transition-all ${
+                            currentPage === page
+                              ? 'bg-[#D4AF37] text-black shadow-lg scale-105'
+                              : 'bg-white/5 text-gray-400 hover:text-white border border-white/10'
+                          }`}
+                        >
+                          {page}
+                        </button>
+                      ))}
+
+                      <button
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={currentPage === totalPages}
+                        className="p-2 rounded-xl bg-white/5 border border-white/10 text-white disabled:opacity-30 disabled:cursor-not-allowed hover:border-[#D4AF37]"
+                      >
+                        <ChevronRight size={20} />
+                      </button>
+                    </div>
+                  )}
+                </>
+              )}
+            </main>
+
           </div>
         </div>
       </div>
-
-      {/* Mobile Filter Overlay */}
-      {showFilter && (
-        <div
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 lg:hidden"
-          onClick={() => setShowFilter(false)}
-        />
-      )}
-    </div>
-  </>
+    </>
   );
 };
 
