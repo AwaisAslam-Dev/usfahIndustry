@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 import { motion } from "framer-motion";

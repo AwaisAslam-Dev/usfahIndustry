@@ -1,8 +1,5 @@
 import p_img1 from "./786.png";
 import p_img2_1 from "./787.png";
-import p_img2_2 from "./788.png";
-import p_img2_3 from "./789.png";
-import p_img2_4 from "./790.png";
 import p_img3 from "./791.png";
 import p_img4 from "./792.png";
 import p_img5 from "./794.png";
@@ -51,8 +48,6 @@ import p_img47 from "./835.png";
 import p_img48 from "./836.png";
 import p_img49 from "./837.png";
 import p_img50 from "./838.png";
-import p_img51 from "./838.png";
-import p_img52 from "./838.png";
 import img1 from './20-001.png';
 import img2 from './20-002.png';
 import img3 from './20-003.png';

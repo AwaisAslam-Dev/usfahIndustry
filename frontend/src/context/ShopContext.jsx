@@ -1,8 +1,8 @@
-import React, { useState, createContext, useEffect, useMemo } from "react";
+import React, { useState, createContext } from "react";
 import { Surgicalproducts } from "../assets/assets";
 export const ShopContext = createContext(null);
 const ShopContextProvider = ({ children }) => {
- const [products, setproducts] = useState(Surgicalproducts)
+ const [products] = useState(Surgicalproducts)
 
 
  

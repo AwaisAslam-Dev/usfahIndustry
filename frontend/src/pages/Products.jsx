@@ -11,7 +11,7 @@ const Products = () => {
   const [sortType, setSortType] = useState("relevant");
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage, setProductsPerPage] = useState(12);
+  const [productsPerPage] = useState(12);
   const { products } = useContext(ShopContext);
 
   // Selected Categories filter state

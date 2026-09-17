@@ -9,22 +9,6 @@ const Catelogue = () => {
   // Sample PDF URL - Replace with your actual PDF file path
   const pdfUrl = '/Usfah-Industry-Catelogue.pdf'
   
-  // Catalogue categories
-  const categories = [
-    {
-      title: 'Surgical Products',
-      items: ['Surgical Instruments', 'Sutures & Staplers', 'Surgical Blades', 'Needles & Syringes']
-    },
-    {
-      title: 'Medical Products',
-      items: ['Diagnostic Equipment', 'Patient Monitoring', 'Medical Supplies', 'Rehabilitation Aids']
-    },
-    {
-      title: 'Beauty Products',
-      items: ['Aesthetic Devices', 'Skincare Solutions', 'Cosmetic Tools', 'Beauty Equipment']
-    }
-  ]
-
   const handleDownload = () => {
     // Create a temporary anchor element
     const link = document.createElement('a')

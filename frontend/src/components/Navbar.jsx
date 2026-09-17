@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import logo from '../assets/navbarlogo.png'
 import { NavLink } from 'react-router-dom'
 import { Search, Menu, X, Grid } from 'lucide-react'

@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import { ArrowRight, ArrowLeft, ArrowRight as ArrowRightIcon } from "lucide-react";
