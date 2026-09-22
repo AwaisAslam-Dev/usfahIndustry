@@ -35,7 +35,7 @@ const ProductDetails = () => {
   const whatsappcontact = () => {
     if (!product) return;
     const ownerPhoneNumber = "923460424486";
-    const message = `*Product Inquiry*%0A%0A*Product ID:* ${product.id}%0A*Product Name:* ${product.name}%0A*Category:* ${product.category}%0AHello Usfah Industry, I am interested in this instrument. Please provide pricing and catalog details.`;
+    const message = `*Product Inquiry*%0A%0A*Product ID:* ${product.id}%0A*Category:* ${product.category}%0AHello Usfah Industry, I am interested in this instrument. Please provide pricing and catalog details.`;
     const whatsappUrl = `https://wa.me/${ownerPhoneNumber}?text=${message}`;
     window.open(whatsappUrl, "_blank");
   };
@@ -80,9 +80,9 @@ const ProductDetails = () => {
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": product.name,
+    "name": `${product.category} (${product.id})`,
     "image": [mainImageSrc.startsWith("http") ? mainImageSrc : `${DOMAIN}${mainImageSrc}`],
-    "description": product.description || `Export-quality ${product.name} manufactured by Usfah Industry.`,
+    "description": product.description || `Export-quality ${product.category} (${product.id}) manufactured by Usfah Industry.`,
     "sku": product.id,
     "mpn": product.id,
     "brand": {
@@ -106,9 +106,9 @@ const ProductDetails = () => {
   return (
     <>
       <SEO
-        title={`${product.name} (${product.id}) | Usfah Industry`}
-        description={product.description || `Buy or order wholesale ${product.name} (${product.id}) manufactured from medical grade stainless steel by Usfah Industry.`}
-        keywords={`${product.name}, ${product.category}, ${product.id}, surgical tools, Usfah Industry Sialkot`}
+        title={`${product.category} (${product.id}) | Usfah Industry`}
+        description={product.description || `Buy or order wholesale ${product.category} (${product.id}) manufactured from medical grade stainless steel by Usfah Industry.`}
+        keywords={`${product.category}, ${product.id}, surgical tools, Usfah Industry Sialkot`}
         canonical={canonicalUrl}
         ogType="product"
         ogImage={mainImageSrc}
@@ -122,7 +122,7 @@ const ProductDetails = () => {
             items={[
               { name: 'Products', url: '/products' },
               { name: product.category, url: `/products?category=${encodeURIComponent(product.category)}` },
-              { name: product.name }
+              { name: product.id || product.category }
             ]}
           />
 
@@ -138,7 +138,7 @@ const ProductDetails = () => {
               <div className="relative bg-linear-to-br from-[#0F0F12] to-[#0A0A0D] rounded-2xl overflow-hidden border border-white/10 mb-4 aspect-square flex items-center justify-center p-6">
                 <img
                   src={productImages[selectedImage]}
-                  alt={product.name}
+                  alt={`${product.category} ${product.id}`}
                   className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
                 />
 
@@ -174,7 +174,7 @@ const ProductDetails = () => {
                         : 'border-white/10 opacity-60 hover:opacity-100'
                     }`}
                   >
-                    <img src={img} alt={`${product.name} view ${idx + 1}`} className="w-full h-full object-contain" />
+                    <img src={img} alt={`${product.category} view ${idx + 1}`} className="w-full h-full object-contain" />
                   </button>
                 ))}
               </div>
@@ -198,11 +198,11 @@ const ProductDetails = () => {
                 </div>
 
                 <h1 className="text-white text-2xl sm:text-4xl font-black mb-4 leading-tight">
-                  {product.name}
+                  {product.category} <span className="text-[#D4AF37]">({product.id})</span>
                 </h1>
 
                 <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
-                  {product.description || `Professional grade ${product.name.toLowerCase()} manufactured using premium surgical stainless steel. Offers outstanding balance, tactile feedback, and resistance to repeated heat sterilization.`}
+                  {product.description || `Professional grade ${product.category.toLowerCase()} manufactured using premium surgical stainless steel. Offers outstanding balance, tactile feedback, and resistance to repeated heat sterilization.`}
                 </p>
 
                 {/* Features List */}

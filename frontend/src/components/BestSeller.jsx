@@ -157,7 +157,7 @@ const BestSeller = () => {
                       <div className="relative aspect-square overflow-hidden bg-linear-to-br from-gray-900 to-black">
                         <img
                           src={product.image}
-                          alt={product.name}
+                          alt={`${product.category} ${product.id || ''}`}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                           loading="lazy"
                         />
@@ -182,14 +182,16 @@ const BestSeller = () => {
                       </div>
 
                       <div className="p-2">
-                        <div className="mb-0.5">
+                        <div className="mb-2 flex items-center justify-between">
                           <span className="text-[8px] text-[#D4AF37] tracking-wider uppercase font-semibold">
                             {product.category}
                           </span>
+                          {product.id && (
+                            <span className="text-[8px] text-gray-400 font-mono">
+                              {product.id}
+                            </span>
+                          )}
                         </div>
-                        <h3 className="text-white font-bold text-xs mb-4 line-clamp-2 group-hover:text-[#D4AF37] transition-colors">
-                          {product.name}
-                        </h3>
                         
                         <button className="w-full py-1 rounded-lg bg-linear-to-r from-[#D4AF37] to-[#C9A227] text-black font-semibold text-[10px] flex items-center justify-center gap-1">
                           <Eye size={10} />

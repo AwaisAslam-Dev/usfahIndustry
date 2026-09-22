@@ -31,12 +31,12 @@ const Products = () => {
   const processedProducts = useMemo(() => {
     let processed = [...products];
 
-    // Search query filter (matches name, category, or product ID)
+    // Search query filter (matches category or product ID)
     if (searchQuery.trim() !== "") {
       const q = searchQuery.toLowerCase();
       processed = processed.filter(
         (product) =>
-          product.name.toLowerCase().includes(q) ||
+          (product.name && product.name.toLowerCase().includes(q)) ||
           product.category.toLowerCase().includes(q) ||
           (product.id && product.id.toLowerCase().includes(q))
       );
@@ -50,10 +50,10 @@ const Products = () => {
     }
 
     // Sort products
-    if (sortType === "name-asc") {
-      processed.sort((a, b) => a.name.localeCompare(b.name));
-    } else if (sortType === "name-desc") {
-      processed.sort((a, b) => b.name.localeCompare(a.name));
+    if (sortType === "id-asc") {
+      processed.sort((a, b) => (a.id || "").localeCompare(b.id || ""));
+    } else if (sortType === "id-desc") {
+      processed.sort((a, b) => (b.id || "").localeCompare(a.id || ""));
     } else if (sortType === "bestseller") {
       processed.sort((a, b) => (b.bestseller === a.bestseller ? 0 : b.bestseller ? 1 : -1));
     }
@@ -128,7 +128,7 @@ const Products = () => {
       "@type": "ListItem",
       "position": index + 1,
       "url": `https://usfahindustry.com/productdetails/${item.id}`,
-      "name": item.name
+      "name": `${item.category} (${item.id})`
     }))
   };
 
@@ -219,8 +219,8 @@ surgical instrument products Pakistan"
                 >
                   <option value="relevant">Featured / Relevant</option>
                   <option value="bestseller">Bestsellers First</option>
-                  <option value="name-asc">Name (A-Z)</option>
-                  <option value="name-desc">Name (Z-A)</option>
+                  <option value="id-asc">Product ID (Ascending)</option>
+                  <option value="id-desc">Product ID (Descending)</option>
                 </select>
               </div>
             </div>

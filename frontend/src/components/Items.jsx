@@ -30,7 +30,7 @@ const Items = ({ products, containerVariants, itemVariants }) => {
               <div className="relative aspect-square overflow-hidden bg-linear-to-br from-gray-900 to-black">
                 <img
                   src={product.image}
-                  alt={product.name}
+                  alt={`${product.category} ${product.id || ''}`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   loading="lazy"
                   decoding="async"
@@ -60,17 +60,17 @@ const Items = ({ products, containerVariants, itemVariants }) => {
 
               {/* Product Info */}
               <div className="p-3 md:p-5">
-                {/* Category - Increased text size for desktop */}
-                <div className="mb-1">
+                {/* Category & ID */}
+                <div className="mb-3 flex items-center justify-between">
                   <span className="text-[10px] md:text-xs text-[#D4AF37] tracking-wider uppercase font-semibold">
                     {product.category}
                   </span>
+                  {product.id && (
+                    <span className="text-[10px] md:text-xs text-gray-400 font-mono">
+                      {product.id}
+                    </span>
+                  )}
                 </div>
-                
-                {/* Product Name - Increased text size for desktop */}
-                <h3 className="text-white font-bold text-sm md:text-lg mb-3 line-clamp-2 group-hover:text-[#D4AF37] transition-colors">
-                  {product.name}
-                </h3>
                
                 <button className="w-full py-2 md:py-3 rounded-lg bg-linear-to-r from-[#D4AF37] to-[#C9A227] text-black font-semibold text-sm md:text-base flex items-center justify-center gap-2 hover:gap-3 transition-all duration-300">
                   <Eye size={18} className="md:w-5 md:h-5" />
