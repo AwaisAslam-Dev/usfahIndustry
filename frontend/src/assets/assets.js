@@ -28,16 +28,16 @@ import p_img27 from "./815.png";
 import p_img28 from "./816.png";
 import p_img29 from "./817.png";
 import p_img30 from "./818.png";
-import p_img31 from "./819.png";
-import p_img32 from "./820.png";
-import p_img33 from "./821.png";
-import p_img34 from "./822.png";
-import p_img35 from "./823.png";
-import p_img36 from "./824.png";
-import p_img37 from "./825.png";
-import p_img38 from "./826.png";
-import p_img39 from "./827.png";
-import p_img40 from "./828.png";
+import p_img31 from "./21-079.png";
+import p_img32 from "./21-149.png";
+import p_img33 from "./21-165.png";
+import p_img34 from "./21-091.png";
+import p_img35 from "./21-242.png";
+import p_img36 from "./21-239.png";
+import p_img37 from "./21-220.png";
+import p_img38 from "./21-214.png";
+import p_img39 from "./21-193.png";
+import p_img40 from "./21-204.png";
 import p_img41 from "./829.png";
 import p_img42 from "./830.png";
 import p_img43 from "./831.png";
@@ -97,6 +97,17 @@ import img46 from './20-129.png';
 import img47 from './20-114.png';
 import img48 from './20-124.png';
 
+
+import p_img99 from './22-117.png';
+import p_img100 from './22-140.png';
+import p_img101 from './22-133.png';
+import p_img102 from './22-154.png';
+import p_img103 from './22-164.png';
+import p_img104 from './22-167.png';
+import p_img105 from './22-095.png';
+import p_img106 from './22-039.png';
+import p_img107 from './22-034.png';
+import p_img108 from './22-047.png';
 export const Surgicalproducts = [
   {
     id: "USF-SURG-001",
@@ -260,83 +271,83 @@ export const Surgicalproducts = [
   },
   {
     id: "USF-EXTR-021",
-    name: "Extracting Forceps (Ref 809)",
+    name: "Surgical Instruments (Ref 809)",
     image: [p_img21],
-    category: "Extracting Forceps",
+    category: "Surgical Instruments",
     bestseller: true,
-    description: "Usfah Industry export-grade Extracting Forceps (Ref 809) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Surgical Instruments (Ref 809) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-EXTR-022",
-    name: "Extracting Forceps (Ref 810)",
+    name: "Surgical Instruments (Ref 810)",
     image: [p_img22],
-    category: "Extracting Forceps",
+    category: "Surgical Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Extracting Forceps (Ref 810) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Surgical Instruments (Ref 810) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-EXTR-023",
-    name: "Extracting Forceps (Ref 811)",
+    name: "Surgical Instruments (Ref 811)",
     image: [p_img23],
-    category: "Extracting Forceps",
+    category: "Surgical Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Extracting Forceps (Ref 811) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Surgical Instruments (Ref 811) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-EXTR-024",
-    name: "Extracting Forceps (Ref 812)",
+    name: "Surgical Instruments (Ref 812)",
     image: [p_img24],
-    category: "Extracting Forceps",
+    category: "Surgical Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Extracting Forceps (Ref 812) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Surgical Instruments (Ref 812) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-EXTR-025",
-    name: "Extracting Forceps (Ref 813)",
+    name: "Surgical Instruments (Ref 813)",
     image: [p_img25],
-    category: "Extracting Forceps",
+    category: "Surgical Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Extracting Forceps (Ref 813) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Surgical Instruments (Ref 813) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-EXTR-026",
-    name: "Extracting Forceps (Ref 814)",
+    name: "Surgical Instruments (Ref 814)",
     image: [p_img26],
-    category: "Extracting Forceps",
+    category: "Surgical Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Extracting Forceps (Ref 814) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Surgical Instruments (Ref 814) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-EXTR-027",
-    name: "Extracting Forceps (Ref 815)",
+    name: "Surgical Instruments (Ref 815)",
     image: [p_img27],
-    category: "Extracting Forceps",
+    category: "Surgical Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Extracting Forceps (Ref 815) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Surgical Instruments (Ref 815) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-EXTR-028",
-    name: "Extracting Forceps (Ref 816)",
+    name: "Surgical Instruments (Ref 816)",
     image: [p_img28],
-    category: "Extracting Forceps",
+    category: "Surgical Instruments",
     bestseller: true,
-    description: "Usfah Industry export-grade Extracting Forceps (Ref 816) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Surgical Instruments (Ref 816) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-EXTR-029",
-    name: "Extracting Forceps (Ref 817)",
+    name: "Surgical Instruments (Ref 817)",
     image: [p_img29],
-    category: "Extracting Forceps",
+    category: "Surgical Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Extracting Forceps (Ref 817) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Surgical Instruments (Ref 817) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-EXTR-030",
-    name: "Extracting Forceps (Ref 818)",
+    name: "Surgical Instruments (Ref 818)",
     image: [p_img30],
-    category: "Extracting Forceps",
+    category: "Surgical Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Extracting Forceps (Ref 818) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Surgical Instruments (Ref 818) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-ROOT-031",
@@ -420,211 +431,211 @@ export const Surgicalproducts = [
   },
   {
     id: "USF-SCAL-041",
-    name: "Periodontal Scaler (Ref 829)",
+    name: "Beauty Instruments (Ref 829)",
     image: [p_img41],
-    category: "Scaler",
+    category: "Beauty Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Periodontal Scaler (Ref 829) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Beauty Instruments (Ref 829) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SCAL-042",
-    name: "Periodontal Scaler (Ref 830)",
+    name: "Beauty Instruments (Ref 830)",
     image: [p_img42],
-    category: "Scaler",
+    category: "Beauty Instruments",
     bestseller: true,
-    description: "Usfah Industry export-grade Periodontal Scaler (Ref 830) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Beauty Instruments (Ref 830) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SCAL-043",
-    name: "Sickle Scaler (Ref 831)",
+    name: "Beauty Instruments (Ref 831)",
     image: [p_img43],
-    category: "Scaler",
+    category: "Beauty Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Sickle Scaler (Ref 831) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Beauty Instruments (Ref 831) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SCAL-044",
-    name: "Dental Curette (Ref 832)",
+    name: "Beauty Instruments (Ref 832)",
     image: [p_img44],
-    category: "Scaler",
+    category: "Beauty Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Dental Curette (Ref 832) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Beauty Instruments (Ref 832) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SCAL-045",
-    name: "Dental Curette (Ref 833)",
+    name: "Beauty Instruments (Ref 833)",
     image: [p_img45],
-    category: "Scaler",
+    category: "Beauty Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Dental Curette (Ref 833) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Beauty Instruments (Ref 833) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SCAL-046",
-    name: "Ultrasonic Tip (Ref 834)",
+    name: "Beauty Instruments (Ref 834)",
     image: [p_img46],
-    category: "Scaler",
+    category: "Beauty Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Ultrasonic Tip (Ref 834) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Beauty Instruments (Ref 834) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SCAL-047",
-    name: "Dental Hoe Scaler (Ref 835)",
+    name: "Beauty Instruments (Ref 835)",
     image: [p_img47],
-    category: "Scaler",
+    category: "Beauty Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Dental Hoe Scaler (Ref 835) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Beauty Instruments (Ref 835) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SCAL-048",
-    name: "Dental Chisel Scaler (Ref 836)",
+    name: "Beauty Instruments (Ref 836)",
     image: [p_img48],
-    category: "Scaler",
+    category: "Beauty Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Dental Chisel Scaler (Ref 836) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Beauty Instruments (Ref 836) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SCAL-049",
-    name: "Periodontal Scaler (Ref 837)",
+    name: "Beauty Instruments (Ref 837)",
     image: [p_img49],
-    category: "Scaler",
+    category: "Beauty Instruments",
     bestseller: true,
-    description: "Usfah Industry export-grade Periodontal Scaler (Ref 837) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Beauty Instruments (Ref 837) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SCAL-050",
-    name: "Periodontal Scaler (Ref 838)",
+    name: "Beauty Instruments (Ref 838)",
     image: [p_img50],
-    category: "Scaler",
+    category: "Beauty Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Periodontal Scaler (Ref 838) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Beauty Instruments (Ref 838) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SURG-051",
-    name: "Surgical Scissors (Cat 20-001)",
+    name: "Extracting Forceps (Cat 20-001)",
     image: [img1],
-    category: "Surgical Instruments",
+    category: "Extracting Forceps",
     bestseller: false,
-    description: "Usfah Industry export-grade Surgical Scissors (Cat 20-001) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Extracting Forceps (Cat 20-001) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SURG-052",
-    name: "Operating Scissors (Cat 20-002)",
+    name: "Extracting Forceps (Cat 20-002)",
     image: [img2],
-    category: "Surgical Instruments",
+    category: "Extracting Forceps",
     bestseller: true,
-    description: "Usfah Industry export-grade Operating Scissors (Cat 20-002) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Extracting Forceps (Cat 20-002) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SURG-053",
-    name: "Dissecting Scissors (Cat 20-003)",
+    name: "Extracting Forceps (Cat 20-003)",
     image: [img3],
-    category: "Surgical Instruments",
+    category: "Extracting Forceps",
     bestseller: false,
-    description: "Usfah Industry export-grade Dissecting Scissors (Cat 20-003) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Extracting Forceps (Cat 20-003) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SURG-054",
-    name: "Bandage Scissors (Cat 20-004)",
+    name: "Extracting Forceps (Cat 20-004)",
     image: [img4],
-    category: "Surgical Instruments",
+    category: "Extracting Forceps",
     bestseller: false,
-    description: "Usfah Industry export-grade Bandage Scissors (Cat 20-004) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Extracting Forceps (Cat 20-004) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SURG-055",
-    name: "Hemostatic Forceps (Cat 20-005)",
+    name: "Extracting Forceps (Cat 20-005)",
     image: [img5],
-    category: "Surgical Instruments",
+    category: "Extracting Forceps",
     bestseller: false,
-    description: "Usfah Industry export-grade Hemostatic Forceps (Cat 20-005) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Extracting Forceps (Cat 20-005) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SURG-056",
-    name: "Tissue Forceps (Cat 20-006)",
+    name: "Extracting Forceps (Cat 20-006)",
     image: [img6],
-    category: "Surgical Instruments",
+    category: "Extracting Forceps",
     bestseller: true,
-    description: "Usfah Industry export-grade Tissue Forceps (Cat 20-006) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Extracting Forceps (Cat 20-006) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SURG-057",
-    name: "Mosquito Forceps (Cat 20-007)",
+    name: "Extracting Forceps (Cat 20-007)",
     image: [img7],
-    category: "Surgical Instruments",
+    category: "Extracting Forceps",
     bestseller: false,
-    description: "Usfah Industry export-grade Mosquito Forceps (Cat 20-007) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Extracting Forceps (Cat 20-007) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SURG-058",
-    name: "Needle Holder (Cat 20-008)",
+    name: "Extracting Forceps (Cat 20-008)",
     image: [img8],
-    category: "Surgical Instruments",
+    category: "Extracting Forceps",
     bestseller: false,
-    description: "Usfah Industry export-grade Needle Holder (Cat 20-008) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Extracting Forceps (Cat 20-008) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SURG-059",
-    name: "Suture Scissors (Cat 20-009)",
+    name: "Extracting Forceps (Cat 20-009)",
     image: [img9],
-    category: "Surgical Instruments",
+    category: "Extracting Forceps",
     bestseller: false,
-    description: "Usfah Industry export-grade Suture Scissors (Cat 20-009) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Extracting Forceps (Cat 20-009) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SURG-060",
-    name: "Scalpel Handle (Cat 20-010)",
+    name: "Extracting Forceps (Cat 20-010)",
     image: [img10],
-    category: "Surgical Instruments",
+    category: "Extracting Forceps",
     bestseller: false,
-    description: "Usfah Industry export-grade Scalpel Handle (Cat 20-010) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Extracting Forceps (Cat 20-010) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SURG-061",
-    name: "Skin Hook Retractor (Cat 20-011)",
+    name: "Extracting Forceps (Cat 20-011)",
     image: [img11],
-    category: "Surgical Instruments",
+    category: "Extracting Forceps",
     bestseller: false,
-    description: "Usfah Industry export-grade Skin Hook Retractor (Cat 20-011) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Skin Extracting Forceps (Cat 20-011) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SURG-062",
-    name: "Bone Rongeur (Cat 20-012)",
+    name: "Extracting Forceps (Cat 20-012)",
     image: [img12],
-    category: "Surgical Instruments",
+    category: "Extracting Forceps",
     bestseller: true,
-    description: "Usfah Industry export-grade Bone Rongeur (Cat 20-012) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Extracting Forceps (Cat 20-012) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SURG-063",
-    name: "Micro Needle Holder (Cat 20-013)",
+    name: "Extracting Forceps (Cat 20-013)",
     image: [img13],
-    category: "Surgical Instruments",
+    category: "Extracting Forceps",
     bestseller: false,
-    description: "Usfah Industry export-grade Micro Needle Holder (Cat 20-013) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Extracting Forceps (Cat 20-013) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SURG-064",
-    name: "Towel Clamp (Cat 20-014)",
+    name: "Extracting Forceps (Cat 20-014)",
     image: [img14],
-    category: "Surgical Instruments",
+    category: "Extracting Forceps",
     bestseller: false,
-    description: "Usfah Industry export-grade Towel Clamp (Cat 20-014) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Extracting Forceps (Cat 20-014) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SURG-065",
-    name: "Sponge Clamp (Cat 20-015)",
+    name: "Extracting Forceps (Cat 20-015)",
     image: [img15],
-    category: "Surgical Instruments",
+    category: "Extracting Forceps",
     bestseller: false,
-    description: "Usfah Industry export-grade Sponge Clamp (Cat 20-015) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Extracting Forceps (Cat 20-015) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SURG-066",
-    name: "Weitlaner Retractor (Cat 20-016)",
+    name: "Extracting Forceps (Cat 20-016)",
     image: [img16],
-    category: "Surgical Instruments",
+    category: "Extracting Forceps",
     bestseller: false,
-    description: "Usfah Industry export-grade Weitlaner Retractor (Cat 20-016) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Extracting Forceps (Cat 20-016) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-DENT-067",
@@ -747,44 +758,44 @@ export const Surgicalproducts = [
     description: "Usfah Industry export-grade Periodontal Probe (Cat 21-015) manufactured from medical stainless steel for professional standard compliance."
   },
   {
-    id: "USF-ROOT-082",
-    name: "Root Elevator Cryer (Cat 22-029)",
+    id: "USF-SCAL-082",
+    name: "Scaler instrument (Cat 22-029)",
     image: [img32],
-    category: "Root Elevators",
+    category: "Scaler instrument",
     bestseller: false,
-    description: "Usfah Industry export-grade Root Elevator Cryer (Cat 22-029) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Scaler instrument (Cat 22-029) manufactured from medical stainless steel for professional standard compliance."
   },
   {
-    id: "USF-ROOT-083",
-    name: "Root Elevator Bein (Cat 22-030)",
+    id: "USF-SCAL-083",
+    name: "Scaler instrument (Cat 22-030)",
     image: [img33],
-    category: "Root Elevators",
+    category: "Scaler instrument",
     bestseller: false,
-    description: "Usfah Industry export-grade Root Elevator Bein (Cat 22-030) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Scaler instrument (Cat 22-030) manufactured from medical stainless steel for professional standard compliance."
   },
   {
-    id: "USF-ROOT-084",
-    name: "Root Elevator Apexo (Cat 22-031)",
+    id: "USF-SCAL-084",
+    name: "Scaler instrument (Cat 22-031)",
     image: [img34],
-    category: "Root Elevators",
+    category: "Scaler instrument",
     bestseller: false,
-    description: "Usfah Industry export-grade Root Elevator Apexo (Cat 22-031) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Scaler instrument (Cat 22-031) manufactured from medical stainless steel for professional standard compliance."
   },
   {
-    id: "USF-ROOT-085",
-    name: "Root Elevator Flohr (Cat 22-032)",
+    id: "USF-SCAL-085",
+    name: "Scaler instrument (Cat 22-032)",
     image: [img35],
-    category: "Root Elevators",
+    category: "Scaler instrument",
     bestseller: false,
-    description: "Usfah Industry export-grade Root Elevator Flohr (Cat 22-032) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Scaler instrument (Cat 22-032) manufactured from medical stainless steel for professional standard compliance."
   },
   {
-    id: "USF-ROOT-086",
-    name: "Root Elevator Coupland (Cat 22-001)",
+    id: "USF-SCAL-086",
+    name: "Scaler instrument (Cat 22-001)",
     image: [img36],
-    category: "Root Elevators",
+    category: "Scaler instrument",
     bestseller: true,
-    description: "Usfah Industry export-grade Root Elevator Coupland (Cat 22-001) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Scaler instrument (Cat 22-001) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-BEAU-087",
@@ -860,26 +871,107 @@ export const Surgicalproducts = [
   },
   {
     id: "USF-SURG-096",
-    name: "Operating Scissors (Cat 20-129)",
+    name: "Extracting Forceps (Cat 20-129)",
     image: [img46],
-    category: "Surgical Instruments",
+    category: "Extracting Forceps",
     bestseller: false,
-    description: "Usfah Industry export-grade Operating Scissors (Cat 20-129) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Extracting Forceps (Cat 20-129) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SURG-097",
-    name: "Dissecting Forceps (Cat 20-114)",
+    name: "Extracting Forceps (Cat 20-114)",
     image: [img47],
-    category: "Surgical Instruments",
+    category: "Extracting Forceps",
     bestseller: false,
-    description: "Usfah Industry export-grade Dissecting Forceps (Cat 20-114) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Extracting Forceps (Cat 20-114) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-SURG-098",
-    name: "Hemostatic Clamp (Cat 20-124)",
+    name: "Extracting Forceps (Cat 20-124)",
     image: [img48],
-    category: "Surgical Instruments",
+    category: "Extracting Forceps",
     bestseller: true,
-    description: "Usfah Industry export-grade Hemostatic Clamp (Cat 20-124) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Extracting Forceps (Cat 20-124) manufactured from medical stainless steel for professional standard compliance."
+  },
+   {
+    id: "USF-SCAL-099",
+    name: "Periodontal Scaler (Ref 838)",
+    image: [p_img99],
+    category: "Scaler",
+    bestseller: false,
+    description: "Usfah Industry export-grade Periodontal Scaler (Ref 838) manufactured from medical stainless steel for professional standard compliance."
+  },
+   {
+    id: "USF-SCAL-100",
+    name: "Periodontal Scaler (Ref 838)",
+    image: [p_img100],
+    category: "Scaler",
+    bestseller: false,
+    description: "Usfah Industry export-grade Periodontal Scaler (Ref 838) manufactured from medical stainless steel for professional standard compliance."
+  },
+
+   {
+    id: "USF-SCAL-101",
+    name: "Periodontal Scaler (Ref 838)",
+    image: [p_img101],
+    category: "Scaler",
+    bestseller: false,
+    description: "Usfah Industry export-grade Periodontal Scaler (Ref 838) manufactured from medical stainless steel for professional standard compliance."
+  },
+   {
+    id: "USF-SCAL-102",
+    name: "Periodontal Scaler (Ref 838)",
+    image: [p_img102],
+    category: "Scaler",
+    bestseller: false,
+    description: "Usfah Industry export-grade Periodontal Scaler (Ref 838) manufactured from medical stainless steel for professional standard compliance."
+  },
+   {
+    id: "USF-SCAL-103",
+    name: "Periodontal Scaler (Ref 838)",
+    image: [p_img103],
+    category: "Scaler",
+    bestseller: false,
+    description: "Usfah Industry export-grade Periodontal Scaler (Ref 838) manufactured from medical stainless steel for professional standard compliance."
+  },
+   {
+    id: "USF-SCAL-104",
+    name: "Periodontal Scaler (Ref 838)",
+    image: [p_img104],
+    category: "Scaler",
+    bestseller: false,
+    description: "Usfah Industry export-grade Periodontal Scaler (Ref 838) manufactured from medical stainless steel for professional standard compliance."
+  },
+   {
+    id: "USF-SCAL-105",
+    name: "Periodontal Scaler (Ref 838)",
+    image: [p_img105],
+    category: "Scaler",
+    bestseller: false,
+    description: "Usfah Industry export-grade Periodontal Scaler (Ref 838) manufactured from medical stainless steel for professional standard compliance."
+  },
+   {
+    id: "USF-SCAL-106",
+    name: "Periodontal Scaler (Ref 838)",
+    image: [p_img106],
+    category: "Scaler",
+    bestseller: false,
+    description: "Usfah Industry export-grade Periodontal Scaler (Ref 838) manufactured from medical stainless steel for professional standard compliance."
+  },
+   {
+    id: "USF-SCAL-107",
+    name: "Periodontal Scaler (Ref 838)",
+    image: [p_img107],
+    category: "Scaler",
+    bestseller: false,
+    description: "Usfah Industry export-grade Periodontal Scaler (Ref 838) manufactured from medical stainless steel for professional standard compliance."
+  },
+   {
+    id: "USF-SCAL-108",
+    name: "Periodontal Scaler (Ref 838)",
+    image: [p_img108],
+    category: "Scaler",
+    bestseller: false,
+    description: "Usfah Industry export-grade Periodontal Scaler (Ref 838) manufactured from medical stainless steel for professional standard compliance."
   },
 ];
