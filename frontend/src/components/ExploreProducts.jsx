@@ -18,19 +18,22 @@ const products = [
     title: "Surgical Instruments",
     subtitle: "Precision-crafted for medical excellence",
     image: surgicalImg,
-    description: "High-precision instruments crafted for hospitals, clinics, and surgical professionals."
+    description: "High-precision instruments crafted for hospitals, clinics, and surgical professionals.",
+    category: "Surgical Instruments"
   },
   {
     title: "Beauty Instruments",
     subtitle: "Elegance meets performance",
     image: beautyImg,
-    description: "Luxury beauty tools designed for salons, spas, and premium beauty specialists."
+    description: "Luxury beauty tools designed for salons, spas, and premium beauty specialists.",
+    category: "Beauty Instruments"
   },
   {
     title: "Dental Instruments",
     subtitle: "Engineered for perfection",
     image: dentalImg,
-    description: "Modern dental instruments engineered for hygiene, durability, and accuracy."
+    description: "Modern dental instruments engineered for hygiene, durability, and accuracy.",
+    category: "Dental Instruments"
   },
 ];
 
@@ -44,8 +47,8 @@ const ProductCard = ({ item, index }) => {
       transition={{ duration: 0.6, delay: index * 0.15 }}
       viewport={{ once: true }}
       whileHover={{ y: -10 }}
-      className="group relative overflow-hidden  bg-linear-to-br from-[#0F0F12] to-[#0A0A0D] border border-white/10 shadow-2xl"
-      onClick={()=>navigate("/products")}
+      className="group relative overflow-hidden bg-linear-to-br from-[#0F0F12] to-[#0A0A0D] border border-white/10 shadow-2xl cursor-pointer"
+      onClick={() => navigate(`/products?category=${encodeURIComponent(item.category)}`)}
     >
       <div className="relative h-65 overflow-hidden">
         <img
@@ -53,7 +56,7 @@ const ProductCard = ({ item, index }) => {
           alt={item.title}
           className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
         />
-        <div className="absolute  bg-linear-to-t from-black via-black/30 to-transparent"></div>
+        <div className="absolute bg-linear-to-t from-black via-black/30 to-transparent"></div>
         <div className="absolute top-5 left-5 px-4 py-2 rounded-full bg-linear-to-r from-[#D4AF37] to-[#C9A227] text-black text-xs font-bold tracking-wider shadow-lg">
           PREMIUM
         </div>
@@ -69,13 +72,13 @@ const ProductCard = ({ item, index }) => {
         <p className="text-gray-400 mt-3 text-sm leading-relaxed">
           {item.description}
         </p>
-        <button  className="mt-6 inline-flex items-center gap-2 text-[#D4AF37] font-semibold group/btn transition-all duration-300 hover:gap-3">
+        <button className="mt-6 inline-flex items-center gap-2 text-[#D4AF37] font-semibold group/btn transition-all duration-300 hover:gap-3">
           <span>Explore Collection</span>
           <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
         </button>
       </div>
 
-      <div className="absolute inset-0  border-2 border-transparent group-hover:border-[#D4AF37]/30 transition-all duration-500"></div>
+      <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#D4AF37]/30 transition-all duration-500"></div>
       <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-64 h-24 bg-[#D4AF37]/5 blur-3xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
     </motion.div>
   );

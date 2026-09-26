@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext, useMemo, useCallback } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Filter, X, ChevronDown, ChevronLeft, ChevronRight, Search, RotateCcw } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Items from "../components/Items";
@@ -7,6 +8,7 @@ import SEO from "../components/SEO";
 import Breadcrumb from "../components/Breadcrumb";
 
 const Products = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [showFilter, setShowFilter] = useState(false);
   const [sortType, setSortType] = useState("relevant");
   const [searchQuery, setSearchQuery] = useState("");
@@ -16,6 +18,14 @@ const Products = () => {
 
   // Selected Categories filter state
   const [selectedCategories, setSelectedCategories] = useState([]);
+
+  // Sync category filter with URL search params on mount / param change
+  useEffect(() => {
+    const categoryParam = searchParams.get("category");
+    if (categoryParam) {
+      setSelectedCategories([categoryParam]);
+    }
+  }, [searchParams]);
 
   // Medical & Surgical Industry Categories
   const categories = useMemo(() => [
@@ -87,19 +97,27 @@ const Products = () => {
   }, []);
 
   const handleCategoryChange = useCallback((category) => {
-    setSelectedCategories((prev) =>
-      prev.includes(category)
+    setSelectedCategories((prev) => {
+      const next = prev.includes(category)
         ? prev.filter((c) => c !== category)
-        : [...prev, category]
-    );
-  }, []);
+        : [...prev, category];
+
+      if (next.length === 1) {
+        setSearchParams({ category: next[0] });
+      } else {
+        setSearchParams({});
+      }
+      return next;
+    });
+  }, [setSearchParams]);
 
   const clearFilters = useCallback(() => {
     setSelectedCategories([]);
     setSearchQuery("");
     setSortType("relevant");
     setCurrentPage(1);
-  }, []);
+    setSearchParams({});
+  }, [setSearchParams]);
 
   const containerVariants = useMemo(() => ({
     hidden: { opacity: 0 },
