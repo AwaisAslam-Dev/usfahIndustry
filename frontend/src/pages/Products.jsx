@@ -37,6 +37,38 @@ const Products = () => {
     "Scaler",
   ], []);
 
+  // Helper function to interleave products across categories for a balanced mix
+  const interleaveByCategory = useCallback((items) => {
+    if (!items || items.length === 0) return [];
+
+    const categoryGroups = {};
+    items.forEach((item) => {
+      const cat = item.category || "Other";
+      if (!categoryGroups[cat]) {
+        categoryGroups[cat] = [];
+      }
+      categoryGroups[cat].push(item);
+    });
+
+    const categoriesList = Object.keys(categoryGroups);
+    const result = [];
+    let index = 0;
+    let added = true;
+
+    while (added) {
+      added = false;
+      for (const cat of categoriesList) {
+        if (index < categoryGroups[cat].length) {
+          result.push(categoryGroups[cat][index]);
+          added = true;
+        }
+      }
+      index++;
+    }
+
+    return result;
+  }, []);
+
   // Filtered and Sorted Products
   const processedProducts = useMemo(() => {
     let processed = [...products];
@@ -66,10 +98,13 @@ const Products = () => {
       processed.sort((a, b) => (b.id || "").localeCompare(a.id || ""));
     } else if (sortType === "bestseller") {
       processed.sort((a, b) => (b.bestseller === a.bestseller ? 0 : b.bestseller ? 1 : -1));
+    } else {
+      // Default: Relevant / Featured -> Interleave categories for a rich mix
+      processed = interleaveByCategory(processed);
     }
 
     return processed;
-  }, [products, selectedCategories, searchQuery, sortType]);
+  }, [products, selectedCategories, searchQuery, sortType, interleaveByCategory]);
 
   // Reset to first page when filters change
   useEffect(() => {

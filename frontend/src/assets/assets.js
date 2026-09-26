@@ -108,12 +108,31 @@ import p_img105 from './22-095.png';
 import p_img106 from './22-039.png';
 import p_img107 from './22-034.png';
 import p_img108 from './22-047.png';
+import p_img109 from './ss.png';
+import p_img110 from './03-805.png';
+import p_img111 from './03-220.png';
+import p_img112 from './03-410.png';
+import p_img113 from './sss.png';
+import p_img114 from './4s.png';
+import p_img115 from './03-450.png';
+import p_img116 from './5s.png';
+import p_img117 from './6s.png';
+import p_img119 from './03-520.png';
+import p_img120 from './7s.png';
+import p_img121 from './03-680.png';
+import p_img122 from './03-740.png';
+import p_img123 from './03-260.png';
+import p_img124 from './03-790.png';
+import p_img125 from './03-910.png';
+import p_img126 from './03-880.png';
+import p_img127 from './03-860.png';
+import p_img118 from './8s.png';
 export const Surgicalproducts = [
   {
     id: "USF-SURG-001",
     name: "Surgical Scissors (Ref 786)",
     image: [p_img1],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: true,
     description: "Usfah Industry export-grade Surgical Scissors (Ref 786) manufactured from medical stainless steel for professional standard compliance."
   },
@@ -121,7 +140,7 @@ export const Surgicalproducts = [
     id: "USF-SURG-002",
     name: "Operating Scissors (Ref 787)",
     image: [p_img2_1],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
     description: "Usfah Industry export-grade Operating Scissors (Ref 787) manufactured from medical stainless steel for professional standard compliance."
   },
@@ -129,7 +148,7 @@ export const Surgicalproducts = [
     id: "USF-SURG-003",
     name: "Dissecting Forceps (Ref 791)",
     image: [p_img3],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
     description: "Usfah Industry export-grade Dissecting Forceps (Ref 791) manufactured from medical stainless steel for professional standard compliance."
   },
@@ -137,7 +156,7 @@ export const Surgicalproducts = [
     id: "USF-SURG-004",
     name: "Tissue Forceps (Ref 792)",
     image: [p_img4],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
     description: "Usfah Industry export-grade Tissue Forceps (Ref 792) manufactured from medical stainless steel for professional standard compliance."
   },
@@ -145,7 +164,7 @@ export const Surgicalproducts = [
     id: "USF-SURG-005",
     name: "Hemostatic Clamp (Ref 794)",
     image: [p_img5],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
     description: "Usfah Industry export-grade Hemostatic Clamp (Ref 794) manufactured from medical stainless steel for professional standard compliance."
   },
@@ -153,7 +172,7 @@ export const Surgicalproducts = [
     id: "USF-SURG-006",
     name: "Mosquito Forceps (Ref 793)",
     image: [p_img6],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
     description: "Usfah Industry export-grade Mosquito Forceps (Ref 793) manufactured from medical stainless steel for professional standard compliance."
   },
@@ -161,7 +180,7 @@ export const Surgicalproducts = [
     id: "USF-SURG-007",
     name: "Suture Forceps (Ref 795)",
     image: [p_img7],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: true,
     description: "Usfah Industry export-grade Suture Forceps (Ref 795) manufactured from medical stainless steel for professional standard compliance."
   },
@@ -169,7 +188,7 @@ export const Surgicalproducts = [
     id: "USF-SURG-008",
     name: "Needle Holder (Ref 796)",
     image: [p_img8],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
     description: "Usfah Industry export-grade Needle Holder (Ref 796) manufactured from medical stainless steel for professional standard compliance."
   },
@@ -177,7 +196,7 @@ export const Surgicalproducts = [
     id: "USF-SURG-009",
     name: "Scalpel Handle (Ref 797)",
     image: [p_img9],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
     description: "Usfah Industry export-grade Scalpel Handle (Ref 797) manufactured from medical stainless steel for professional standard compliance."
   },
@@ -185,7 +204,7 @@ export const Surgicalproducts = [
     id: "USF-SURG-010",
     name: "Tissue Clamp (Ref 798)",
     image: [p_img10],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
     description: "Usfah Industry export-grade Tissue Clamp (Ref 798) manufactured from medical stainless steel for professional standard compliance."
   },
@@ -193,7 +212,7 @@ export const Surgicalproducts = [
     id: "USF-SURG-011",
     name: "Retractor Blade (Ref 799)",
     image: [p_img11],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
     description: "Usfah Industry export-grade Retractor Blade (Ref 799) manufactured from medical stainless steel for professional standard compliance."
   },
@@ -201,7 +220,7 @@ export const Surgicalproducts = [
     id: "USF-SURG-012",
     name: "Bone Rongeur (Ref 800)",
     image: [p_img12],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
     description: "Usfah Industry export-grade Bone Rongeur (Ref 800) manufactured from medical stainless steel for professional standard compliance."
   },
@@ -209,7 +228,7 @@ export const Surgicalproducts = [
     id: "USF-SURG-013",
     name: "Bandage Scissors (Ref 801)",
     image: [p_img13],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
     description: "Usfah Industry export-grade Bandage Scissors (Ref 801) manufactured from medical stainless steel for professional standard compliance."
   },
@@ -217,7 +236,7 @@ export const Surgicalproducts = [
     id: "USF-SURG-014",
     name: "Eye Scissors (Ref 802)",
     image: [p_img14],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: true,
     description: "Usfah Industry export-grade Eye Scissors (Ref 802) manufactured from medical stainless steel for professional standard compliance."
   },
@@ -225,7 +244,7 @@ export const Surgicalproducts = [
     id: "USF-SURG-015",
     name: "Tenotomy Scissors (Ref 803)",
     image: [p_img15],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
     description: "Usfah Industry export-grade Tenotomy Scissors (Ref 803) manufactured from medical stainless steel for professional standard compliance."
   },
@@ -233,7 +252,7 @@ export const Surgicalproducts = [
     id: "USF-SURG-016",
     name: "Vascular Clamp (Ref 804)",
     image: [p_img16],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
     description: "Usfah Industry export-grade Vascular Clamp (Ref 804) manufactured from medical stainless steel for professional standard compliance."
   },
@@ -241,7 +260,7 @@ export const Surgicalproducts = [
     id: "USF-SURG-017",
     name: "Sponge Forceps (Ref 805)",
     image: [p_img17],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
     description: "Usfah Industry export-grade Sponge Forceps (Ref 805) manufactured from medical stainless steel for professional standard compliance."
   },
@@ -249,7 +268,7 @@ export const Surgicalproducts = [
     id: "USF-SURG-018",
     name: "Towel Clamp (Ref 806)",
     image: [p_img18],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
     description: "Usfah Industry export-grade Towel Clamp (Ref 806) manufactured from medical stainless steel for professional standard compliance."
   },
@@ -257,7 +276,7 @@ export const Surgicalproducts = [
     id: "USF-SURG-019",
     name: "Skin Hook (Ref 807)",
     image: [p_img19],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
     description: "Usfah Industry export-grade Skin Hook (Ref 807) manufactured from medical stainless steel for professional standard compliance."
   },
@@ -265,89 +284,89 @@ export const Surgicalproducts = [
     id: "USF-SURG-020",
     name: "Bone Curette (Ref 808)",
     image: [p_img20],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
     description: "Usfah Industry export-grade Bone Curette (Ref 808) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-EXTR-021",
-    name: "Surgical Instruments (Ref 809)",
+    name: "Beauty Instruments (Ref 809)",
     image: [p_img21],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: true,
-    description: "Usfah Industry export-grade Surgical Instruments (Ref 809) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Beauty Instruments (Ref 809) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-EXTR-022",
-    name: "Surgical Instruments (Ref 810)",
+    name: "Beauty Instruments (Ref 810)",
     image: [p_img22],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Surgical Instruments (Ref 810) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Beauty Instruments (Ref 810) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-EXTR-023",
-    name: "Surgical Instruments (Ref 811)",
+    name: "Beauty Instruments (Ref 811)",
     image: [p_img23],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Surgical Instruments (Ref 811) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Beauty Instruments (Ref 811) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-EXTR-024",
-    name: "Surgical Instruments (Ref 812)",
+    name: "Beauty Instruments (Ref 812)",
     image: [p_img24],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Surgical Instruments (Ref 812) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Beauty Instruments (Ref 812) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-EXTR-025",
-    name: "Surgical Instruments (Ref 813)",
+    name: "Beauty Instruments (Ref 813)",
     image: [p_img25],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Surgical Instruments (Ref 813) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Beauty Instruments (Ref 813) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-EXTR-026",
-    name: "Surgical Instruments (Ref 814)",
+    name: "Beauty Instruments (Ref 814)",
     image: [p_img26],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Surgical Instruments (Ref 814) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Beauty Instruments (Ref 814) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-EXTR-027",
-    name: "Surgical Instruments (Ref 815)",
+    name: "Beauty Instruments (Ref 815)",
     image: [p_img27],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Surgical Instruments (Ref 815) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Beauty Instruments (Ref 815) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-EXTR-028",
-    name: "Surgical Instruments (Ref 816)",
+    name: "Beauty Instruments (Ref 816)",
     image: [p_img28],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: true,
-    description: "Usfah Industry export-grade Surgical Instruments (Ref 816) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Beauty Instruments (Ref 816) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-EXTR-029",
-    name: "Surgical Instruments (Ref 817)",
+    name: "Beauty Instruments (Ref 817)",
     image: [p_img29],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Surgical Instruments (Ref 817) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Beauty Instruments (Ref 817) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-EXTR-030",
-    name: "Surgical Instruments (Ref 818)",
+    name: "Beauty Instruments (Ref 818)",
     image: [p_img30],
-    category: "Surgical Instruments",
+    category: "Beauty Instruments",
     bestseller: false,
-    description: "Usfah Industry export-grade Surgical Instruments (Ref 818) manufactured from medical stainless steel for professional standard compliance."
+    description: "Usfah Industry export-grade Beauty Instruments (Ref 818) manufactured from medical stainless steel for professional standard compliance."
   },
   {
     id: "USF-ROOT-031",
@@ -973,5 +992,139 @@ export const Surgicalproducts = [
     category: "Scaler",
     bestseller: false,
     description: "Usfah Industry export-grade Periodontal Scaler (Ref 838) manufactured from medical stainless steel for professional standard compliance."
+  },
+    {
+    id: "USF-SURG-109",
+    name: "Surgical Scissors (Ref 786)",
+    image: [p_img109],
+    category: "Surgical Instruments",
+    bestseller: true,
+    description: "Usfah Industry export-grade Surgical Scissors (Ref 786) manufactured from medical stainless steel for professional standard compliance."
+  },  {
+    id: "USF-SURG-110",
+    name: "Surgical Scissors (Ref 786)",
+    image: [p_img110],
+    category: "Surgical Instruments",
+    bestseller: true,
+    description: "Usfah Industry export-grade Surgical Scissors (Ref 786) manufactured from medical stainless steel for professional standard compliance."
+  },  {
+    id: "USF-SURG-111",
+    name: "Surgical Scissors (Ref 786)",
+    image: [p_img111],
+    category: "Surgical Instruments",
+    bestseller: true,
+    description: "Usfah Industry export-grade Surgical Scissors (Ref 786) manufactured from medical stainless steel for professional standard compliance."
+  },  {
+    id: "USF-SURG-112",
+    name: "Surgical Scissors (Ref 786)",
+    image: [p_img112],
+    category: "Surgical Instruments",
+    bestseller: true,
+    description: "Usfah Industry export-grade Surgical Scissors (Ref 786) manufactured from medical stainless steel for professional standard compliance."
+  },  {
+    id: "USF-SURG-113",
+    name: "Surgical Scissors (Ref 786)",
+    image: [p_img113],
+    category: "Surgical Instruments",
+    bestseller: true,
+    description: "Usfah Industry export-grade Surgical Scissors (Ref 786) manufactured from medical stainless steel for professional standard compliance."
+  },  {
+    id: "USF-SURG-114",
+    name: "Surgical Scissors (Ref 786)",
+    image: [p_img114],
+    category: "Surgical Instruments",
+    bestseller: true,
+    description: "Usfah Industry export-grade Surgical Scissors (Ref 786) manufactured from medical stainless steel for professional standard compliance."
+  },  {
+    id: "USF-SURG-115",
+    name: "Surgical Scissors (Ref 786)",
+    image: [p_img115],
+    category: "Surgical Instruments",
+    bestseller: true,
+    description: "Usfah Industry export-grade Surgical Scissors (Ref 786) manufactured from medical stainless steel for professional standard compliance."
+  },  {
+    id: "USF-SURG-116",
+    name: "Surgical Scissors (Ref 786)",
+    image: [p_img116],
+    category: "Surgical Instruments",
+    bestseller: true,
+    description: "Usfah Industry export-grade Surgical Scissors (Ref 786) manufactured from medical stainless steel for professional standard compliance."
+  },  {
+    id: "USF-SURG-117",
+    name: "Surgical Scissors (Ref 786)",
+    image: [p_img117],
+    category: "Surgical Instruments",
+    bestseller: true,
+    description: "Usfah Industry export-grade Surgical Scissors (Ref 786) manufactured from medical stainless steel for professional standard compliance."
+  },  {
+    id: "USF-SURG-118",
+    name: "Surgical Scissors (Ref 786)",
+    image: [p_img118],
+    category: "Surgical Instruments",
+    bestseller: true,
+    description: "Usfah Industry export-grade Surgical Scissors (Ref 786) manufactured from medical stainless steel for professional standard compliance."
+  },  {
+    id: "USF-SURG-119",
+    name: "Surgical Scissors (Ref 786)",
+    image: [p_img119],
+    category: "Surgical Instruments",
+    bestseller: true,
+    description: "Usfah Industry export-grade Surgical Scissors (Ref 786) manufactured from medical stainless steel for professional standard compliance."
+  },  {
+    id: "USF-SURG-120",
+    name: "Surgical Scissors (Ref 786)",
+    image: [p_img120],
+    category: "Surgical Instruments",
+    bestseller: true,
+    description: "Usfah Industry export-grade Surgical Scissors (Ref 786) manufactured from medical stainless steel for professional standard compliance."
+  },  {
+    id: "USF-SURG-121",
+    name: "Surgical Scissors (Ref 786)",
+    image: [p_img121],
+    category: "Surgical Instruments",
+    bestseller: true,
+    description: "Usfah Industry export-grade Surgical Scissors (Ref 786) manufactured from medical stainless steel for professional standard compliance."
+  },  {
+    id: "USF-SURG-122",
+    name: "Surgical Scissors (Ref 786)",
+    image: [p_img122],
+    category: "Surgical Instruments",
+    bestseller: true,
+    description: "Usfah Industry export-grade Surgical Scissors (Ref 786) manufactured from medical stainless steel for professional standard compliance."
+  },  {
+    id: "USF-SURG-123",
+    name: "Surgical Scissors (Ref 786)",
+    image: [p_img123],
+    category: "Surgical Instruments",
+    bestseller: true,
+    description: "Usfah Industry export-grade Surgical Scissors (Ref 786) manufactured from medical stainless steel for professional standard compliance."
+  },  {
+    id: "USF-SURG-124",
+    name: "Surgical Scissors (Ref 786)",
+    image: [p_img124],
+    category: "Surgical Instruments",
+    bestseller: true,
+    description: "Usfah Industry export-grade Surgical Scissors (Ref 786) manufactured from medical stainless steel for professional standard compliance."
+  },  {
+    id: "USF-SURG-125",
+    name: "Surgical Scissors (Ref 786)",
+    image: [p_img125],
+    category: "Surgical Instruments",
+    bestseller: true,
+    description: "Usfah Industry export-grade Surgical Scissors (Ref 786) manufactured from medical stainless steel for professional standard compliance."
+  },  {
+    id: "USF-SURG-126",
+    name: "Surgical Scissors (Ref 786)",
+    image: [p_img126],
+    category: "Surgical Instruments",
+    bestseller: true,
+    description: "Usfah Industry export-grade Surgical Scissors (Ref 786) manufactured from medical stainless steel for professional standard compliance."
+  },  {
+    id: "USF-SURG-127",
+    name: "Surgical Scissors (Ref 786)",
+    image: [p_img127],
+    category: "Surgical Instruments",
+    bestseller: true,
+    description: "Usfah Industry export-grade Surgical Scissors (Ref 786) manufactured from medical stainless steel for professional standard compliance."
   },
 ];
