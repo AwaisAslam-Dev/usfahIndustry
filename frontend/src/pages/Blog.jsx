@@ -140,11 +140,11 @@ surgical instruments for distributors"
                   className="bg-linear-to-br from-[#0F0F12] to-[#0A0A0D] rounded-2xl overflow-hidden border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-300 flex flex-col group"
                 >
                   {/* Article Thumbnail */}
-                  <div className="relative aspect-16/9 overflow-hidden bg-black/60 p-2 flex items-center justify-center">
+                  <div className="relative aspect-16/9 overflow-hidden bg-white/5">
                     <img
                       src={post.image}
                       alt={post.imageAlt || post.title}
-                      className="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                       decoding="async"
                     />

@@ -211,14 +211,14 @@ const BlogPost = () => {
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="rounded-xl overflow-hidden mb-8 border border-white/10 shadow-lg"
+                className="rounded-2xl overflow-hidden mb-8 border border-white/10 shadow-xl bg-white/5"
               >
                 <img
                   src={post.image}
                   alt={post.imageAlt || post.title}
                   loading="eager"
                   decoding="async"
-                  className="w-full h-auto max-h-56 sm:max-h-80 object-cover"
+                  className="w-full aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] object-cover"
                 />
               </motion.div>
 
@@ -257,8 +257,8 @@ const BlogPost = () => {
                   hover:[&_a]:text-[#C9A227]
 
                   [&_img]:rounded-xl [&_img]:my-6 [&_img]:w-full [&_img]:h-auto
-                  [&_img]:max-h-72 [&_img]:object-contain [&_img]:bg-black/40
-                  [&_img]:border [&_img]:border-white/10 [&_img]:p-2
+                  [&_img]:aspect-[4/3] sm:[&_img]:aspect-[16/9] lg:[&_img]:aspect-[21/9]
+                  [&_img]:object-cover [&_img]:border [&_img]:border-white/10 [&_img]:shadow-lg
 
                   /* Table styling - scrollable, sleek, compact on mobile */
                   [&_.table-container]:overflow-x-auto [&_.table-container]:my-6
