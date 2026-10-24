@@ -20,7 +20,3 @@ createRoot(document.getElementById("root")).render(
   </StrictMode>,
 );
 
-// Signal to vite-plugin-prerender that the app has mounted and is ready
-// to be snapshotted. This event is only relevant during the prerender build.
-document.dispatchEvent(new Event('render-event'));
-
