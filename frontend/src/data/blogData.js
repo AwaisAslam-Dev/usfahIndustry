@@ -1076,6 +1076,738 @@ The choice between straight vs curved surgical scissors depends on specific proc
 `
   },
   {
+    id: "post-tenotomy-scissors-types-uses",
+    slug: "tenotomy-scissors-types-uses",
+    title: "Tenotomy Scissors: Types, Uses and Buyer Considerations",
+    excerpt: "Explore tenotomy scissors, their common variations including Stevens and Westcott patterns, surgical applications, and the key considerations for buyers and medical instrument suppliers.",
+    category: "Surgical Scissors",
+    publishDate: "2026-10-23",
+    updatedDate: "2026-10-23",
+    author: "Usfah Industry Technical Team",
+    readTime: "8 min read",
+    image: "/assets/blog-tenotomy-scissors-header.jpg",
+    imageAlt: "Stevens tenotomy scissors with slender blades and fine precision tips for delicate surgical dissection",
+    metaTitle: "Tenotomy Scissors: Types, Uses and Buyer Considerations",
+    metaDescription: "Explore tenotomy scissors, their common variations and applications, and important considerations for buyers and medical instrument suppliers.",
+    keywords: "tenotomy scissors, Stevens tenotomy scissors, Westcott tenotomy scissors, tenotomy scissors types, tenotomy scissors uses, surgical scissors supplier, fine surgical scissors, ISO 13485 surgical instruments",
+    faqs: [
+      {
+        question: "What are tenotomy scissors used for?",
+        answer: "They are used for precise cutting and delicate dissection of fine tissue, including tendons, in fields such as ophthalmic, orthopedic, plastic, and podiatric surgery."
+      },
+      {
+        question: "What is the difference between Stevens and Westcott tenotomy scissors?",
+        answer: "Both are well-known patterns. Stevens scissors are slim and available in straight and curved versions, while Westcott scissors are typically curved and often have a spring-action handle."
+      },
+      {
+        question: "Are tenotomy scissors sharp or blunt?",
+        answer: "Both options exist. Some have sharp tips for fine precision, others have blunt tips for safer dissection, and some combine the two. Always check the product specification."
+      },
+      {
+        question: "How long are tenotomy scissors?",
+        answer: "Most are around 4 to 6 inches (roughly 10 to 15 cm), but lengths vary by manufacturer and pattern."
+      },
+      {
+        question: "What should suppliers check when sourcing tenotomy scissors?",
+        answer: "Suppliers should check the manufacturer's quality system, regulatory documentation, materials, sample quality, batch consistency, packaging, and minimum order quantities."
+      },
+      {
+        question: "Can tenotomy scissors cut heavy tissue or wire?",
+        answer: "No. They are designed for delicate work, and cutting heavy or hard material can damage the blades. Heavier scissors are a better choice for those tasks."
+      }
+    ],
+    content: `
+<p class="lead text-sm sm:text-base text-gray-200 mb-6 leading-relaxed border-l-2 border-[#D4AF37] pl-3 py-1 font-normal bg-white/[0.02] rounded-r-lg">
+<strong class="text-white">Tenotomy scissors</strong> are small, fine surgical scissors designed for precise cutting and delicate dissection, including work on tendons and other fine tissue. They come in several variations, and the right choice depends on the procedure, the tip style, and the build quality. This guide covers the types of tenotomy scissors, their common applications, and the points buyers and medical instrument suppliers should consider.
+</p>
+
+<h2 id="what-are-tenotomy-scissors" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">What Are Tenotomy Scissors?</h2>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Tenotomy scissors are lightweight scissors with slender blades, a fine pivot, and precise tips. The name comes from tenotomy, the surgical cutting of a tendon, which is one of the tasks these instruments were developed for. Today they are used more widely wherever careful, controlled cutting in small fields is needed.
+</p>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-3">
+Typical characteristics include:
+</p>
+<ul class="list-disc pl-5 space-y-2 mb-6 text-gray-300 text-sm sm:text-base">
+  <li><strong>Slender, fine blades</strong> that allow close control.</li>
+  <li><strong>Light weight and good balance</strong>, which helps during detailed work.</li>
+  <li><strong>A smooth, precise pivot</strong> for an even cutting action.</li>
+  <li><strong>A compact size</strong>, commonly around 4 to 6 inches (roughly 10 to 15 cm), although this varies by manufacturer and pattern.</li>
+</ul>
+
+<h2 id="types-of-tenotomy-scissors" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">Types of Tenotomy Scissors</h2>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Tenotomy scissors are made in several patterns. The main differences are blade shape, tip style, and handle design.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">Straight and Curved Tenotomy Scissors</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Straight tenotomy scissors have blades in line with the handles and suit direct, predictable cuts in shallow, visible areas. Curved tenotomy scissors have blades that bend to one side, which improves visibility of the tips and helps when following the shape of small structures or working in deeper spaces. <a href="/blog/straight-vs-curved-surgical-scissors" class="text-[#D4AF37] hover:underline font-medium">Straight vs curved blade geometry</a> affects reach, visibility, and control differently depending on the procedure.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">Sharp and Blunt Tips</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Tenotomy scissors are offered with sharp, blunt, or combined tips. Sharp tips give the most precision in tiny areas, while blunt tips lower the chance of puncturing or catching nearby tissue and are often chosen for dissection. The <a href="/blog/sharp-vs-blunt-surgical-scissors" class="text-[#D4AF37] hover:underline font-medium">trade-offs between sharp and blunt tips</a> are worth understanding before specifying an order.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">Stevens Tenotomy Scissors</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Stevens tenotomy scissors are a widely recognized pattern, commonly used in ophthalmic and other fine surgical work. They are slim and lightweight, and are available in straight and curved versions with different tip styles.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">Westcott Tenotomy Scissors</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Westcott tenotomy scissors are another well-known pattern, typically curved and often built with a spring-action handle. The spring handle opens the blades automatically after each cut, which can reduce hand fatigue and support controlled, repeated cutting in small fields.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">Other Variations</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Manufacturers also produce further patterns with different blade lengths, curvatures, and handle styles. Some versions have tungsten carbide inserts in the blades, which help the cutting edge stay sharp for longer but usually cost more.
+</p>
+
+<div class="table-container my-6 overflow-x-auto rounded-xl border border-white/10 bg-white/[0.02]">
+  <table class="w-full text-xs sm:text-sm text-left border-collapse">
+    <thead>
+      <tr class="bg-white/5 text-[#D4AF37]">
+        <th class="p-2.5 sm:p-3 border-b border-white/10 font-semibold whitespace-nowrap">Variation</th>
+        <th class="p-2.5 sm:p-3 border-b border-white/10 font-semibold whitespace-nowrap">Key feature</th>
+        <th class="p-2.5 sm:p-3 border-b border-white/10 font-semibold whitespace-nowrap">Typical suitability</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-white/5 text-gray-300">
+      <tr>
+        <td class="p-2.5 sm:p-3 font-semibold text-white whitespace-nowrap">Straight</td>
+        <td class="p-2.5 sm:p-3">Blades in line with handles</td>
+        <td class="p-2.5 sm:p-3">Direct cuts in shallow, visible areas</td>
+      </tr>
+      <tr>
+        <td class="p-2.5 sm:p-3 font-semibold text-white whitespace-nowrap">Curved</td>
+        <td class="p-2.5 sm:p-3">Blades bend to one side</td>
+        <td class="p-2.5 sm:p-3">Better tip visibility and contouring</td>
+      </tr>
+      <tr>
+        <td class="p-2.5 sm:p-3 font-semibold text-white whitespace-nowrap">Sharp tips</td>
+        <td class="p-2.5 sm:p-3">Pointed ends</td>
+        <td class="p-2.5 sm:p-3">Fine, precise cutting in small spaces</td>
+      </tr>
+      <tr>
+        <td class="p-2.5 sm:p-3 font-semibold text-white whitespace-nowrap">Blunt tips</td>
+        <td class="p-2.5 sm:p-3">Rounded ends</td>
+        <td class="p-2.5 sm:p-3">Dissection and work near delicate structures</td>
+      </tr>
+      <tr>
+        <td class="p-2.5 sm:p-3 font-semibold text-white whitespace-nowrap">Spring handle</td>
+        <td class="p-2.5 sm:p-3">Blades reopen automatically</td>
+        <td class="p-2.5 sm:p-3">Controlled, repeated cutting with less fatigue</td>
+      </tr>
+      <tr>
+        <td class="p-2.5 sm:p-3 font-semibold text-white whitespace-nowrap">Tungsten carbide inserts</td>
+        <td class="p-2.5 sm:p-3">Long-lasting edge</td>
+        <td class="p-2.5 sm:p-3">Frequent use where sharpness matters</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="what-are-tenotomy-scissors-used-for" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">What Are Tenotomy Scissors Used For?</h2>
+
+<div class="my-6">
+  <img src="/assets/blog-tenotomy-scissors-detail.jpg" alt="Macro close-up of Stevens tenotomy scissors fine curved tips and precision screw joint" class="w-full aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] object-cover rounded-xl border border-white/10" />
+</div>
+
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-3">
+Tenotomy scissors are used for delicate, precise work. Common applications include:
+</p>
+<ul class="list-disc pl-5 space-y-2 mb-4 text-gray-300 text-sm sm:text-base">
+  <li><strong>Ophthalmic surgery</strong>, such as procedures involving the small muscles and tissues around the eye.</li>
+  <li><strong>Orthopedic and hand surgery</strong>, for cutting and dissecting fine tendons and soft tissue.</li>
+  <li><strong>Plastic and reconstructive surgery</strong>, for trimming and dissecting delicate tissue.</li>
+  <li><strong>Podiatric procedures</strong>, where small instruments are needed for fine soft-tissue work.</li>
+  <li><strong>ENT and other specialties</strong>, where precise cutting in confined spaces is required.</li>
+  <li><strong>Laboratory and veterinary use</strong>, for small-scale dissection.</li>
+</ul>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+The exact instrument used in any procedure is chosen by the surgeon according to clinical needs. Tenotomy scissors are fine instruments and are not intended for heavy tissue, wire, or other hard materials, which can damage the blades.
+</p>
+
+<h2 id="tenotomy-scissors-vs-other-fine-scissors" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">Tenotomy Scissors vs Other Fine Surgical Scissors</h2>
+<ul class="list-disc pl-5 space-y-3 mb-6 text-gray-300 text-sm sm:text-base">
+  <li><strong>Tenotomy scissors vs Iris scissors:</strong> Both are small and fine. <a href="/blog/iris-scissors-types-uses-and-applications" class="text-[#D4AF37] hover:underline font-medium">Iris scissors</a> are generally shorter and often supplied with sharp tips, while tenotomy scissors come in a wider range of patterns, including blunt tips, curved blades, and spring handles.</li>
+  <li><strong>Tenotomy scissors vs Metzenbaum scissors:</strong> <a href="/blog/what-are-metzenbaum-scissors-used-for" class="text-[#D4AF37] hover:underline font-medium">Metzenbaum scissors</a> are longer and used for dissection at greater depth, while tenotomy scissors are suited to fine work in smaller fields.</li>
+  <li><strong>Tenotomy scissors vs Mayo scissors:</strong> <a href="/blog/what-are-mayo-scissors-used-for" class="text-[#D4AF37] hover:underline font-medium">Mayo scissors</a> are heavy-duty and built for dense tissue, whereas tenotomy scissors are designed for delicate work.</li>
+</ul>
+
+<h2 id="buyer-considerations" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">Buyer Considerations: How to Choose Tenotomy Scissors</h2>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Whether you are equipping a clinic, hospital, or workshop, check the following before buying.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">1. Pattern and Application</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Start with the intended use. Different specialties favor different patterns, so confirm that the pattern you are considering suits the procedures it will be used for.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">2. Blade Shape</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Choose straight blades for direct cuts and curved blades for better tip visibility and contouring.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">3. Tip Style</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Decide between sharp, blunt, or combined tips based on the balance of precision and protection that the work requires.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">4. Handle Type</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Ring handles are common and familiar. Spring handles can make repeated cutting easier and reduce fatigue, but they suit specific patterns and preferences.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">5. Material and Edge Quality</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Surgical-grade stainless steel is standard. Tungsten carbide inserts can extend sharpness between sharpenings. Check that the blades meet cleanly along the full cutting edge, with no gaps or snagging.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">6. Pivot and Action</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+The pivot should feel smooth and consistent, without wobble, grinding, or stiffness. A poor pivot affects control and comfort.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">7. Finish and Sterilization Compatibility</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+A smooth, even finish makes cleaning easier. Confirm that the scissors suit the sterilization method your facility uses. <a href="/blog/surgical-instruments-sterilization-guide" class="text-[#D4AF37] hover:underline font-medium">Autoclave parameters and care protocols</a> differ by instrument type and steel grade.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">8. Reusable or Single-Use</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+Reusable scissors need to withstand repeated cleaning and sterilization and should be inspected regularly. Single-use options avoid reprocessing but have a different cost profile.
+</p>
+
+<h2 id="supplier-considerations" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">Considerations for Medical Instrument Suppliers</h2>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+If you source tenotomy scissors for resale or distribution, due diligence on the manufacturer is just as important as the instrument itself. Consider asking about the following:
+</p>
+<ul class="list-disc pl-5 space-y-2 mb-4 text-gray-300 text-sm sm:text-base">
+  <li><strong>Quality management system.</strong> Ask whether the manufacturer works under a recognized quality system such as ISO 13485.</li>
+  <li><strong>Regulatory documentation.</strong> Confirm what approvals, registrations, or declarations your target market requires, and ask for the supporting documents.</li>
+  <li><strong>Materials.</strong> Ask for the grade of stainless steel used and any available material documentation.</li>
+  <li><strong>Samples.</strong> Request samples and test them for sharpness, alignment, pivot action, finish, and feel before ordering in volume.</li>
+  <li><strong>Batch consistency.</strong> Ask how the manufacturer checks that each batch matches the specification.</li>
+  <li><strong>Specifications.</strong> Make sure length, pattern, tip style, and handle type are clearly stated and consistent in catalogues and on packaging.</li>
+  <li><strong>Customization.</strong> If you need private labeling, custom packaging, or particular patterns, ask what is available and what the minimum order quantities are.</li>
+  <li><strong>Packaging and labeling.</strong> Check that packaging protects the tips and that labeling meets your market's requirements.</li>
+  <li><strong>Lead times and communication.</strong> Confirm production and shipping times, and see how clearly and quickly the supplier responds.</li>
+  <li><strong>After-sales support.</strong> Ask how returns, replacements, and quality complaints are handled.</li>
+</ul>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+A dependable manufacturer will answer these questions openly and provide documentation on request. If answers are vague, treat that as a warning sign. <a href="/products" class="text-[#D4AF37] hover:underline font-medium">Usfah Industry surgical scissors</a> are manufactured to ISO 13485 standards — <a href="/contact" class="text-[#D4AF37] hover:underline font-medium">reach out</a> for wholesale pricing, OEM options, and documentation.
+</p>
+
+<h2 id="care-and-maintenance" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">Care and Maintenance</h2>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-3">
+Fine instruments need careful handling to keep their precision:
+</p>
+<ul class="list-disc pl-5 space-y-2 mb-6 text-gray-300 text-sm sm:text-base">
+  <li>Clean them promptly after use so residue does not dry on the blades.</li>
+  <li>Open the scissors fully when cleaning, including the pivot area.</li>
+  <li>Store them so the tips are protected from knocks and from contact with heavier instruments.</li>
+  <li>Sterilize them according to the manufacturer's instructions.</li>
+  <li>Inspect the tips, blade edges, and pivot regularly, and have dull, bent, or misaligned scissors sharpened, repaired, or replaced.</li>
+  <li>Use them only for the delicate work they are designed for.</li>
+</ul>
+
+<h2 id="conclusion" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">Final Thoughts</h2>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+Tenotomy scissors are precise, lightweight instruments with a range of patterns to suit different procedures. Understanding the differences in blade shape, tip style, and handle design helps buyers choose the right pair, and careful checks on quality, materials, and documentation help medical instrument suppliers source reliable products. Match the instrument to the task, test samples before committing, and keep the scissors well maintained to protect their precision over time. Usfah Industry manufactures <a href="/products" class="text-[#D4AF37] hover:underline font-medium">ISO 13485 certified surgical instruments</a> for hospitals, distributors, and surgical centres worldwide — <a href="/contact" class="text-[#D4AF37] hover:underline font-medium">get in touch</a> for enquiries.
+</p>
+`
+  },
+  {
+    id: "post-spencer-stitch-scissors-guide",
+    slug: "spencer-stitch-scissors-guide",
+    title: "Spencer Stitch Scissors: Uses and Buying Guide",
+    excerpt: "Learn about Spencer stitch scissors, their hooked blade design, common uses in suture removal, and the key factors to consider when sourcing them from a manufacturer or supplier.",
+    category: "Surgical Scissors",
+    publishDate: "2026-10-23",
+    updatedDate: "2026-10-23",
+    author: "Usfah Industry Technical Team",
+    readTime: "7 min read",
+    image: "/assets/blog-spencer-stitch-scissors-header.jpg",
+    imageAlt: "Spencer stitch scissors featuring hooked lower blade and pointed upper blade for suture removal",
+    metaTitle: "Spencer Stitch Scissors: Uses and Buying Guide",
+    metaDescription: "Learn about Spencer stitch scissors, their design, common uses, and key factors to consider when sourcing them from a manufacturer or supplier.",
+    keywords: "Spencer stitch scissors, Spencer suture removal scissors, stitch scissors, suture scissors, surgical scissors supplier, ISO 13485 surgical instruments, Spencer scissors buying guide",
+    faqs: [
+      {
+        question: "What are Spencer stitch scissors used for?",
+        answer: "They are used to remove stitches. The hooked lower blade slips under a suture so it can be cut cleanly near the skin."
+      },
+      {
+        question: "How are Spencer stitch scissors different from regular scissors?",
+        answer: "They have a small hook or notch on the lower blade and a slim tip designed to pass beneath a suture, which regular scissors do not have."
+      },
+      {
+        question: "Can Spencer stitch scissors be used for cutting dressings or tissue?",
+        answer: "They are not designed for that. Dressings call for bandage scissors, and tissue cutting calls for surgical scissors made for the task."
+      },
+      {
+        question: "How long are Spencer stitch scissors?",
+        answer: "Most are around 3.5 to 5 inches (about 9 to 13 cm), though sizes vary by manufacturer."
+      },
+      {
+        question: "What should I look for when sourcing them from a supplier?",
+        answer: "Check the hook and tip quality, blade alignment, material, finish, and sterilization compatibility. Also ask about quality systems, documentation, samples, and minimum order quantities."
+      },
+      {
+        question: "Are reusable or single-use stitch scissors better?",
+        answer: "It depends on your setting. Reusable scissors cost less per use but need reprocessing and inspection, while single-use scissors are convenient and avoid reprocessing."
+      }
+    ],
+    content: `
+<p class="lead text-sm sm:text-base text-gray-200 mb-6 leading-relaxed border-l-2 border-[#D4AF37] pl-3 py-1 font-normal bg-white/[0.02] rounded-r-lg">
+<strong class="text-white">Spencer stitch scissors</strong> are small, specialized scissors designed to remove stitches quickly and with minimal disturbance to the wound. Their hooked lower blade slips beneath a suture so it can be cut cleanly. This guide explains how Spencer stitch scissors are designed, what they are used for, and the key factors to consider when sourcing them from a manufacturer or supplier.
+</p>
+
+<h2 id="what-are-spencer-stitch-scissors" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">What Are Spencer Stitch Scissors?</h2>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Spencer stitch scissors, also called Spencer suture removal scissors, are a type of surgical scissors made for taking out sutures after a wound has healed enough. They are lightweight, compact, and built around one clear task: getting under a stitch and cutting it without pulling on the surrounding skin.
+</p>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-3">
+What sets them apart from general-purpose scissors is the shape of the blades:
+</p>
+<ul class="list-disc pl-5 space-y-2 mb-4 text-gray-300 text-sm sm:text-base">
+  <li><strong>A hooked or notched lower blade</strong> that catches and lifts the suture.</li>
+  <li><strong>A sharp upper blade</strong> that cuts the thread against the hook.</li>
+  <li><strong>A slim, tapered tip</strong> that slides beneath the stitch with little resistance.</li>
+</ul>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+Because the tip is designed to pass under the suture, the scissors can cut the thread close to the skin, which helps keep the process comfortable and controlled. <a href="/blog/complete-guide-surgical-scissors" class="text-[#D4AF37] hover:underline font-medium">Surgical scissors</a> come in many patterns, each built for a different task — this one is built around a single job.
+</p>
+
+<h2 id="how-spencer-stitch-scissors-are-designed" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">How Spencer Stitch Scissors Are Designed</h2>
+
+<div class="my-6">
+  <img src="/assets/blog-spencer-stitch-scissors-detail.jpg" alt="Macro detail of Spencer stitch scissors hooked notch on lower blade designed to lift and cut sutures" class="w-full aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] object-cover rounded-xl border border-white/10" />
+</div>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">Blade and Hook</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+The lower blade has a small hook, notch, or beak. When the scissors are placed against a suture, the hook captures the thread and holds it in position. When the handles close, the upper blade cuts the suture against the hook. This reduces the chance that the thread slips away or that the skin is pulled upward.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">Tip</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+The lower tip is typically slim and gently rounded or tapered so that it can slide under a stitch without catching the skin. The tip must be well finished, because rough or uneven tips are harder to slide beneath sutures. How the tip is shaped — <a href="/blog/sharp-vs-blunt-surgical-scissors" class="text-[#D4AF37] hover:underline font-medium">sharp or blunt</a> — directly affects how the instrument handles and how safe it is to use.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">Size and Handles</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Spencer stitch scissors are small and light, commonly around 3.5 to 5 inches (roughly 9 to 13 cm) long, although sizes vary by manufacturer. Finger rings are usually standard, and the overall balance should feel steady in the hand during fine work.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">Material</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+Most are made from surgical-grade stainless steel, which resists corrosion and withstands repeated cleaning and sterilization. Some manufacturers also offer single-use versions. Full material and specification details are available in the <a href="/catalogue" class="text-[#D4AF37] hover:underline font-medium">Usfah Industry catalogue</a>.
+</p>
+
+<h2 id="what-are-spencer-stitch-scissors-used-for" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">What Are Spencer Stitch Scissors Used For?</h2>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-3">
+Their main purpose is suture removal. Common settings include:
+</p>
+<ul class="list-disc pl-5 space-y-2 mb-4 text-gray-300 text-sm sm:text-base">
+  <li><strong>Clinics and hospitals,</strong> for removing stitches after minor procedures or surgery.</li>
+  <li><strong>Emergency and primary care,</strong> where wound follow-ups are routine.</li>
+  <li><strong>Dental and oral procedures,</strong> where small, controlled instruments are useful in confined spaces.</li>
+  <li><strong>Veterinary practice,</strong> for removing sutures from animal patients.</li>
+  <li><strong>Home-care and nursing settings,</strong> where trained staff handle wound care.</li>
+</ul>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+They are not meant for cutting dressings, heavy tissue, or hard materials. For tougher tissue, <a href="/blog/what-are-mayo-scissors-used-for" class="text-[#D4AF37] hover:underline font-medium">Mayo scissors</a> are a better fit, and for fine dissection, <a href="/blog/iris-scissors-types-uses-and-applications" class="text-[#D4AF37] hover:underline font-medium">Iris scissors</a> are the more suitable choice. Using stitch scissors for the wrong job can bend the hooked blade and reduce its performance.
+</p>
+
+<h2 id="spencer-vs-other-suture-scissors" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">Spencer Stitch Scissors vs Other Suture Scissors</h2>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Several instruments can cut sutures, but they are designed differently:
+</p>
+
+<div class="table-container my-6 overflow-x-auto rounded-xl border border-white/10 bg-white/[0.02]">
+  <table class="w-full text-xs sm:text-sm text-left border-collapse">
+    <thead>
+      <tr class="bg-white/5 text-[#D4AF37]">
+        <th class="p-2.5 sm:p-3 border-b border-white/10 font-semibold whitespace-nowrap">Instrument</th>
+        <th class="p-2.5 sm:p-3 border-b border-white/10 font-semibold whitespace-nowrap">Main design feature</th>
+        <th class="p-2.5 sm:p-3 border-b border-white/10 font-semibold whitespace-nowrap">Typical purpose</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-white/5 text-gray-300">
+      <tr>
+        <td class="p-2.5 sm:p-3 font-semibold text-white whitespace-nowrap">Spencer stitch scissors</td>
+        <td class="p-2.5 sm:p-3">Hooked lower blade, sharp upper blade</td>
+        <td class="p-2.5 sm:p-3">Removing sutures</td>
+      </tr>
+      <tr>
+        <td class="p-2.5 sm:p-3 font-semibold text-white whitespace-nowrap">Littauer stitch scissors</td>
+        <td class="p-2.5 sm:p-3">Sharp, angled lower tip for lifting sutures</td>
+        <td class="p-2.5 sm:p-3">Removing sutures</td>
+      </tr>
+      <tr>
+        <td class="p-2.5 sm:p-3 font-semibold text-white whitespace-nowrap">Iris scissors</td>
+        <td class="p-2.5 sm:p-3">Small, fine, pointed blades</td>
+        <td class="p-2.5 sm:p-3">Fine cutting and dissection</td>
+      </tr>
+      <tr>
+        <td class="p-2.5 sm:p-3 font-semibold text-white whitespace-nowrap">Mayo scissors</td>
+        <td class="p-2.5 sm:p-3">Heavy blades, blunt tips</td>
+        <td class="p-2.5 sm:p-3">Cutting dense tissue and thick sutures</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+The <a href="/blog/sharp-vs-blunt-surgical-scissors" class="text-[#D4AF37] hover:underline font-medium">shape of the tip</a> — sharp or blunt — also affects how safely and cleanly an instrument cuts, which matters just as much as the blade design.
+</p>
+
+<h2 id="how-to-use-spencer-stitch-scissors" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">How to Use Spencer Stitch Scissors</h2>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-3">
+The exact technique depends on training and clinical protocol, but the general approach is as follows:
+</p>
+<ol class="list-decimal pl-5 space-y-2 mb-4 text-gray-300 text-sm sm:text-base">
+  <li>Make sure the area is clean and well lit, and follow the facility's infection-control procedures.</li>
+  <li>Identify the suture and lift the knot gently with sterile forceps so the thread is visible.</li>
+  <li>Slide the hooked blade under the suture, close to the skin on one side of the knot.</li>
+  <li>Close the scissors to cut the thread.</li>
+  <li>Remove the suture carefully in the direction recommended by clinical guidelines, without pulling it through the wound more than necessary.</li>
+</ol>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+This summary is general information only. Suture removal should be performed by trained professionals following the relevant protocol.
+</p>
+
+<h2 id="key-factors-when-buying" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">Key Factors to Consider When Buying Spencer Stitch Scissors</h2>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Whether you are equipping a clinic or supplying a distribution business, check these features before you buy.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">1. Hook and Tip Quality</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+The hook should be smooth, well formed, and consistent from pair to pair. The tip should slide under a suture without catching, and it should not have burrs or rough spots.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">2. Blade Sharpness and Alignment</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+The upper blade should cut the thread cleanly against the hook with a single, smooth closing action. Poor alignment leads to dragging, slipping, or partial cuts.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">3. Material and Finish</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Look for surgical-grade stainless steel with a smooth, even finish. A good finish makes cleaning easier and holds up to repeated sterilization. Ask which grade of steel is used.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">4. Size and Handling</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Choose a length that feels balanced and controlled. Check that the finger rings are comfortable and that the pivot moves smoothly without wobble or stiffness.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">5. Reusable or Single-Use</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Reusable scissors need to withstand reprocessing and should be inspected regularly for hook wear. Single-use scissors remove the need for reprocessing but have a different cost profile.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">6. Sterilization Compatibility</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+Confirm that the scissors are suitable for the sterilization method your facility uses, and ask the manufacturer for reprocessing instructions. <a href="/blog/surgical-instruments-sterilization-guide" class="text-[#D4AF37] hover:underline font-medium">Autoclave parameters and care protocols</a> vary by instrument type and steel grade.
+</p>
+
+<h2 id="sourcing-from-a-manufacturer" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">Sourcing Spencer Stitch Scissors from a Manufacturer or Supplier</h2>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Buying in volume calls for a little more due diligence. Consider asking the following:
+</p>
+<ul class="list-disc pl-5 space-y-2 mb-4 text-gray-300 text-sm sm:text-base">
+  <li><strong>Quality management system.</strong> Ask whether the manufacturer works under a recognized quality system for medical devices, such as ISO 13485.</li>
+  <li><strong>Regulatory documentation.</strong> Confirm what approvals or registrations your market requires, and ask for the relevant documents.</li>
+  <li><strong>Materials information.</strong> Ask for the steel grade and any available material documentation.</li>
+  <li><strong>Samples.</strong> Request samples and test them for hook shape, sharpness, alignment, and feel before placing a larger order.</li>
+  <li><strong>Consistency.</strong> Ask how the manufacturer checks consistency from batch to batch.</li>
+  <li><strong>Customization.</strong> If you need private labeling, custom packaging, or specific sizes, ask whether these are available and what the minimum order quantities are.</li>
+  <li><strong>Packaging.</strong> Check that packaging protects the tips and hooks during shipping.</li>
+  <li><strong>Lead times and communication.</strong> Confirm production and delivery times, and see how responsive the supplier is to questions.</li>
+  <li><strong>After-sales support.</strong> Ask how returns, replacements, and quality complaints are handled.</li>
+</ul>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+A reliable supplier will answer these questions clearly and provide documentation on request. If a supplier is vague or avoids specifics, treat that as a warning sign. <a href="/products" class="text-[#D4AF37] hover:underline font-medium">Usfah Industry surgical scissors</a> are manufactured to ISO 13485 standards — <a href="/contact" class="text-[#D4AF37] hover:underline font-medium">get in touch</a> for wholesale pricing, OEM options, and documentation.
+</p>
+
+<h2 id="care-and-maintenance" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">Care and Maintenance</h2>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-3">
+Good care extends the life of the hook and the cutting edge:
+</p>
+<ul class="list-disc pl-5 space-y-2 mb-6 text-gray-300 text-sm sm:text-base">
+  <li>Clean the scissors promptly after use so residue does not dry on the blades or in the hook.</li>
+  <li>Open them fully during cleaning and pay attention to the pivot and the hooked area.</li>
+  <li>Store them so the tips are protected from knocks and from contact with heavier instruments.</li>
+  <li>Sterilize them according to the manufacturer's instructions.</li>
+  <li>Inspect the hook, tip, and blade edge regularly, and replace or have repaired any scissors that are bent, dull, or misaligned.</li>
+  <li>Use them only for suture removal.</li>
+</ul>
+
+<h2 id="conclusion" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">Final Thoughts</h2>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+Spencer stitch scissors do one job and do it well: removing sutures cleanly and with control. Their hooked blade and slim tip set them apart from general surgical scissors. When buying them, focus on hook quality, blade alignment, material, and finish, and when sourcing from a manufacturer or supplier, check quality systems, samples, and documentation before committing to a larger order. Usfah Industry manufactures <a href="/products" class="text-[#D4AF37] hover:underline font-medium">ISO 13485 certified surgical instruments</a> for hospitals, distributors, and surgical centres worldwide — <a href="/contact" class="text-[#D4AF37] hover:underline font-medium">reach out</a> for enquiries.
+</p>
+`
+  },
+  {
+    id: "post-sharp-vs-blunt-surgical-scissors",
+    slug: "sharp-vs-blunt-surgical-scissors",
+    title: "Sharp vs Blunt Surgical Scissors: Understanding the Difference",
+    excerpt: "Understand the difference between sharp and blunt surgical scissors and how these tip design characteristics relate to different surgical applications, from fine dissection to general cutting.",
+    category: "Surgical Scissors",
+    publishDate: "2026-10-23",
+    updatedDate: "2026-10-23",
+    author: "Usfah Industry Technical Team",
+    readTime: "8 min read",
+    image: "/assets/blog-sharp-vs-blunt-scissors-header.jpg",
+    imageAlt: "Sharp vs blunt surgical scissors comparison showing sharp pointed tips and rounded blunt tips",
+    metaTitle: "Sharp vs Blunt Surgical Scissors: Understanding the Difference",
+    metaDescription: "Understand the difference between sharp and blunt surgical scissors and how these design characteristics relate to different applications.",
+    keywords: "sharp vs blunt surgical scissors, sharp blunt surgical scissors, S/S S/B B/B surgical scissors, surgical scissors tip types, blunt dissection scissors, sharp tip surgical scissors, surgical scissors guide",
+    faqs: [
+      {
+        question: "What is the difference between sharp and blunt surgical scissors?",
+        answer: "The difference is in the tips. Sharp scissors have pointed tips for precise cutting in small areas, while blunt scissors have rounded tips that lower the chance of puncturing nearby tissue."
+      },
+      {
+        question: "What do S/S, S/B, and B/B mean on surgical scissors?",
+        answer: "They describe the tip style: S/S is sharp/sharp, S/B is sharp/blunt, and B/B is blunt/blunt."
+      },
+      {
+        question: "Are blunt-tipped scissors less sharp?",
+        answer: "No. The cutting edges of the blades can be just as sharp. Only the ends of the blades are rounded, which does not affect the sharpness of the cutting edges."
+      },
+      {
+        question: "Which is better for dissection, sharp or blunt scissors?",
+        answer: "Blunt scissors are commonly preferred for dissection because the rounded tips can move between tissue layers with less risk of piercing nearby structures."
+      },
+      {
+        question: "Can the same type of scissors come with different tip styles?",
+        answer: "Yes. Many scissor types, such as operating scissors, are offered in sharp/sharp, sharp/blunt, and blunt/blunt versions depending on clinical requirements."
+      }
+    ],
+    content: `
+<p class="lead text-sm sm:text-base text-gray-200 mb-6 leading-relaxed border-l-2 border-[#D4AF37] pl-3 py-1 font-normal bg-white/[0.02] rounded-r-lg">
+Surgical scissors are not all built the same, and one of the most important design details is the shape of the tips. <strong class="text-white">Sharp vs blunt surgical scissors</strong> differ in how the tips are ground: sharp tips come to a fine point, while blunt tips are rounded. This guide explains each style, how the tip design relates to different applications, and what to consider when choosing between them.
+</p>
+
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+Sharp surgical scissors have pointed tips that allow fine, precise cutting and access to small spaces. Blunt surgical scissors have rounded tips that lower the chance of puncturing or catching nearby tissue, which makes them a common choice for dissection and for work close to delicate structures. Many scissors combine the two, with one sharp tip and one blunt tip. The right choice depends on the task, the tissue, and the level of precision required. For a broader overview of all scissor types and designs, read our <a href="/blog/complete-guide-surgical-scissors" class="text-[#D4AF37] hover:underline font-medium">complete guide to surgical scissors</a>.
+</p>
+
+<h2 id="what-sharp-blunt-mean" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">What Does "Sharp" and "Blunt" Mean in Surgical Scissors?</h2>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+When manufacturers describe surgical scissors as sharp or blunt, they are usually talking about the tips of the blades, not the cutting edges. Both types have cutting edges that close against each other to cut. The difference is in how the ends of the blades are shaped.
+</p>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-3">
+Tip styles are normally described with abbreviations:
+</p>
+<ul class="list-disc pl-5 space-y-2 mb-6 text-gray-300 text-sm sm:text-base">
+  <li><strong>Sharp/sharp (S/S):</strong> both blades end in a point.</li>
+  <li><strong>Sharp/blunt (S/B):</strong> one blade is pointed and the other is rounded.</li>
+  <li><strong>Blunt/blunt (B/B):</strong> both blades have rounded tips.</li>
+</ul>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+You will often see these codes in product listings and catalogues, so it helps to recognize them.
+</p>
+
+<h2 id="sharp-surgical-scissors" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">Sharp Surgical Scissors</h2>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Sharp surgical scissors have fine, pointed tips on both blades. The pointed shape allows the user to start a cut in a small area, reach into narrow spaces, and cut with a high level of accuracy.
+</p>
+
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-2 font-semibold text-white">Advantages:</p>
+<ul class="list-disc pl-5 space-y-2 mb-4 text-gray-300 text-sm sm:text-base">
+  <li>Excellent precision for detailed work.</li>
+  <li>Easy to start a cut or slip a tip beneath a thin structure.</li>
+  <li>Good access in small or tight areas.</li>
+</ul>
+
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-2 font-semibold text-white">Limitations:</p>
+<ul class="list-disc pl-5 space-y-2 mb-6 text-gray-300 text-sm sm:text-base">
+  <li>The points can puncture or snag tissue if the instrument is not handled carefully.</li>
+  <li>Fine tips are more delicate and can be damaged if dropped or used on hard material.</li>
+</ul>
+
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+Sharp-tipped scissors are generally chosen where fine control matters more than protection from accidental contact. <a href="/blog/iris-scissors-types-uses-and-applications" class="text-[#D4AF37] hover:underline font-medium">Iris scissors</a>, which are small and fine, are a well-known example and are often supplied with sharp tips.
+</p>
+
+<h2 id="blunt-surgical-scissors" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">Blunt Surgical Scissors</h2>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Blunt surgical scissors have rounded tips on both blades. The rounded shape makes the tips less likely to pierce or catch on tissue as the scissors are moved, advanced, or opened.
+</p>
+
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-2 font-semibold text-white">Advantages:</p>
+<ul class="list-disc pl-5 space-y-2 mb-4 text-gray-300 text-sm sm:text-base">
+  <li>Lower risk of unintended puncture.</li>
+  <li>Smoother movement through tissue layers, which suits dissection.</li>
+  <li>A more forgiving tip that is less prone to damage.</li>
+</ul>
+
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-2 font-semibold text-white">Limitations:</p>
+<ul class="list-disc pl-5 space-y-2 mb-6 text-gray-300 text-sm sm:text-base">
+  <li>Less suited to starting a cut in a very small area.</li>
+  <li>Slightly less access in the tightest spaces.</li>
+</ul>
+
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+Blunt-tipped scissors are common for heavier cutting and general dissection. Many <a href="/blog/mayo-vs-metzenbaum-scissors" class="text-[#D4AF37] hover:underline font-medium">Mayo scissors and Metzenbaum scissors</a> are available with blunt tips for this reason.
+</p>
+
+<h2 id="sharp-blunt-combination" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">Sharp/Blunt Surgical Scissors</h2>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+Sharp/blunt scissors combine one pointed blade and one rounded blade. The rounded blade can be placed against or beneath tissue, while the pointed blade provides a precise cutting edge. This combination offers a balance between precision and protection, and it is widely used in general-purpose operating scissors.
+</p>
+
+<h2 id="side-by-side-comparison" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">Sharp vs Blunt Surgical Scissors: Side-by-Side Comparison</h2>
+
+<div class="table-container my-6 overflow-x-auto rounded-xl border border-white/10 bg-white/[0.02]">
+  <table class="w-full text-xs sm:text-sm text-left border-collapse">
+    <thead>
+      <tr class="bg-white/5 text-[#D4AF37]">
+        <th class="p-2.5 sm:p-3 border-b border-white/10 font-semibold whitespace-nowrap">Feature</th>
+        <th class="p-2.5 sm:p-3 border-b border-white/10 font-semibold whitespace-nowrap">Sharp/Sharp</th>
+        <th class="p-2.5 sm:p-3 border-b border-white/10 font-semibold whitespace-nowrap">Sharp/Blunt</th>
+        <th class="p-2.5 sm:p-3 border-b border-white/10 font-semibold whitespace-nowrap">Blunt/Blunt</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-white/5 text-gray-300">
+      <tr>
+        <td class="p-2.5 sm:p-3 font-semibold text-white whitespace-nowrap">Tip shape</td>
+        <td class="p-2.5 sm:p-3">Both pointed</td>
+        <td class="p-2.5 sm:p-3">One pointed, one rounded</td>
+        <td class="p-2.5 sm:p-3">Both rounded</td>
+      </tr>
+      <tr>
+        <td class="p-2.5 sm:p-3 font-semibold text-white whitespace-nowrap">Precision</td>
+        <td class="p-2.5 sm:p-3">Highest</td>
+        <td class="p-2.5 sm:p-3">High</td>
+        <td class="p-2.5 sm:p-3">Moderate</td>
+      </tr>
+      <tr>
+        <td class="p-2.5 sm:p-3 font-semibold text-white whitespace-nowrap">Risk of unintended puncture</td>
+        <td class="p-2.5 sm:p-3">Higher</td>
+        <td class="p-2.5 sm:p-3">Moderate</td>
+        <td class="p-2.5 sm:p-3">Lower</td>
+      </tr>
+      <tr>
+        <td class="p-2.5 sm:p-3 font-semibold text-white whitespace-nowrap">Access in tight spaces</td>
+        <td class="p-2.5 sm:p-3">Best</td>
+        <td class="p-2.5 sm:p-3">Good</td>
+        <td class="p-2.5 sm:p-3">More limited</td>
+      </tr>
+      <tr>
+        <td class="p-2.5 sm:p-3 font-semibold text-white whitespace-nowrap">Typical approach</td>
+        <td class="p-2.5 sm:p-3">Fine, detailed cutting</td>
+        <td class="p-2.5 sm:p-3">General-purpose cutting</td>
+        <td class="p-2.5 sm:p-3">Dissection and heavier cutting</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+This table is a general guide. The exact performance of any scissor also depends on its size, blade shape, and build quality.
+</p>
+
+<h2 id="tip-design-applications" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">How Tip Design Relates to Different Applications</h2>
+
+<div class="my-6">
+  <img src="/assets/blog-sharp-vs-blunt-scissors-detail.jpg" alt="Macro comparison of sharp/sharp pointed surgical scissors tips versus blunt/blunt rounded dissection scissor tips" class="w-full aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] object-cover rounded-xl border border-white/10" />
+</div>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">Fine, Detailed Cutting</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Procedures that involve small structures and require careful control often use sharp-tipped scissors. The fine points allow the user to work in small fields and make precise cuts. Ophthalmic and plastic surgery are common examples of areas where fine instruments are used.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">Dissection</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+When the goal is to separate tissue layers rather than simply cut, blunt tips are usually preferred. The rounded ends can be advanced and spread between layers with less risk of catching or piercing nearby tissue.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">Working Near Delicate Structures</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+In areas where vital structures sit close to the cutting site, blunt tips add a margin of protection. The surgeon still needs good technique and visibility, but the tip design reduces one source of risk.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">Cutting Sutures and Dressings</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Suture scissors are often made with sharp or fine tips so they can slip under a stitch. Bandage scissors usually have a blunt, flattened tip on the lower blade so they can slide beneath a dressing without touching the skin.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">General Operating Room Use</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+Sharp/blunt scissors are a flexible option for general tasks where a mix of precision and protection is helpful. It is worth remembering that tip style is only one part of the design. Blade shape matters as well — our guide to <a href="/blog/straight-vs-curved-surgical-scissors" class="text-[#D4AF37] hover:underline font-medium">straight vs curved surgical scissors</a> explains how blade curvature affects handling and access.
+</p>
+
+<h2 id="examples-by-tip-style" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">Examples of Common Surgical Scissors by Tip Style</h2>
+<ul class="list-disc pl-5 space-y-2 mb-6 text-gray-300 text-sm sm:text-base">
+  <li><strong>Iris scissors:</strong> small, fine scissors often supplied with sharp tips for detailed work. See our guide to <a href="/blog/iris-scissors-types-uses-and-applications" class="text-[#D4AF37] hover:underline font-medium">Iris scissors types and uses</a>.</li>
+  <li><strong>Metzenbaum scissors:</strong> slim scissors for delicate dissection, commonly with blunt tips.</li>
+  <li><strong>Mayo scissors:</strong> heavy scissors for dense tissue and sutures, commonly with blunt tips.</li>
+  <li><strong>Operating scissors:</strong> general-purpose scissors available in sharp/sharp, sharp/blunt, and blunt/blunt versions.</li>
+  <li><strong>Bandage scissors:</strong> scissors with a blunt, angled tip designed for cutting dressings safely.</li>
+</ul>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+Availability varies by manufacturer, so always check the product specifications for the exact tip style. You can browse our <a href="/products" class="text-[#D4AF37] hover:underline font-medium">full range of surgical scissors</a> or download the <a href="/catalogue" class="text-[#D4AF37] hover:underline font-medium">Usfah Industry catalogue</a> for complete specifications.
+</p>
+
+<h2 id="what-to-consider" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">What to Consider When Choosing Between Sharp and Blunt Scissors</h2>
+<ol class="list-decimal pl-5 space-y-2 mb-6 text-gray-300 text-sm sm:text-base">
+  <li><strong>The task.</strong> Match the tip to the job: sharp for fine, precise cutting, blunt for dissection and work near delicate structures.</li>
+  <li><strong>Tissue type.</strong> Fine tissue may call for a different approach than dense tissue, and the scissor family matters as much as the tip.</li>
+  <li><strong>Level of control needed.</strong> If precision in a tiny space is the priority, sharp tips may suit better. If protection against accidental contact is the priority, blunt tips may be the safer choice.</li>
+  <li><strong>Safety and handling.</strong> Consider who will use the instrument and how it will be handled, cleaned, and passed between team members.</li>
+  <li><strong>Blade shape and length.</strong> Choose straight or curved blades and a suitable length for the depth of the work.</li>
+  <li><strong>Material and build quality.</strong> Surgical-grade stainless steel is standard, and some scissors have tungsten carbide inserts that help the edge stay sharp longer. Check that the blades close smoothly along the full length without gaps.</li>
+  <li><strong>Reusable or single-use.</strong> Reusable scissors must withstand repeated cleaning and sterilization, and sharp tips in particular should be inspected regularly.</li>
+</ol>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+When the choice is not obvious, follow the clinical requirements of the procedure and the preferences of the surgical team. For questions about wholesale orders or specifications, <a href="/contact" class="text-[#D4AF37] hover:underline font-medium">contact our export team</a>.
+</p>
+
+<h2 id="common-misunderstandings" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">Common Misunderstandings</h2>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">"Blunt scissors do not cut well."</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Blunt scissors cut just as effectively as sharp ones. The cutting is done by the edges of the blades, not the tips, so a rounded tip does not mean a dull instrument.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">"Sharp tips are always better for precision."</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+Pointed tips help with precision in small spaces, but they are not the best choice for every task. In dissection or near delicate structures, a rounded tip can be more suitable.
+</p>
+
+<h3 class="text-white text-base sm:text-lg font-semibold mt-6 mb-2">"The tip style is the only difference."</h3>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+Tip style is one feature among many. Blade shape, size, weight, material, and finish all affect how a scissor performs. For a full technical breakdown of blade geometry, see our <a href="/blog/mayo-vs-metzenbaum-scissors" class="text-[#D4AF37] hover:underline font-medium">Mayo vs Metzenbaum scissors comparison</a>.
+</p>
+
+<h2 id="care-and-maintenance" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">Care and Maintenance</h2>
+<ul class="list-disc pl-5 space-y-2 mb-6 text-gray-300 text-sm sm:text-base">
+  <li>Clean scissors promptly after use so residue does not dry on the blades.</li>
+  <li>Open the scissors fully when cleaning, including the pivot area.</li>
+  <li>Store instruments so that tips, especially sharp ones, are protected from knocks and from contact with heavier instruments.</li>
+  <li>Sterilize according to the manufacturer's instructions.</li>
+  <li>Inspect tips and edges regularly, and have dull, bent, or misaligned scissors sharpened or replaced.</li>
+  <li>Use scissors only for their intended purpose, because cutting wire or other hard materials can damage the blades and tips.</li>
+</ul>
+
+<h2 id="conclusion" class="text-[#D4AF37] text-lg sm:text-xl font-bold mt-8 mb-3">Final Thoughts</h2>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+Choosing between sharp and blunt surgical scissors comes down to balancing precision and protection. Sharp tips give fine control in small spaces, blunt tips offer a safer, smoother approach to dissection, and sharp/blunt designs sit in between. By understanding how these characteristics relate to different applications, and by checking blade shape, material, and build quality, you can select scissors that suit the work they are meant to do. Usfah Industry manufactures ISO 13485 certified surgical scissors for hospitals, distributors, and surgical centers worldwide. Browse our <a href="/products" class="text-[#D4AF37] hover:underline font-medium">products</a> or <a href="/contact" class="text-[#D4AF37] hover:underline font-medium">contact our team</a> for wholesale and OEM enquiries.
+</p>
+`
+  },
+  {
     id: "post-iris-scissors-guide",
     slug: "iris-scissors-types-uses-and-applications",
     title: "Iris Scissors: Types, Uses and Applications",

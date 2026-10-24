@@ -6,15 +6,21 @@ import { BrowserRouter } from "react-router-dom";
 import ShopContextProvider from "./context/ShopContext.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import { HelmetProvider } from "react-helmet-async";
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ShopContextProvider>
-      <BrowserRouter>
-        <ScrollToTop />
-        <HelmetProvider>
+    <HelmetProvider>
+      <ShopContextProvider>
+        <BrowserRouter>
+          <ScrollToTop />
           <App />
-        </HelmetProvider>
-      </BrowserRouter>
-    </ShopContextProvider>
+        </BrowserRouter>
+      </ShopContextProvider>
+    </HelmetProvider>
   </StrictMode>,
 );
+
+// Signal to vite-plugin-prerender that the app has mounted and is ready
+// to be snapshotted. This event is only relevant during the prerender build.
+document.dispatchEvent(new Event('render-event'));
+

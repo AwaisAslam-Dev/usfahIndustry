@@ -16,13 +16,15 @@ const Blog = () => {
   }, []);
 
   const filteredPosts = useMemo(() => {
-    return blogPosts.filter(post => {
-      const matchesCategory = selectedCategory === 'All' || post.category === selectedCategory;
-      const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                            post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                            post.keywords.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesCategory && matchesSearch;
-    });
+    return blogPosts
+      .filter(post => {
+        const matchesCategory = selectedCategory === 'All' || post.category === selectedCategory;
+        const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              post.keywords.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCategory && matchesSearch;
+      })
+      .sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
   }, [searchQuery, selectedCategory]);
 
   return (
