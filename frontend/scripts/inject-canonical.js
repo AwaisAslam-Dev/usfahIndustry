@@ -2,153 +2,450 @@
  * injectCanonicalPlugin
  *
  * A lightweight Vite post-build plugin that generates a static index.html
- * for every route with <title>, <meta name="description">, and
- * <link rel="canonical"> baked into the HTML at build time.
+ * for every route with <title>, <meta name="description">,
+ * <link rel="canonical">, and Product JSON-LD schema baked into the HTML
+ * at build time.
  *
  * This ensures crawlers that do not execute JavaScript (ahrefs, Bing, etc.)
- * still receive the correct canonical tag, eliminating the
- * "Duplicate pages without canonical" issue reported by ahrefs.
+ * still receive canonical tags and Product schema, eliminating:
+ *   - "Duplicate pages without canonical"
+ *   - "Product page missing Product schema"
  */
 
 import fs from 'fs'
 import path from 'path'
 
 const DOMAIN = 'https://usfahindustry.com'
+const DEFAULT_IMAGE = `${DOMAIN}/android-chrome-192x192.png`
 
 // --------------------------------------------------------------------------
-// Route map: path → { title, description }
-// Keep this in sync with what each page's <SEO> component renders.
+// Static pages (non-product, non-blog)
+// Each includes an h1 field for the static HTML fallback.
 // --------------------------------------------------------------------------
-const routes = [
+const staticPages = [
   {
     path: '/',
     title: 'Usfah Industry | Premium Surgical, Dental & Beauty Instruments Manufacturer',
     description: 'Usfah Industry is a leading global manufacturer and exporter of ISO-certified surgical instruments, dental tools, beauty instruments, and more from Sialkot.',
+    h1: 'Usfah Industry — Premium Surgical, Dental & Beauty Instruments Manufacturer',
   },
   {
     path: '/about',
     title: 'About Usfah Industry | Surgical Instrument Manufacturer Sialkot',
     description: 'Learn about Usfah Industry, a trusted manufacturer and exporter of surgical, dental, and beauty instruments from Sialkot, Pakistan.',
+    h1: 'Crafting Excellence in Medical Instruments',
   },
   {
     path: '/products',
     title: 'Surgical & Dental Instruments | Usfah Industry Products',
     description: 'Browse our full range of ISO-certified surgical scissors, dental forceps, beauty instruments, and more from Usfah Industry.',
+    h1: 'Surgical and Dental Instruments Catalog',
   },
   {
     path: '/catalogue',
     title: 'Instruments Catalogue | Usfah Industry',
     description: 'Download or view the Usfah Industry product catalogue covering surgical, dental, and beauty instruments with full specifications.',
+    h1: 'Surgical, Dental and Beauty Catalogue PDF',
   },
   {
     path: '/blog',
     title: 'Blog & Insights | Medical & Surgical Instrument Guide | Usfah Industry',
     description: 'Read articles, sterilization guides, dental forceps tips, and surgical stainless steel metallurgy insights from Usfah Industry.',
+    h1: 'Usfah Industry Blog',
   },
   {
     path: '/contact',
     title: 'Contact Usfah Industry | Wholesale & Export Enquiries',
     description: 'Get in touch with Usfah Industry for wholesale pricing, OEM manufacturing, export enquiries, and product documentation.',
+    h1: 'Connect With Usfah Industry',
   },
   {
     path: '/privacy-policy',
-    title: 'Privacy Policy | Usfah Industry',
+    title: 'Privacy Policy | Usfah Industry Surgical Instruments',
     description: 'Read the Usfah Industry privacy policy to understand how we collect, use, and protect your personal information.',
+    h1: 'Privacy Policy',
   },
   {
     path: '/terms-and-conditions',
-    title: 'Terms and Conditions | Usfah Industry',
+    title: 'Terms and Conditions | Usfah Industry Surgical Instruments',
     description: 'Read the terms and conditions governing use of the Usfah Industry website and services.',
+    h1: 'Terms & Conditions',
   },
   {
     path: '/disclaimer',
-    title: 'Disclaimer | Usfah Industry',
+    title: 'Disclaimer | Usfah Industry Surgical Instruments Manufacturer',
     description: 'Read the disclaimer for the Usfah Industry website regarding the accuracy and use of information provided.',
+    h1: 'Product & Legal Disclaimer',
   },
   {
     path: '/cookie-policy',
-    title: 'Cookie Policy | Usfah Industry',
+    title: 'Cookie Policy | Usfah Industry Surgical Instruments',
     description: 'Learn how Usfah Industry uses cookies on its website and how you can manage your cookie preferences.',
+    h1: 'Cookie Policy',
   },
+]
 
-  // ── Blog posts ────────────────────────────────────────────────────────────
+// --------------------------------------------------------------------------
+// Blog posts
+// --------------------------------------------------------------------------
+const blogPosts = [
   {
     path: '/blog/complete-guide-surgical-scissors',
     title: 'Surgical Scissors Guide: Types, Uses & Manufacturing Standards',
     description: 'Explore Mayo, Metzenbaum, Iris, and Lister surgical scissors. Learn about AISI 420/440 stainless steel, TC gold handles, and ISO 13485 export standards.',
+    h1: 'Complete Guide to Surgical Scissors: Types, Uses and Manufacturing Standards',
   },
   {
     path: '/blog/mayo-vs-metzenbaum-scissors',
     title: 'Mayo vs Metzenbaum Scissors: What\'s the Difference?',
     description: 'Mayo vs Metzenbaum scissors compared for design, blade strength, and when surgeons use each type. A clear guide for choosing the right instrument.',
+    h1: 'Mayo vs Metzenbaum Scissors: What\'s the Difference?',
   },
   {
     path: '/blog/guide-dental-extracting-forceps',
     title: 'Guide to Dental Extracting Forceps: Anatomy, Patterns & Specs',
     description: 'Comprehensive guide to dental extracting forceps patterns, beak angles, hinge mechanics, AISI 420 steel, and ISO 13485 export standards for dental distributors.',
+    h1: 'Guide to Dental Extracting Forceps: Anatomy, Patterns & Technical Specs',
   },
   {
     path: '/blog/surgical-instruments-sterilization-guide',
     title: 'Surgical Instruments Sterilization & Autoclave Care Protocol',
     description: 'Essential CSSD protocol for autoclaving surgical stainless steel, enzymatic cleaning, joint lubrication, EN 285 standards, and rust prevention.',
+    h1: 'Surgical Instruments Sterilization & Autoclave Care Protocol',
   },
   {
     path: '/blog/what-are-metzenbaum-scissors-used-for',
     title: 'What Are Metzenbaum Scissors Used For? | Usfah Industry',
     description: 'Discover what Metzenbaum scissors are used for in surgery, including design features, tissue applications, blunt dissection, and sourcing standards.',
+    h1: 'What Are Metzenbaum Scissors Used For?',
   },
   {
     path: '/blog/what-are-mayo-scissors-used-for',
     title: 'What Are Mayo Scissors Used For? | Usfah Industry',
     description: 'Learn what Mayo scissors are used for, their design characteristics, clinical applications, and key considerations when sourcing them.',
+    h1: 'What Are Mayo Scissors Used For?',
   },
   {
     path: '/blog/straight-vs-curved-surgical-scissors',
     title: 'Straight vs Curved Surgical Scissors: Which Should You Choose?',
     description: 'Understand the difference between straight and curved surgical scissors, how blade shape affects handling, and which to choose for different procedures.',
+    h1: 'Straight vs Curved Surgical Scissors: Which Should You Choose?',
   },
   {
     path: '/blog/tenotomy-scissors-types-uses',
     title: 'Tenotomy Scissors: Types, Uses and Buyer Considerations',
     description: 'Explore tenotomy scissors, their common variations and applications, and important considerations for buyers and medical instrument suppliers.',
+    h1: 'Tenotomy Scissors: Types, Uses and Buyer Considerations',
   },
   {
     path: '/blog/spencer-stitch-scissors-guide',
     title: 'Spencer Stitch Scissors: Uses and Buying Guide',
     description: 'Learn about Spencer stitch scissors, their design, common uses, and key factors to consider when sourcing them from a manufacturer or supplier.',
+    h1: 'Spencer Stitch Scissors: Uses and Buying Guide',
   },
   {
     path: '/blog/sharp-vs-blunt-surgical-scissors',
     title: 'Sharp vs Blunt Surgical Scissors: Understanding the Difference',
     description: 'Understand the difference between sharp and blunt surgical scissors and how these design characteristics relate to different applications.',
+    h1: 'Sharp vs Blunt Surgical Scissors: Understanding the Difference',
   },
   {
     path: '/blog/iris-scissors-types-uses-and-applications',
     title: 'Iris Scissors: Types, Uses and Applications | Usfah Industry',
     description: 'Learn about Iris scissors, their fine blade design, surgical and ophthalmic applications, and what to look for when sourcing them.',
+    h1: 'Iris Scissors: Types, Uses and Applications',
   },
-
-  // ── Product detail pages ──────────────────────────────────────────────────
-  ...['USF-SURG-001','USF-SURG-002','USF-SURG-003','USF-SURG-004','USF-SURG-005',
-      'USF-DENT-001','USF-DENT-002','USF-DENT-003','USF-DENT-004','USF-DENT-005',
-      'USF-BEAU-001','USF-BEAU-002','USF-BEAU-003','USF-BEAU-004','USF-BEAU-005',
-      'USF-EXTR-001','USF-EXTR-002','USF-EXTR-003','USF-EXTR-004','USF-EXTR-005',
-      'USF-ROOT-001','USF-ROOT-002','USF-ROOT-003','USF-ROOT-004','USF-ROOT-005',
-      'USF-SCAL-001','USF-SCAL-002','USF-SCAL-003','USF-SCAL-004','USF-SCAL-005',
-  ].map(id => ({
-    path: `/productdetails/${id}`,
-    title: `${id} | Surgical Instrument | Usfah Industry`,
-    description: `View full specifications and details for ${id} — a certified surgical instrument manufactured by Usfah Industry.`,
-  })),
 ]
+
+// --------------------------------------------------------------------------
+// Parse product data from src/assets/assets.js at build time.
+// Extracts id, name, category, description for every product.
+// --------------------------------------------------------------------------
+function parseProducts() {
+  const assetsPath = path.resolve('src', 'assets', 'assets.js')
+  if (!fs.existsSync(assetsPath)) {
+    console.warn('[inject-canonical] assets.js not found, skipping product schema.')
+    return []
+  }
+
+  const content = fs.readFileSync(assetsPath, 'utf-8')
+
+  // Match each product object: { id: "...", name: "...", ..., category: "...", ..., description: "..." }
+  const productRegex = /id:\s*"(USF-[A-Z]+-\d+)"[^}]*?name:\s*"([^"]*)"[^}]*?category:\s*"([^"]*)"[^}]*?description:\s*"([^"]*)"/g
+
+  const products = []
+  let match
+  while ((match = productRegex.exec(content)) !== null) {
+    products.push({
+      id: match[1],
+      name: match[2],
+      category: match[3],
+      description: match[4],
+    })
+  }
+
+  return products
+}
+
+// --------------------------------------------------------------------------
+// Parse blog post content AND faqs from src/data/blogData.js.
+// Returns slug → { content, excerpt, faqs: [{question, answer}] }
+// --------------------------------------------------------------------------
+let _blogContentCache = null
+
+function getBlogContent() {
+  if (_blogContentCache) return _blogContentCache
+  _blogContentCache = {}
+
+  const blogPath = path.resolve('src', 'data', 'blogData.js')
+  if (!fs.existsSync(blogPath)) {
+    console.warn('[inject-canonical] blogData.js not found.')
+    return _blogContentCache
+  }
+
+  const content = fs.readFileSync(blogPath, 'utf-8')
+
+  // Match each blog post block from slug to the end of the content field
+  // We need to capture: slug, excerpt, faqs (array), and content (template literal)
+  const postRegex = /slug:\s*"([^"]+)"[\s\S]*?(?=slug:|"post-|;\s*\n|\]\s*\n)/g
+
+  // Simpler: match slug, then extract fields individually
+  const slugRegex = /slug:\s*"([^"]+)"/g
+  let slugMatch
+  while ((slugMatch = slugRegex.exec(content)) !== null) {
+    const slug = slugMatch[1]
+    const startPos = slugMatch.index
+
+    // Find the next slug or end of array to determine block end
+    const remaining = content.slice(startPos + slugMatch[0].length)
+    const nextSlug = remaining.search(/slug:\s*"/)
+    const nextId = remaining.search(/id:\s*"/)
+    let endOffset = remaining.length
+    if (nextSlug > 0) endOffset = Math.min(endOffset, nextSlug)
+    if (nextId > 0) endOffset = Math.min(endOffset, nextId)
+
+    const block = content.slice(startPos, startPos + slugMatch[0].length + endOffset)
+
+    // Extract content (template literal)
+    const contentMatch = block.match(/content:\s*`([\s\S]*?)`/)
+    const rawContent = contentMatch ? contentMatch[1] : ''
+
+    // Extract excerpt
+    const excerptMatch = block.match(/excerpt:\s*"([^"]*)"/)
+    const excerpt = excerptMatch ? excerptMatch[1] : ''
+
+    // Extract title
+    const titleMatch = block.match(/title:\s*"([^"]*)"/)
+    const title = titleMatch ? titleMatch[1] : ''
+
+    // Extract FAQs
+    const faqs = []
+    const faqRegex = /question:\s*"([^"]*)"[^}]*?answer:\s*"([^"]*)"/g
+    let faqMatch
+    while ((faqMatch = faqRegex.exec(block)) !== null) {
+      faqs.push({ question: faqMatch[1], answer: faqMatch[2] }
+      )
+    }
+
+    // Build full content HTML: article body + title + excerpt + FAQs
+    let fullContent = rawContent
+
+    // Prepend title and excerpt
+    if (title) fullContent = `<h1>${title}</h1><p>${excerpt}</p>` + fullContent
+
+    // Append FAQs as HTML
+    if (faqs.length > 0) {
+      fullContent += '<h2>Frequently Asked Questions</h2>'
+      for (const faq of faqs) {
+        fullContent += `<h3>${faq.question}</h3><p>${faq.answer}</p>`
+      }
+    }
+
+    _blogContentCache[slug] = fullContent
+  }
+
+  return _blogContentCache
+}
+
+// --------------------------------------------------------------------------
+// Strip HTML tags to get plain text for word counting.
+// --------------------------------------------------------------------------
+function stripHtml(html) {
+  return html
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&[a-z]+;/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+// --------------------------------------------------------------------------
+// Build content text for a route. Returns plain text that crawlers can read.
+// --------------------------------------------------------------------------
+function buildRouteContent(route) {
+  // Blog posts: inject the full article content from blogData.js
+  if (route.path.startsWith('/blog/') && route.path !== '/blog') {
+    const slug = route.path.replace('/blog/', '')
+    const blogContent = getBlogContent()
+    const rawHtml = blogContent[slug]
+    if (rawHtml) {
+      // Return the raw HTML — crawlers strip tags and count text words.
+      // We keep it as HTML so it has proper structure.
+      return rawHtml
+    }
+  }
+
+  // Blog listing page
+  if (route.path === '/blog') {
+    return `<p>Usfah Industry blog provides expert guides on surgical stainless steel metallurgy, clinical forceps selection, salon hygiene standards, and instrument care. Read articles covering Mayo vs Metzenbaum scissors, dental extracting forceps, sterilization protocols, Iris scissors, straight vs curved surgical scissors, sharp vs blunt tip designs, Spencer stitch scissors, tenotomy scissors, and more. Our technical team shares insights on ISO 13485 manufacturing standards, AISI 420 and 440 stainless steel grades, tungsten carbide inserts, and surgical instrument procurement for hospitals and distributors worldwide.</p>`
+  }
+
+  // Product detail pages: build a descriptive paragraph from product data
+  if (route.path.startsWith('/productdetails/')) {
+    const productId = route.path.replace('/productdetails/', '')
+    const product = getProducts().find(p => p.id === productId)
+    if (product) {
+      return `<p>${escapeHtml(product.description || product.name)} This ${escapeHtml(product.category.toLowerCase())} is manufactured from surgical-grade stainless steel by Usfah Industry in Sialkot, Pakistan. The instrument is designed for professional clinical use and undergoes ISO 13485 quality control testing. It is suitable for autoclave sterilization at 134 degrees Celsius and resists corrosion through repeated cleaning cycles. Usfah Industry exports medical instruments to hospitals, dental clinics, and distributors worldwide. Contact us for wholesale pricing, OEM manufacturing, and bulk order documentation for this ${escapeHtml(product.id)} instrument.</p>`
+    }
+  }
+
+  // Static pages: add a descriptive paragraph
+  const staticContent = {
+    '/': 'Usfah Industry is a leading global manufacturer and exporter of ISO-certified surgical instruments, dental tools, beauty instruments, extracting forceps, root elevators, and periodontal scalers. Based in Sialkot, Pakistan, we manufacture premium medical instruments from surgical-grade stainless steel including AISI 420 and 440 grades. Our products meet ISO 13485 quality standards and CE marking requirements for European healthcare markets. We supply hospitals, dental clinics, beauty salons, and medical distributors worldwide with export-quality instruments crafted for precision, durability, and reliability.',
+    '/about': 'Usfah Industry is a premier surgical instruments manufacturing company in Sialkot, Pakistan. For over a decade, our facility has delivered export quality medical instruments, dental extracting tools, and beauty equipment trusted by healthcare professionals globally. We specialize in surgical scissors, dental forceps, beauty instruments, root elevators, and scalers manufactured from medical-grade stainless steel. Our manufacturing process follows ISO 13485 quality management systems and CE compliance for international healthcare supply chains.',
+    '/products': 'Browse our full range of ISO-certified surgical scissors, dental forceps, beauty instruments, extracting forceps, root elevators, and periodontal scalers from Usfah Industry. Our product catalog includes Mayo scissors, Metzenbaum scissors, Iris scissors, Lister bandage scissors, dental extracting forceps, cuticle nippers, tweezers, and more. All instruments are manufactured from surgical-grade stainless steel and undergo rigorous quality control testing to meet international medical device standards.',
+    '/catalogue': 'Download the complete Usfah Industry product catalogue covering surgical instruments, dental tools, beauty instruments, extracting forceps, root elevators, and scalers. Our catalogue includes full specifications, reference numbers, and material certifications for all products. Certified surgical instruments manufacturer in Sialkot, Pakistan supplying export tools worldwide with ISO 13485 compliance and CE marking.',
+    '/contact': 'Contact Usfah Industry for wholesale pricing, OEM manufacturing, export enquiries, and product documentation. We are a trusted surgical instruments supplier and medical tools manufacturer in Sialkot, Pakistan. Get in touch for custom manufacturing specifications, bulk order quotes, private labeling, or product inquiries. Our export team serves hospitals, dental distributors, and healthcare networks across Europe, North America, and international markets.',
+    '/privacy-policy': 'Read the Usfah Industry privacy policy to understand how we collect, use, and protect your personal information when you visit our website or contact us for product enquiries. This policy covers data collection through contact forms, WhatsApp inquiries, catalogue downloads, and website analytics. We are committed to protecting your privacy and complying with applicable data protection regulations.',
+    '/terms-and-conditions': 'Read the terms and conditions governing use of the Usfah Industry website and services. These terms cover website usage, product enquiries, wholesale orders, OEM manufacturing agreements, export documentation, intellectual property, liability limitations, and dispute resolution. By accessing our website or purchasing our surgical, dental, or beauty instruments, you agree to these terms and conditions.',
+    '/disclaimer': 'Read the disclaimer for the Usfah Industry website regarding the accuracy and use of information provided about our surgical instruments, dental tools, and beauty equipment. Product specifications, material grades, and manufacturing standards may vary. Always verify current specifications before placing orders. Medical professionals should follow clinical protocols and manufacturer instructions when using any surgical instrument.',
+    '/cookie-policy': 'Learn how Usfah Industry uses cookies on its website and how you can manage your cookie preferences. We use cookies for website analytics, user experience improvement, and remembering your preferences. You can control cookie settings through your browser. This policy explains the types of cookies we use, their purpose, and how long they are stored on your device.',
+  }
+
+  if (staticContent[route.path]) {
+    return `<p>${staticContent[route.path]}</p>`
+  }
+
+  return ''
+}
+function buildProductSchema(product) {
+  const canonicalUrl = `${DOMAIN}/productdetails/${product.id}`
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": `${product.category} (${product.id})`,
+    "image": [DEFAULT_IMAGE],
+    "description": product.description || `Export-quality ${product.category} (${product.id}) manufactured by Usfah Industry.`,
+    "sku": product.id,
+    "mpn": product.id,
+    "brand": {
+      "@type": "Brand",
+      "name": "Usfah Industry"
+    },
+    "category": product.category,
+    "offers": {
+      "@type": "Offer",
+      "url": canonicalUrl,
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition",
+      "seller": {
+        "@type": "Organization",
+        "name": "Usfah Industry"
+      }
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// Resolve a URL path to a route object (including dynamic product routes).
+// Used by both dev-server transformIndexHtml and build closeBundle.
+// --------------------------------------------------------------------------
+let _productCache = null
+
+function getProducts() {
+  if (_productCache) return _productCache
+  _productCache = parseProducts()
+  return _productCache
+}
+
+function resolveRoute(urlPath) {
+  // Clean the path (strip query string, trailing slash for non-root, normalize index.html)
+  let cleanPath = urlPath.split('?')[0].split('#')[0]
+  // Normalize /index.html → /
+  if (cleanPath === '/index.html') cleanPath = '/'
+  if (cleanPath.length > 1 && cleanPath.endsWith('/')) {
+    cleanPath = cleanPath.slice(0, -1)
+  }
+  // Also handle /blog/some-post/index.html → /blog/some-post
+  if (cleanPath.endsWith('/index.html')) {
+    cleanPath = cleanPath.slice(0, -'/index.html'.length)
+    if (cleanPath === '') cleanPath = '/'
+  }
+
+  // Check static pages
+  const staticRoute = staticPages.find(r => r.path === cleanPath)
+  if (staticRoute) return staticRoute
+
+  // Check blog posts
+  const blogRoute = blogPosts.find(r => r.path === cleanPath)
+  if (blogRoute) return blogRoute
+
+  // Check product detail pages (dynamic)
+  if (cleanPath.startsWith('/productdetails/')) {
+    const productId = cleanPath.replace('/productdetails/', '')
+    const product = getProducts().find(p => p.id === productId)
+    if (product) {
+      return {
+        path: cleanPath,
+        title: `${product.name} | Usfah Industry`,
+        description: product.description || `Buy or order wholesale ${product.name} manufactured from medical grade stainless steel by Usfah Industry.`,
+        h1: `${product.category} (${product.id})`,
+        schema: buildProductSchema(product),
+      }
+    }
+  }
+
+  return null
+}
 
 // --------------------------------------------------------------------------
 // Plugin
 // --------------------------------------------------------------------------
 export function injectCanonicalPlugin() {
+  // Store the current request URL so transformIndexHtml can read it.
+  // Vite's transformIndexHtml always receives /index.html as ctx.path
+  // for SPA routes, so we intercept the actual URL in a middleware first.
+  let currentUrl = '/'
+
   return {
     name: 'inject-canonical',
-    // Runs after Vite has written all files to dist/
+
+    // ── Step 1: Capture the real URL from the browser request ───────────
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        if (req.method === 'GET') {
+          const url = (req.url || '/').split('?')[0].split('#')[0]
+          // Only store URL for page navigations (no file extension)
+          if (!url.includes('.')) {
+            currentUrl = url
+          }
+        }
+        next()
+      })
+    },
+
+    // ── Step 2: Inject meta tags using the captured URL ────────────────
+    // Vite calls this while serving index.html. We use currentUrl
+    // (set by our middleware above) instead of ctx.path (always /index.html).
+    transformIndexHtml(html, ctx) {
+      const route = resolveRoute(currentUrl)
+      if (!route) return html
+      return patchHtml(html, route)
+    },
+
+    // ── Production build: generate per-directory static HTML ────────────
+    // Runs after Vite writes all files to dist/. Generates a static
+    // index.html for every route with all meta tags baked in.
     closeBundle() {
       const distDir = path.resolve('dist')
       const templatePath = path.join(distDir, 'index.html')
@@ -160,10 +457,24 @@ export function injectCanonicalPlugin() {
 
       const template = fs.readFileSync(templatePath, 'utf-8')
 
-      for (const route of routes) {
-        // Skip root — index.html already handles it
+      // Parse all products from assets.js
+      const products = getProducts()
+
+      // Build product routes with schema
+      const productRoutes = products.map(p => ({
+        path: `/productdetails/${p.id}`,
+        title: `${p.name} | Usfah Industry`,
+        description: p.description || `Buy or order wholesale ${p.name} manufactured from medical grade stainless steel by Usfah Industry.`,
+        h1: `${p.category} (${p.id})`,
+        schema: buildProductSchema(p),
+      }))
+
+      // Combine all routes
+      const allRoutes = [...staticPages, ...blogPosts, ...productRoutes]
+
+      for (const route of allRoutes) {
+        // Root page — patch in place
         if (route.path === '/') {
-          // Just patch the root index.html in place
           const patched = patchHtml(template, route)
           fs.writeFileSync(templatePath, patched, 'utf-8')
           continue
@@ -177,30 +488,72 @@ export function injectCanonicalPlugin() {
         fs.writeFileSync(outFile, patched, 'utf-8')
       }
 
-      console.log(`[inject-canonical] Injected canonical tags into ${routes.length} routes.`)
+      console.log(`[inject-canonical] Injected canonical + schema into ${allRoutes.length} routes (${products.length} products with Product schema).`)
     },
   }
 }
 
 // --------------------------------------------------------------------------
 // Patch a single HTML string with static <title>, <meta description>,
-// and <link rel="canonical"> inside <head>.
+// <link rel="canonical">, optional JSON-LD schema, and a static <h1>
+// fallback inside <div id="root"> for non-JS crawlers.
+// Idempotent: removes any previously-injected tags before adding new ones.
 // --------------------------------------------------------------------------
 function patchHtml(html, route) {
   const canonicalUrl = `${DOMAIN}${route.path}`
 
-  const headInject = [
+  // ── Clean up any previously injected tags (makes this idempotent) ──────
+  let patched = html
+    // Remove existing meta description (ours or react-helmet's)
+    .replace(/\s*<meta name="description"[^>]*>/g, '')
+    // Remove existing canonical
+    .replace(/\s*<link rel="canonical"[^>]*>/g, '')
+    // Remove existing og:url
+    .replace(/\s*<meta property="og:url"[^>]*>/g, '')
+    // Remove existing robots meta
+    .replace(/\s*<meta name="robots" content="index, follow[^"]*"[^>]*>/g, '')
+    // Remove existing JSON-LD Product/Article schema scripts (ours)
+    .replace(/\s*<script type="application\/ld\+json">\{"@context":"https:\/\/schema\.org"[^<]*<\/script>/g, '')
+    // Reset #root to empty — removes any previously injected H1/content.
+    // Uses greedy match to find the LAST </div> before </body> or <script.
+    .replace(/<div id="root">[\s\S]*<\/div>(?=\s*(?:<\/body|<script))/, '<div id="root"></div>')
+
+  const headParts = [
     `  <title>${escapeHtml(route.title)}</title>`,
     `  <meta name="description" content="${escapeHtml(route.description)}" />`,
     `  <link rel="canonical" href="${canonicalUrl}" />`,
     `  <meta property="og:url" content="${canonicalUrl}" />`,
     `  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />`,
-  ].join('\n')
+  ]
 
-  // Replace the placeholder <title> and insert meta/canonical before </head>
-  return html
+  // Inject Product JSON-LD schema if available
+  if (route.schema) {
+    const schemaJson = JSON.stringify(route.schema)
+      .replace(/</g, '\\u003c')
+      .replace(/>/g, '\\u003e')
+    headParts.push(`  <script type="application/ld+json">${schemaJson}</script>`)
+  }
+
+  const headInject = headParts.join('\n')
+
+  // Replace the placeholder <title> and insert meta/canonical/schema before </head>
+  patched = patched
     .replace(/<title>[^<]*<\/title>/, '')
     .replace('</head>', `${headInject}\n</head>`)
+
+  // Inject a static <h1> and content text inside <div id="root">.
+  // React replaces #root content on mount, so browsers never see it.
+  // This is only visible to non-JS crawlers (ahrefs, Bing, etc.).
+  if (route.h1) {
+    const contentHtml = buildRouteContent(route)
+    const hiddenContent = `<div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);"><h1>${escapeHtml(route.h1)}</h1>${contentHtml}</div>`
+    patched = patched.replace(
+      /(<div id="root">)(<\/div>)/,
+      `$1${hiddenContent}$2`
+    )
+  }
+
+  return patched
 }
 
 function escapeHtml(str) {
