@@ -68,7 +68,7 @@ const staticPages = [
   {
     path: '/terms-and-conditions',
     title: 'Terms and Conditions | Usfah Industry Surgical Instruments',
-    description: 'Read the terms and conditions governing use of the Usfah Industry website and services.',
+    description: 'Terms and conditions for using the Usfah Industry website, covering product orders, OEM manufacturing, export documentation, and instrument purchases.',
     h1: 'Terms & Conditions',
   },
   {
