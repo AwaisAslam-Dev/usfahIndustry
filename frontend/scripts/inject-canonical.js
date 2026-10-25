@@ -1,4 +1,4 @@
-/**
+﻿/**
  * injectCanonicalPlugin
  *
  * A lightweight Vite post-build plugin that generates a static index.html
@@ -27,7 +27,7 @@ const staticPages = [
     path: '/',
     title: 'Usfah Industry | Premium Surgical, Dental & Beauty Instruments Manufacturer',
     description: 'Usfah Industry is a leading global manufacturer and exporter of ISO-certified surgical instruments, dental tools, beauty instruments, and more from Sialkot.',
-    h1: 'Usfah Industry — Premium Surgical, Dental & Beauty Instruments Manufacturer',
+    h1: 'Usfah Industry â€” Premium Surgical, Dental & Beauty Instruments Manufacturer',
   },
   {
     path: '/about',
@@ -188,8 +188,8 @@ function parseProducts() {
 }
 
 // --------------------------------------------------------------------------
-// Parse blog post content AND faqs from src/data/blogData.js.
-// Returns slug → { content, excerpt, faqs: [{question, answer}] }
+// Parse blog post content AND metadata from src/data/blogData.js.
+// Returns slug â†’ { content, title, excerpt, publishDate, updatedDate, author, image, faqs }
 // --------------------------------------------------------------------------
 let _blogContentCache = null
 
@@ -205,18 +205,14 @@ function getBlogContent() {
 
   const content = fs.readFileSync(blogPath, 'utf-8')
 
-  // Match each blog post block from slug to the end of the content field
-  // We need to capture: slug, excerpt, faqs (array), and content (template literal)
-  const postRegex = /slug:\s*"([^"]+)"[\s\S]*?(?=slug:|"post-|;\s*\n|\]\s*\n)/g
-
-  // Simpler: match slug, then extract fields individually
+  // Find each blog post block by slug
   const slugRegex = /slug:\s*"([^"]+)"/g
   let slugMatch
   while ((slugMatch = slugRegex.exec(content)) !== null) {
     const slug = slugMatch[1]
     const startPos = slugMatch.index
 
-    // Find the next slug or end of array to determine block end
+    // Find the next slug or end of array
     const remaining = content.slice(startPos + slugMatch[0].length)
     const nextSlug = remaining.search(/slug:\s*"/)
     const nextId = remaining.search(/id:\s*"/)
@@ -226,45 +222,96 @@ function getBlogContent() {
 
     const block = content.slice(startPos, startPos + slugMatch[0].length + endOffset)
 
-    // Extract content (template literal)
+    // Extract fields
     const contentMatch = block.match(/content:\s*`([\s\S]*?)`/)
     const rawContent = contentMatch ? contentMatch[1] : ''
 
-    // Extract excerpt
     const excerptMatch = block.match(/excerpt:\s*"([^"]*)"/)
     const excerpt = excerptMatch ? excerptMatch[1] : ''
 
-    // Extract title
     const titleMatch = block.match(/title:\s*"([^"]*)"/)
     const title = titleMatch ? titleMatch[1] : ''
+
+    const publishDateMatch = block.match(/publishDate:\s*"([^"]*)"/)
+    const publishDate = publishDateMatch ? publishDateMatch[1] : ''
+
+    const updatedDateMatch = block.match(/updatedDate:\s*"([^"]*)"/)
+    const updatedDate = updatedDateMatch ? updatedDateMatch[1] : publishDate
+
+    const authorMatch = block.match(/author:\s*"([^"]*)"/)
+    const author = authorMatch ? authorMatch[1] : 'Usfah Industry Technical Team'
+
+    const imageMatch = block.match(/image:\s*"([^"]*)"/)
+    const image = imageMatch ? imageMatch[1] : '/android-chrome-192x192.png'
+
+    const metaDescMatch = block.match(/metaDescription:\s*"([^"]*)"/)
+    const metaDescription = metaDescMatch ? metaDescMatch[1] : excerpt
 
     // Extract FAQs
     const faqs = []
     const faqRegex = /question:\s*"([^"]*)"[^}]*?answer:\s*"([^"]*)"/g
     let faqMatch
     while ((faqMatch = faqRegex.exec(block)) !== null) {
-      faqs.push({ question: faqMatch[1], answer: faqMatch[2] }
-      )
+      faqs.push({ question: faqMatch[1], answer: faqMatch[2] })
     }
 
-    // Build full content HTML: article body + title + excerpt + FAQs
-    let fullContent = rawContent
-
-    // Prepend title and excerpt
-    if (title) fullContent = `<h1>${title}</h1><p>${excerpt}</p>` + fullContent
-
-    // Append FAQs as HTML
-    if (faqs.length > 0) {
-      fullContent += '<h2>Frequently Asked Questions</h2>'
-      for (const faq of faqs) {
-        fullContent += `<h3>${faq.question}</h3><p>${faq.answer}</p>`
-      }
+    _blogContentCache[slug] = {
+      content: rawContent,
+      title,
+      excerpt,
+      publishDate,
+      updatedDate,
+      author,
+      image,
+      metaDescription,
+      faqs,
     }
-
-    _blogContentCache[slug] = fullContent
   }
 
   return _blogContentCache
+}
+
+// --------------------------------------------------------------------------
+// Build an Article JSON-LD schema object for a blog post.
+// --------------------------------------------------------------------------
+function buildArticleSchema(slug, postData) {
+  const canonicalUrl = `${DOMAIN}/blog/${slug}`
+  const imageUrl = postData.image.startsWith('http') ? postData.image : `${DOMAIN}${postData.image}`
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": postData.title,
+    "description": postData.metaDescription || postData.excerpt,
+    "image": imageUrl,
+    "datePublished": postData.publishDate,
+    "dateModified": postData.updatedDate || postData.publishDate,
+    "author": { "@type": "Person", "name": postData.author },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Usfah Industry",
+      "logo": { "@type": "ImageObject", "url": `${DOMAIN}/android-chrome-192x192.png` }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl }
+  }
+
+  // Add FAQPage schema if FAQs exist
+  if (postData.faqs && postData.faqs.length > 0) {
+    return [
+      schema,
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": postData.faqs.map(f => ({
+          "@type": "Question",
+          "name": f.question,
+          "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+        }))
+      }
+    ]
+  }
+
+  return schema
 }
 
 // --------------------------------------------------------------------------
@@ -285,12 +332,21 @@ function buildRouteContent(route) {
   // Blog posts: inject the full article content from blogData.js
   if (route.path.startsWith('/blog/') && route.path !== '/blog') {
     const slug = route.path.replace('/blog/', '')
-    const blogContent = getBlogContent()
-    const rawHtml = blogContent[slug]
-    if (rawHtml) {
-      // Return the raw HTML — crawlers strip tags and count text words.
-      // We keep it as HTML so it has proper structure.
-      return rawHtml
+    const blogData = getBlogContent()
+    const postData = blogData[slug]
+    if (postData && postData.content) {
+      // Build full content: title + excerpt + article body + FAQs
+      let fullContent = ''
+      if (postData.title) fullContent += `<h1>${postData.title}</h1>`
+      if (postData.excerpt) fullContent += `<p>${postData.excerpt}</p>`
+      fullContent += postData.content
+      if (postData.faqs && postData.faqs.length > 0) {
+        fullContent += '<h2>Frequently Asked Questions</h2>'
+        for (const faq of postData.faqs) {
+          fullContent += `<h3>${faq.question}</h3><p>${faq.answer}</p>`
+        }
+      }
+      return fullContent
     }
   }
 
@@ -326,6 +382,66 @@ function buildRouteContent(route) {
   }
 
   return ''
+}
+function buildItemListSchema(products, pagePath, pageName) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": pageName,
+    "numberOfItems": products.length,
+    "itemListElement": products.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "url": `${DOMAIN}/productdetails/${item.id}`,
+      "name": `${item.category} (${item.id})`
+    }))
+  }
+}
+
+// --------------------------------------------------------------------------
+// Build Organization + WebSite schema for the home page.
+// Matches the schema generated by Home.jsx.
+// --------------------------------------------------------------------------
+function buildHomeSchema() {
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Usfah Industry",
+      "url": DOMAIN,
+      "logo": `${DOMAIN}/android-chrome-192x192.png`,
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+92-346-0424486",
+        "contactType": "customer service",
+        "areaServed": "Global",
+        "availableLanguage": ["English", "Urdu"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ugoki Road",
+        "addressLocality": "Sialkot",
+        "addressRegion": "Punjab",
+        "postalCode": "51310",
+        "addressCountry": "PK"
+      },
+      "sameAs": [
+        "https://www.facebook.com/share/1ENJsxDC4L/?mibextid=wwXIfr",
+        "https://www.instagram.com/usfah_industry"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Usfah Industry",
+      "url": DOMAIN,
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": `${DOMAIN}/products?search={search_term_string}`,
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
 }
 function buildProductSchema(product) {
   const canonicalUrl = `${DOMAIN}/productdetails/${product.id}`
@@ -371,12 +487,12 @@ function getProducts() {
 function resolveRoute(urlPath) {
   // Clean the path (strip query string, trailing slash for non-root, normalize index.html)
   let cleanPath = urlPath.split('?')[0].split('#')[0]
-  // Normalize /index.html → /
+  // Normalize /index.html â†’ /
   if (cleanPath === '/index.html') cleanPath = '/'
   if (cleanPath.length > 1 && cleanPath.endsWith('/')) {
     cleanPath = cleanPath.slice(0, -1)
   }
-  // Also handle /blog/some-post/index.html → /blog/some-post
+  // Also handle /blog/some-post/index.html â†’ /blog/some-post
   if (cleanPath.endsWith('/index.html')) {
     cleanPath = cleanPath.slice(0, -'/index.html'.length)
     if (cleanPath === '') cleanPath = '/'
@@ -384,11 +500,38 @@ function resolveRoute(urlPath) {
 
   // Check static pages
   const staticRoute = staticPages.find(r => r.path === cleanPath)
-  if (staticRoute) return staticRoute
+  if (staticRoute) {
+    // Home page: add Organization + WebSite schema
+    if (cleanPath === '/') {
+      return { ...staticRoute, schema: buildHomeSchema() }
+    }
+    // Add ItemList schema for category pages
+    if (cleanPath === '/products' || cleanPath === '/catalogue') {
+      const products = getProducts()
+      const schema = buildItemListSchema(
+        products,
+        cleanPath,
+        cleanPath === '/products'
+          ? 'Surgical, Dental & Beauty Instruments Catalog'
+          : 'Usfah Industry Instruments Catalogue'
+      )
+      return { ...staticRoute, schema }
+    }
+    return staticRoute
+  }
 
   // Check blog posts
   const blogRoute = blogPosts.find(r => r.path === cleanPath)
-  if (blogRoute) return blogRoute
+  if (blogRoute) {
+    const slug = cleanPath.replace('/blog/', '')
+    const blogData = getBlogContent()
+    const postData = blogData[slug]
+    if (postData) {
+      const ogImage = postData.image.startsWith('http') ? postData.image : `${DOMAIN}${postData.image}`
+      return { ...blogRoute, ogType: 'article', ogImage, schema: buildArticleSchema(slug, postData) }
+    }
+    return { ...blogRoute, ogType: 'article' }
+  }
 
   // Check product detail pages (dynamic)
   if (cleanPath.startsWith('/productdetails/')) {
@@ -400,6 +543,7 @@ function resolveRoute(urlPath) {
         title: `${product.name} | Usfah Industry`,
         description: product.description || `Buy or order wholesale ${product.name} manufactured from medical grade stainless steel by Usfah Industry.`,
         h1: `${product.category} (${product.id})`,
+        ogType: 'product',
         schema: buildProductSchema(product),
       }
     }
@@ -420,7 +564,7 @@ export function injectCanonicalPlugin() {
   return {
     name: 'inject-canonical',
 
-    // ── Step 1: Capture the real URL from the browser request ───────────
+    // â”€â”€ Step 1: Capture the real URL from the browser request â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
         if (req.method === 'GET') {
@@ -434,7 +578,7 @@ export function injectCanonicalPlugin() {
       })
     },
 
-    // ── Step 2: Inject meta tags using the captured URL ────────────────
+    // â”€â”€ Step 2: Inject meta tags using the captured URL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     // Vite calls this while serving index.html. We use currentUrl
     // (set by our middleware above) instead of ctx.path (always /index.html).
     transformIndexHtml(html, ctx) {
@@ -443,7 +587,7 @@ export function injectCanonicalPlugin() {
       return patchHtml(html, route)
     },
 
-    // ── Production build: generate per-directory static HTML ────────────
+    // â”€â”€ Production build: generate per-directory static HTML â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     // Runs after Vite writes all files to dist/. Generates a static
     // index.html for every route with all meta tags baked in.
     closeBundle() {
@@ -460,20 +604,46 @@ export function injectCanonicalPlugin() {
       // Parse all products from assets.js
       const products = getProducts()
 
+      // Build ItemList schema for category pages
+      const productsSchema = buildItemListSchema(products, '/products', 'Surgical, Dental & Beauty Instruments Catalog')
+      const catalogueSchema = buildItemListSchema(products, '/catalogue', 'Usfah Industry Instruments Catalogue')
+
+      // Add schema to static pages that need it
+      const staticRoutesWithSchema = staticPages.map(sp => {
+        if (sp.path === '/') return { ...sp, schema: buildHomeSchema() }
+        if (sp.path === '/products') return { ...sp, schema: productsSchema }
+        if (sp.path === '/catalogue') return { ...sp, schema: catalogueSchema }
+        return sp
+      })
+
       // Build product routes with schema
       const productRoutes = products.map(p => ({
         path: `/productdetails/${p.id}`,
         title: `${p.name} | Usfah Industry`,
         description: p.description || `Buy or order wholesale ${p.name} manufactured from medical grade stainless steel by Usfah Industry.`,
         h1: `${p.category} (${p.id})`,
+        ogType: 'product',
         schema: buildProductSchema(p),
       }))
 
+      // Build blog post routes with Article schema
+      const blogData = getBlogContent()
+      const blogRoutesWithSchema = blogPosts.map(bp => {
+        const slug = bp.path.replace('/blog/', '')
+        const postData = blogData[slug]
+        const ogImage = postData && postData.image
+          ? (postData.image.startsWith('http') ? postData.image : `${DOMAIN}${postData.image}`)
+          : DEFAULT_IMAGE
+        return postData
+          ? { ...bp, ogType: 'article', ogImage, schema: buildArticleSchema(slug, postData) }
+          : { ...bp, ogType: 'article', ogImage: DEFAULT_IMAGE }
+      })
+
       // Combine all routes
-      const allRoutes = [...staticPages, ...blogPosts, ...productRoutes]
+      const allRoutes = [...staticRoutesWithSchema, ...blogRoutesWithSchema, ...productRoutes]
 
       for (const route of allRoutes) {
-        // Root page — patch in place
+        // Root page â€” patch in place
         if (route.path === '/') {
           const patched = patchHtml(template, route)
           fs.writeFileSync(templatePath, patched, 'utf-8')
@@ -502,7 +672,7 @@ export function injectCanonicalPlugin() {
 function patchHtml(html, route) {
   const canonicalUrl = `${DOMAIN}${route.path}`
 
-  // ── Clean up any previously injected tags (makes this idempotent) ──────
+  // â”€â”€ Clean up any previously injected tags (makes this idempotent) â”€â”€â”€â”€â”€â”€
   let patched = html
     // Remove existing meta description (ours or react-helmet's)
     .replace(/\s*<meta name="description"[^>]*>/g, '')
@@ -512,21 +682,37 @@ function patchHtml(html, route) {
     .replace(/\s*<meta property="og:url"[^>]*>/g, '')
     // Remove existing robots meta
     .replace(/\s*<meta name="robots" content="index, follow[^"]*"[^>]*>/g, '')
+    // Remove existing OG tags
+    .replace(/\s*<meta property="og:[^"]*"[^>]*>/g, '')
+    // Remove existing Twitter tags
+    .replace(/\s*<meta name="twitter:[^"]*"[^>]*>/g, '')
     // Remove existing JSON-LD Product/Article schema scripts (ours)
     .replace(/\s*<script type="application\/ld\+json">\{"@context":"https:\/\/schema\.org"[^<]*<\/script>/g, '')
+    // Remove existing noscript navigation block (idempotency)
+    .replace(/\s*<noscript><nav[\s\S]*?<\/noscript>/g, '')
     // Reset #root to empty — removes any previously injected H1/content.
-    // Uses greedy match to find the LAST </div> before </body> or <script.
-    .replace(/<div id="root">[\s\S]*<\/div>(?=\s*(?:<\/body|<script))/, '<div id="root"></div>')
+    // Uses greedy match to find the LAST </div> before </body>, <script>, or <noscript>.
+    .replace(/<div id="root">[\s\S]*<\/div>(?=\s*(?:<\/body|<script|<noscript))/, '<div id="root"></div>')
+
 
   const headParts = [
     `  <title>${escapeHtml(route.title)}</title>`,
     `  <meta name="description" content="${escapeHtml(route.description)}" />`,
     `  <link rel="canonical" href="${canonicalUrl}" />`,
-    `  <meta property="og:url" content="${canonicalUrl}" />`,
     `  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />`,
+    `  <meta property="og:url" content="${canonicalUrl}" />`,
+    `  <meta property="og:title" content="${escapeHtml(route.title)}" />`,
+    `  <meta property="og:description" content="${escapeHtml(route.description)}" />`,
+    `  <meta property="og:image" content="${escapeHtml(route.ogImage || DEFAULT_IMAGE)}" />`,
+    `  <meta property="og:type" content="${route.ogType || 'website'}" />`,
+    `  <meta property="og:site_name" content="Usfah Industry" />`,
+    `  <meta name="twitter:card" content="summary_large_image" />`,
+    `  <meta name="twitter:title" content="${escapeHtml(route.title)}" />`,
+    `  <meta name="twitter:description" content="${escapeHtml(route.description)}" />`,
+    `  <meta name="twitter:image" content="${escapeHtml(route.ogImage || DEFAULT_IMAGE)}" />`,
   ]
 
-  // Inject Product JSON-LD schema if available
+  // Inject JSON-LD schema if available (Product, Article, or FAQPage)
   if (route.schema) {
     const schemaJson = JSON.stringify(route.schema)
       .replace(/</g, '\\u003c')
@@ -552,6 +738,28 @@ function patchHtml(html, route) {
       `$1${hiddenContent}$2`
     )
   }
+
+  // â”€â”€ Add <noscript> navigation block â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // Crawlers (ahrefs, Google) read noscript content without executing JS.
+  // This ensures every page has visible internal links to all major pages,
+  // fixing "Redirected page has no incoming internal links" and preventing
+  // orphan pages.
+  const noscriptLinks = [
+    `<a href="${DOMAIN}/">Home</a>`,
+    `<a href="${DOMAIN}/about">About</a>`,
+    `<a href="${DOMAIN}/products">Products</a>`,
+    `<a href="${DOMAIN}/catalogue">Catalogue</a>`,
+    `<a href="${DOMAIN}/blog">Blog</a>`,
+    `<a href="${DOMAIN}/contact">Contact</a>`,
+  ].join(' | ')
+
+  const noscriptBlock = `<noscript><nav aria-label="Site navigation">${noscriptLinks}</nav></noscript>`
+
+  // Insert noscript block right after the root div, before any script tags
+  patched = patched.replace(
+    /(<\/div>)\s*(?=<script|<\/body)/,
+    `$1\n    ${noscriptBlock}\n  `
+  )
 
   return patched
 }
