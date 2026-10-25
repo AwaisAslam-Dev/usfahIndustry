@@ -1,4 +1,4 @@
-﻿/**
+/**
  * injectCanonicalPlugin
  *
  * A lightweight Vite post-build plugin that generates a static index.html
@@ -694,7 +694,7 @@ function patchHtml(html, route) {
     .replace(/\s*<meta name="twitter:[^"]*"[^>]*>/g, '')
     // Remove existing JSON-LD Product/Article schema scripts (ours)
     // Remove ALL existing JSON-LD schema scripts we injected (single object or array)
-    .replace(/\s*<script type="application\/ld\+json">[\[{][^\x00]*?<\/script>/g, '')
+    .replace(/\s*<script type="application\/ld\+json">[[{][\s\S]*?<\/script>/g, '')
     .replace(/\s*<noscript><nav[\s\S]*?<\/noscript>/g, '')
     // Reset #root to empty — removes any previously injected H1/content.
     // Uses greedy match to find the LAST </div> before </body>, <script>, or <noscript>.
