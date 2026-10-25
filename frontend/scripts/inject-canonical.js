@@ -49,7 +49,7 @@ const staticPages = [
   },
   {
     path: '/blog',
-    title: 'Blog & Insights | Medical & Surgical Instrument Guide | Usfah Industry',
+    title: 'Blog & Insights | Surgical Instrument Guide | Usfah Industry',
     description: 'Read articles, sterilization guides, dental forceps tips, and surgical stainless steel metallurgy insights from Usfah Industry.',
     h1: 'Usfah Industry Blog',
   },
@@ -462,6 +462,8 @@ function buildProductSchema(product) {
       "@type": "Offer",
       "url": canonicalUrl,
       "priceCurrency": "USD",
+      "price": "0",
+      "priceValidUntil": "2027-12-31",
       "availability": "https://schema.org/InStock",
       "itemCondition": "https://schema.org/NewCondition",
       "seller": {
@@ -687,8 +689,8 @@ function patchHtml(html, route) {
     // Remove existing Twitter tags
     .replace(/\s*<meta name="twitter:[^"]*"[^>]*>/g, '')
     // Remove existing JSON-LD Product/Article schema scripts (ours)
-    .replace(/\s*<script type="application\/ld\+json">\{"@context":"https:\/\/schema\.org"[^<]*<\/script>/g, '')
-    // Remove existing noscript navigation block (idempotency)
+    // Remove ALL existing JSON-LD schema scripts we injected (single object or array)
+    .replace(/\s*<script type="application\/ld\+json">[\[{][^\x00]*?<\/script>/g, '')
     .replace(/\s*<noscript><nav[\s\S]*?<\/noscript>/g, '')
     // Reset #root to empty — removes any previously injected H1/content.
     // Uses greedy match to find the LAST </div> before </body>, <script>, or <noscript>.

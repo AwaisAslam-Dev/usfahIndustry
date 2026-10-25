@@ -30,7 +30,7 @@ const Blog = () => {
   return (
     <>
       <SEO
-        title="Blog & Insights | Medical & Surgical Instrument Guide | Usfah Industry"
+        title="Blog & Insights | Surgical Instrument Guide | Usfah Industry"
         description="Read articles, sterilization guides, dental forceps anatomical matching tips, and surgical stainless steel metallurgy insights from Usfah Industry."
         keywords="surgical blog, dental instrument guide, stainless steel sterilization, medical tool manufacturing blog, Usfah Industry articles,surgical instruments blog,
 surgical instruments,

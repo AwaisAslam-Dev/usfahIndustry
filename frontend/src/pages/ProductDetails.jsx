@@ -94,6 +94,8 @@ const ProductDetails = () => {
       "@type": "Offer",
       "url": canonicalUrl,
       "priceCurrency": "USD",
+      "price": "0",
+      "priceValidUntil": "2027-12-31",
       "availability": "https://schema.org/InStock",
       "itemCondition": "https://schema.org/NewCondition",
       "seller": {
