@@ -339,9 +339,8 @@ function buildRouteContent(route) {
     const blogData = getBlogContent()
     const postData = blogData[slug]
     if (postData && postData.content) {
-      // Build full content: title + excerpt + article body + FAQs
+      // Build full content: excerpt + article body + FAQs (h1 is injected once by patchHtml)
       let fullContent = ''
-      if (postData.title) fullContent += `<h1>${postData.title}</h1>`
       if (postData.excerpt) fullContent += `<p>${postData.excerpt}</p>`
       fullContent += postData.content
       if (postData.faqs && postData.faqs.length > 0) {
