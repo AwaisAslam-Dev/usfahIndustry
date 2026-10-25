@@ -85,7 +85,7 @@ surgical instruments Pakistan,
 surgical instruments Sialkot,
 medical instrument manufacturer,
 medical instruments supplier"
-        canonical="https://usfahindustry.com"
+        canonical="https://usfahindustry.com/"
         schemaData={homeSchema}
       />
       <Hero />
