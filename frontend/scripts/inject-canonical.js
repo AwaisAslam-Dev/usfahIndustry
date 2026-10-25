@@ -25,7 +25,7 @@ const DEFAULT_IMAGE = `${DOMAIN}/android-chrome-192x192.png`
 const staticPages = [
   {
     path: '/',
-    title: 'Usfah Industry | Premium Surgical, Dental & Beauty Instruments Manufacturer',
+    title: 'Usfah Industry | Surgical & Dental Instruments Manufacturer',
     description: 'Usfah Industry is a leading global manufacturer and exporter of ISO-certified surgical instruments, dental tools, beauty instruments, and more from Sialkot.',
     h1: 'Usfah Industry â€” Premium Surgical, Dental & Beauty Instruments Manufacturer',
   },

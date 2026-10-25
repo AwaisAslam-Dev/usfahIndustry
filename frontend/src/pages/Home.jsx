@@ -63,7 +63,7 @@ const Home = () => {
   return (
     <>
       <SEO
-        title="Usfah Industry | Surgical, Dental & Beauty Instruments Manufacturer Sialkot"
+        title="Usfah Industry | Surgical & Dental Instruments Manufacturer"
         description="Usfah Industry is a premier manufacturer and exporter of ISO-certified surgical instruments, dental extracting forceps, root elevators, periodontal scalers, and beauty tools in Sialkot, Pakistan."
         keywords="surgical instruments manufacturer,
 surgical instruments manufacturer Pakistan,
