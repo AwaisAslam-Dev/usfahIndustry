@@ -14,6 +14,10 @@
 
 import fs from 'fs'
 import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __rootDir = path.resolve(path.dirname(__filename), '..')
 
 const DOMAIN = 'https://usfahindustry.com'
 const DEFAULT_IMAGE = `${DOMAIN}/android-chrome-192x192.png`
@@ -162,7 +166,7 @@ const blogPosts = [
 // Extracts id, name, category, description for every product.
 // --------------------------------------------------------------------------
 function parseProducts() {
-  const assetsPath = path.resolve('src', 'assets', 'assets.js')
+  const assetsPath = path.join(__rootDir, 'src', 'assets', 'assets.js')
   if (!fs.existsSync(assetsPath)) {
     console.warn('[inject-canonical] assets.js not found, skipping product schema.')
     return []
@@ -197,7 +201,7 @@ function getBlogContent() {
   if (_blogContentCache) return _blogContentCache
   _blogContentCache = {}
 
-  const blogPath = path.resolve('src', 'data', 'blogData.js')
+  const blogPath = path.join(__rootDir, 'src', 'data', 'blogData.js')
   if (!fs.existsSync(blogPath)) {
     console.warn('[inject-canonical] blogData.js not found.')
     return _blogContentCache
@@ -593,7 +597,7 @@ export function injectCanonicalPlugin() {
     // Runs after Vite writes all files to dist/. Generates a static
     // index.html for every route with all meta tags baked in.
     closeBundle() {
-      const distDir = path.resolve('dist')
+      const distDir = path.join(__rootDir, 'dist')
       const templatePath = path.join(distDir, 'index.html')
 
       if (!fs.existsSync(templatePath)) {
