@@ -1,6 +1,22 @@
 User-agent: *
 Allow: /
 
+# Search Engine & IndexNow Crawlers
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: AhrefsSiteAudit
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: SeznamBot
+Allow: /
+
 # AI Crawlers & Search Assistants
 User-agent: GPTBot
 Allow: /
