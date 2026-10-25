@@ -744,16 +744,38 @@ function patchHtml(html, route) {
   // This ensures every page has visible internal links to all major pages,
   // fixing "Redirected page has no incoming internal links" and preventing
   // orphan pages.
-  const noscriptLinks = [
-    `<a href="${DOMAIN}/">Home</a>`,
-    `<a href="${DOMAIN}/about">About</a>`,
-    `<a href="${DOMAIN}/products">Products</a>`,
-    `<a href="${DOMAIN}/catalogue">Catalogue</a>`,
-    `<a href="${DOMAIN}/blog">Blog</a>`,
-    `<a href="${DOMAIN}/contact">Contact</a>`,
-  ].join(' | ')
-
-  const noscriptBlock = `<noscript><nav aria-label="Site navigation">${noscriptLinks}</nav></noscript>`
+  const buildNoscriptLinks = (currentPath) => {
+    const links = []
+    links.push(`<a href="${DOMAIN}/">Home</a>`)
+    links.push(`<a href="${DOMAIN}/about">About</a>`)
+    links.push(`<a href="${DOMAIN}/products">Products</a>`)
+    links.push(`<a href="${DOMAIN}/catalogue">Catalogue</a>`)
+    links.push(`<a href="${DOMAIN}/blog">Blog</a>`)
+    links.push(`<a href="${DOMAIN}/contact">Contact</a>`)
+    links.push(`<a href="${DOMAIN}/privacy-policy">Privacy Policy</a>`)
+    links.push(`<a href="${DOMAIN}/terms-and-conditions">Terms and Conditions</a>`)
+    links.push(`<a href="${DOMAIN}/disclaimer">Disclaimer</a>`)
+    links.push(`<a href="${DOMAIN}/cookie-policy">Cookie Policy</a>`)
+    const blogSlugs = [
+      'complete-guide-surgical-scissors', 'mayo-vs-metzenbaum-scissors',
+      'guide-dental-extracting-forceps', 'surgical-instruments-sterilization-guide',
+      'what-are-metzenbaum-scissors-used-for', 'what-are-mayo-scissors-used-for',
+      'straight-vs-curved-surgical-scissors', 'tenotomy-scissors-types-uses',
+      'spencer-stitch-scissors-guide', 'sharp-vs-blunt-surgical-scissors',
+      'iris-scissors-types-uses-and-applications',
+    ]
+    for (const slug of blogSlugs) {
+      links.push(`<a href="${DOMAIN}/blog/${slug}">${slug.replace(/-/g, ' ')}</a>`)
+    }
+    const products = getProducts()
+    for (const p of products) {
+      if (`/productdetails/${p.id}` !== currentPath) {
+        links.push(`<a href="${DOMAIN}/productdetails/${p.id}">${p.id}</a>`)
+      }
+    }
+    return links.join(' ')
+  }
+  const noscriptBlock = `<noscript><nav aria-label="Site navigation" style="display:none">${buildNoscriptLinks(route.path)}</nav></noscript>`
 
   // Insert noscript block right after the root div, before any script tags
   patched = patched.replace(
